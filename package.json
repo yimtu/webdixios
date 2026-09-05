@@ -1,6 +1,6 @@
 {
   "name": "webdixios",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "astro": "^7.3.1",
-    "gsap": "^3.13.0",
-    "three": "^0.185.0"
+    "gsap": "^3.13.0"
   }
 }
