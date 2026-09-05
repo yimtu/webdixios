@@ -1,0 +1,18 @@
+:root {
+  --dx-blue: #003f8f;
+  --dx-blue-2: #27589a;
+  --dx-coral: #e14e38;
+  --dx-night: #000d2d;
+  --dx-electric: #0e4ba1;
+  --dx-cyan: #0bb4d7;
+  --dx-magenta: #c656aa;
+  --dx-white: #fafafa;
+  --dx-paper: #f2f1ed;
+  --dx-ink: #07152f;
+  --dx-muted: #68758b;
+  --dx-line: rgba(7, 21, 47, .14);
+  --dx-grid: 8px;
+  --dx-max: 1440px;
+  --dx-pad: clamp(20px, 4vw, 64px);
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+}
