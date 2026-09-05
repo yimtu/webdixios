@@ -6,13 +6,11 @@ const connection = (navigator as Navigator & { connection?: { saveData?: boolean
 
 if (canvas && !connection?.saveData) {
   const mobile = matchMedia('(max-width: 760px)').matches;
-  let width = 0;
-  let height = 0;
+  const dpr = Math.min(devicePixelRatio || 1, mobile ? 1 : 1.35);
+  let width = 1;
+  let height = 1;
   let phi = 4.55;
-  let last = performance.now();
-  let frameAccumulator = 0;
-  let frameCount = 0;
-  let adaptiveDpr = Math.min(devicePixelRatio || 1, mobile ? 1 : 1.35);
+  let running = true;
 
   const resize = () => {
     const rect = canvas.getBoundingClientRect();
@@ -21,13 +19,13 @@ if (canvas && !connection?.saveData) {
   };
 
   resize();
-  const observer = new ResizeObserver(resize);
-  observer.observe(canvas);
+  const resizeObserver = new ResizeObserver(resize);
+  resizeObserver.observe(canvas);
 
   const globe = createGlobe(canvas, {
-    devicePixelRatio: adaptiveDpr,
-    width: Math.round(width * adaptiveDpr),
-    height: Math.round(height * adaptiveDpr),
+    devicePixelRatio: dpr,
+    width: Math.round(width * dpr),
+    height: Math.round(height * dpr),
     phi,
     theta: 0.23,
     dark: 1,
@@ -40,37 +38,37 @@ if (canvas && !connection?.saveData) {
     glowColor: [0.055, 0.28, 0.66],
     markers: [],
     onRender: (state) => {
-      const now = performance.now();
-      const dt = Math.max(1, now - last);
-      last = now;
-      frameAccumulator += dt;
-      frameCount += 1;
-
       if (!reduceMotion) phi += mobile ? 0.00115 : 0.00155;
       state.phi = phi;
-      state.width = Math.round(width * adaptiveDpr);
-      state.height = Math.round(height * adaptiveDpr);
-      state.devicePixelRatio = adaptiveDpr;
-
-      if (frameCount >= 48) {
-        const fps = 1000 / (frameAccumulator / frameCount);
-        if (fps < 46 && adaptiveDpr > 1) adaptiveDpr = Math.max(1, adaptiveDpr - 0.15);
-        frameAccumulator = 0;
-        frameCount = 0;
-      }
+      state.width = Math.round(width * dpr);
+      state.height = Math.round(height * dpr);
     }
   });
 
   requestAnimationFrame(() => canvas.classList.add('ready'));
 
   const visibility = new IntersectionObserver(([entry]) => {
-    canvas.style.visibility = entry.isIntersecting ? 'visible' : 'hidden';
+    const shouldRun = entry.isIntersecting && !document.hidden;
+    if (shouldRun !== running) {
+      globe.toggle();
+      running = shouldRun;
+    }
   }, { threshold: 0.01 });
   visibility.observe(canvas);
 
+  const onVisibility = () => {
+    const shouldRun = !document.hidden && canvas.getBoundingClientRect().bottom > 0;
+    if (shouldRun !== running) {
+      globe.toggle();
+      running = shouldRun;
+    }
+  };
+  document.addEventListener('visibilitychange', onVisibility);
+
   addEventListener('pagehide', () => {
     visibility.disconnect();
-    observer.disconnect();
+    resizeObserver.disconnect();
+    document.removeEventListener('visibilitychange', onVisibility);
     globe.destroy();
   }, { once: true });
 } else if (canvas) {
