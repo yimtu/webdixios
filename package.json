@@ -9,6 +9,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@webrek/mx-geo": "0.9.1",
     "astro": "^7.3.1",
     "cobe": "2.0.1",
     "gsap": "^3.13.0"
