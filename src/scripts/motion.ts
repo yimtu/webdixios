@@ -23,18 +23,17 @@ if(!reduceMotion){
   gsap.to('.hero-grid',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
   ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom top',scrub:true,onUpdate:self=>window.dispatchEvent(new CustomEvent('dixios:hero-scroll',{detail:self.progress}))});
 
-  // Keep the machine legible at scroll entry: fragmented is a visible state, not a blank state.
   gsap.set('.institution-machine',{transformPerspective:900});
   gsap.set('.m-node',{opacity:.52});
-  gsap.set('[data-link]',{opacity:.12});
-  gsap.set('.machine-center',{opacity:.32,scale:.72});
+  gsap.set('[data-link]',{opacity:.16});
+  gsap.set('.machine-center',{opacity:1,scale:.82});
   const storyTl=gsap.timeline({scrollTrigger:{trigger:'.system-story',start:'top top',end:'bottom bottom',scrub:1}});
   storyTl
     .fromTo('.story-copy',{y:34,opacity:.72},{y:0,opacity:1,duration:.13},0)
     .fromTo('.institution-machine',{scale:.965,rotateX:3},{scale:1,rotateX:0,duration:.16},0)
     .fromTo('.m-node',{x:()=>gsap.utils.random(-130,130),y:()=>gsap.utils.random(-115,115),opacity:.52},{x:0,y:0,opacity:1,duration:.30,stagger:.018},.08)
-    .fromTo('[data-link]',{strokeDashoffset:220,opacity:.12},{strokeDashoffset:0,opacity:.34,duration:.33,stagger:.035},.18)
-    .to('.machine-center',{scale:1,opacity:1,duration:.22},.31)
+    .fromTo('[data-link]',{strokeDashoffset:220,opacity:.16},{strokeDashoffset:0,opacity:.34,duration:.33,stagger:.035},.18)
+    .to('.machine-center',{scale:1,duration:.22},.31)
     .to('.machine-center',{boxShadow:'0 0 0 44px rgba(0,63,143,.04),0 0 0 92px rgba(0,63,143,.025)',duration:.18},.49)
     .to('.m-node',{scale:1.08,duration:.12,stagger:.01},.58);
 
@@ -53,7 +52,6 @@ if(!reduceMotion){
   gsap.from('.ops-intro > *',{y:65,opacity:0,duration:1,stagger:.12,ease:'power3.out',scrollTrigger:{trigger:'.ops-intro',start:'top 82%',once:true}});
   gsap.from('.console-grid > *',{y:70,opacity:0,scale:.975,duration:1,stagger:.1,ease:'power3.out',scrollTrigger:{trigger:'.ops-console',start:'top 78%',once:true}});
   document.querySelectorAll<SVGPathElement>('.route').forEach(path=>{const length=path.getTotalLength();path.style.strokeDasharray=`${length}`;path.style.strokeDashoffset=`${length}`;gsap.to(path,{strokeDashoffset:0,duration:1.5,ease:'power2.out',scrollTrigger:{trigger:'.console-map',start:'top 78%',once:true}});});
-
   gsap.from('.manifesto-big',{y:80,opacity:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:'.manifesto',start:'top 76%',once:true}});
   gsap.to('.manifesto-word',{xPercent:-8,ease:'none',scrollTrigger:{trigger:'.manifesto',start:'top bottom',end:'bottom top',scrub:true}});
   document.querySelectorAll<HTMLElement>('.publication').forEach((card,i)=>{gsap.from(card,{y:80+i*20,opacity:0,duration:1,delay:i*.05,ease:'power3.out',scrollTrigger:{trigger:card,start:'top 88%',once:true}});const orbit=card.querySelector('.pub-orbit');if(orbit)gsap.to(orbit,{rotate:90,scale:1.08,ease:'none',scrollTrigger:{trigger:card,start:'top bottom',end:'bottom top',scrub:true}});});
@@ -61,7 +59,5 @@ if(!reduceMotion){
 }
 
 document.querySelectorAll<HTMLElement>('.m-node').forEach(node=>{node.addEventListener('pointerenter',()=>{if(reduceMotion)return;gsap.to(node,{scale:1.35,duration:.25,ease:'power2.out'});gsap.to('.machine-center',{scale:1.04,duration:.3,ease:'power2.out'});});node.addEventListener('pointerleave',()=>{if(reduceMotion)return;gsap.to(node,{scale:1,duration:.25,ease:'power2.out'});gsap.to('.machine-center',{scale:1,duration:.3,ease:'power2.out'});});});
-
-const form=document.querySelector<HTMLFormElement>('#contact-form');const note=document.querySelector<HTMLElement>('#form-note');
-if(form&&note){form.addEventListener('submit',event=>{event.preventDefault();const data=new FormData(form);const nombre=String(data.get('nombre')||''),email=String(data.get('email')||''),telefono=String(data.get('telefono')||''),mensaje=String(data.get('mensaje')||'');const payload=`Contacto web Dixios\nNombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\n\n${mensaje}`;navigator.clipboard?.writeText(payload).catch(()=>{});note.textContent='Información preparada. Conectaremos el buzón oficial antes del lanzamiento.';});}
+const form=document.querySelector<HTMLFormElement>('#contact-form');const note=document.querySelector<HTMLElement>('#form-note');if(form&&note){form.addEventListener('submit',event=>{event.preventDefault();const data=new FormData(form);const nombre=String(data.get('nombre')||''),email=String(data.get('email')||''),telefono=String(data.get('telefono')||''),mensaje=String(data.get('mensaje')||'');const payload=`Contacto web Dixios\nNombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\n\n${mensaje}`;navigator.clipboard?.writeText(payload).catch(()=>{});note.textContent='Información preparada. Conectaremos el buzón oficial antes del lanzamiento.';});}
 ScrollTrigger.refresh();
