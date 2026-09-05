@@ -1,35 +1,237 @@
 ---
+import { mapaSVG } from '@webrek/mx-geo/svg';
+
+const mexicoMap = mapaSVG({
+  background: 'transparent',
+  emptyColor: '#0a1733',
+  stroke: '#1d7ab9',
+  width: 920,
+  height: 560,
+  etiquetas: false,
+  ariaLabel: 'Mapa de México por estados — visualización conceptual de territorio'
+});
+
 const capabilities = [
-  ['01','Sistemas','Productos, plataformas e infraestructura digital diseñados alrededor de una operación real.'],
-  ['02','Datos + IA','Arquitecturas de información, analítica y modelos para convertir fragmentación en decisión.'],
-  ['03','Innovación pública','Capacidades, procesos y servicios que conectan prioridad pública con ejecución institucional.'],
-  ['04','Asesoría','Inteligencia estratégica y due diligence para decidir antes de comprometer recursos.'],
-  ['05','Capacitación','Transferencia de conocimiento para que la capacidad permanezca dentro de la institución.']
+  {
+    num: '01', name: 'Sistemas', tag: 'ARQUITECTURA PARA OPERAR',
+    desc: 'Diseñamos e integramos productos, plataformas y componentes alrededor de procesos, responsables y decisiones reales.',
+    kind: 'systems'
+  },
+  {
+    num: '02', name: 'Datos + IA', tag: 'DE DATOS A DECISIONES',
+    desc: 'Convertimos datos fragmentados en información accionable para mejores decisiones, automatización y trazabilidad.',
+    kind: 'data'
+  },
+  {
+    num: '03', name: 'Innovación pública', tag: 'SERVICIOS QUE FUNCIONAN',
+    desc: 'Rediseñamos servicios, procesos y capacidades públicas para reducir fricción y aumentar capacidad institucional.',
+    kind: 'public'
+  },
+  {
+    num: '04', name: 'Asesoría', tag: 'EVIDENCIA PARA DECIDIR',
+    desc: 'Integramos investigación, due diligence, escenarios e inteligencia estratégica antes de comprometer recursos.',
+    kind: 'advisory'
+  },
+  {
+    num: '05', name: 'Capacitación', tag: 'CAPACIDAD QUE PERMANECE',
+    desc: 'Transferimos conocimiento, herramientas y métodos para que la capacidad no dependa permanentemente de nosotros.',
+    kind: 'training'
+  }
 ];
-const process = ['Comprender','Verificar','Definir','Diseñar','Desarrollar','Implementar','Operar','Medir','Corregir'];
+
+const cycle = [
+  ['01','Entender','Comprender + verificar','fragment'],
+  ['02','Definir','Misión + decisión','scan'],
+  ['03','Diseñar','Modelo + producto','blueprint'],
+  ['04','Implementar','Integración + adopción','deploy'],
+  ['05','Operar','Medir + corregir','feedback']
+];
+
 const publications = [
-  ['01','Pensamiento lateral en tiempo de la IA','Sistemas / Inteligencia'],
-  ['02','Educación universitaria y cambio tecnológico en México','Investigación / Futuro'],
-  ['03','Las leyes de la robótica social','Tecnología / Sociedad']
+  ['ARTÍCULO','Pensamiento lateral en tiempo de la IA','PIXEL'],
+  ['PERSPECTIVA','Educación universitaria y cambio tecnológico en México','CHROME'],
+  ['ESTUDIO','Las leyes de la robótica social','ASCII']
 ];
 ---
-<div class="cursor-dot" aria-hidden="true"></div><div class="page-noise" aria-hidden="true"></div>
-<header class="site-header"><a class="brand" href="#inicio">dixios</a><nav class="nav"><a href="#capacidades">Capacidades</a><a href="#sistema">Sistema</a><a href="#publicaciones">Publicaciones</a><a href="#contacto">Contacto</a></nav><a class="header-index" href="#contacto"><span>MX</span><span>2026</span><span class="status-dot"></span></a></header>
+<div class="page-noise" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="brand" href="#inicio" aria-label="Dixios, inicio">dixios</a>
+  <nav class="nav" aria-label="Navegación principal">
+    <a href="#sistema">Sistema</a><a href="#capacidades">Capacidades</a><a href="#ciclo">Ciclo</a><a href="#operacion">Operación</a><a href="#publicaciones">Conocimiento</a><a href="#nosotros">Nosotros</a>
+  </nav>
+  <a class="talk" href="#contacto">Hablemos <span>→</span></a>
+</header>
+
 <main>
-<section id="inicio" class="hero"><canvas id="hero-webgl" aria-hidden="true"></canvas><div class="hero-grid"></div><div class="hero-hud hero-hud-a"><span>SYS / DX-001</span><span>MONTERREY, MX</span></div><div class="hero-hud hero-hud-b"><span>OPERATING FIELD</span><span>35.6866° N</span></div><div class="hero-copy"><p class="kicker hero-kicker">Inteligencia · Transformación · Tecnología institucional</p><h1 class="hero-word" aria-label="Dixios"><span>d</span><span>i</span><span>x</span><span>i</span><span>o</span><span>s</span></h1><div class="hero-statement-wrap"><p class="hero-statement">El encuentro de la <strong>tecnología</strong> con lo <strong>humano.</strong></p><p class="hero-note">Construimos sistemas para instituciones que tienen que entender, decidir, ejecutar y mejorar.</p></div></div><div class="hero-axis"><span>FRAGMENTACIÓN</span><i></i><span>CAPACIDAD</span></div><a class="scroll-entry" href="#sistema"><span>Entrar al sistema</span><i>↓</i></a></section>
+  <section id="inicio" class="hero">
+    <div class="hero-stencil" aria-hidden="true">OPERABLE</div>
+    <div class="hero-pixel-field pixel-a" aria-hidden="true">{Array.from({length:54}).map((_,i)=><i style={`--i:${i}`}></i>)}</div>
+    <div class="hero-pixel-field pixel-b" aria-hidden="true">{Array.from({length:36}).map((_,i)=><i style={`--i:${i}`}></i>)}</div>
+    <div class="hero-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
-<section id="sistema" class="system-story"><div class="story-sticky"><div class="story-stage shell-wide"><div class="story-copy"><p class="section-code dark">01 — SISTEMA</p><h2>La complejidad<br/><em>no desaparece.</em><br/>Se vuelve operable.</h2><p class="story-lede">Un problema institucional no es una pantalla. Es una red de actores, datos, reglas, procesos, restricciones y decisiones.</p></div><div class="institution-machine"><div class="machine-grid"></div><svg class="machine-links" viewBox="0 0 900 700" fill="none"><path data-link d="M84 132 C210 76 260 265 385 218 S608 92 820 152"/><path data-link d="M120 520 C255 595 315 356 448 405 S650 590 814 494"/><path data-link d="M86 314 C230 360 330 128 475 262 S620 445 826 320"/><path data-link d="M232 92 C285 245 545 190 592 335 S692 520 770 610"/></svg><button class="m-node n1"><i></i><span>ACTOR</span></button><button class="m-node n2 square"><i></i><span>DATO</span></button><button class="m-node n3 cross"><i></i><span>REGLA</span></button><button class="m-node n4"><i></i><span>PROCESO</span></button><button class="m-node n5 square alert"><i></i><span>ALERTA</span></button><button class="m-node n6 cross"><i></i><span>DECISIÓN</span></button><div class="machine-center"><span class="mc-top">CAPACIDAD / DX</span><strong>OPERABLE</strong><small>Los elementos no desaparecen.<br/>Se coordinan.</small></div><div class="machine-readout"><span>ENTIDADES <b>128</b></span><span>RELACIONES <b>347</b></span><span>ESTADO <b>ACTIVO</b></span></div></div></div></div></section>
+    <div class="hero-layout shell">
+      <div class="hero-copy">
+        <p class="eyebrow light">Tecnología institucional<br/>para capacidad real.</p>
+        <h1>dixios</h1>
+        <p class="hero-deck">Convertimos complejidad institucional en sistemas que permiten <strong>entender, decidir, ejecutar y mejorar.</strong></p>
+        <a class="hero-link" href="#sistema"><span></span> Del análisis a la capacidad <b>→</b></a>
+      </div>
 
-<section id="capacidades" class="capabilities"><div class="cap-top shell-wide"><p class="section-code dark">02 — CAPACIDADES</p><h2>Una firma.<br/>Múltiples capas.</h2><p>La tecnología es un instrumento. La capacidad institucional es el resultado.</p></div><div class="cap-stack">{capabilities.map(([num,name,desc])=><article class="cap-row" data-cap><div class="cap-num">{num}</div><h3>{name}</h3><p>{desc}</p><div class="cap-glyph"><i></i><i></i><i></i><i></i></div><span class="cap-arrow">↗</span></article>)}</div><div class="ticker"><div>INTELIGENCIA ESTRATÉGICA — DISEÑO INSTITUCIONAL — TRANSFORMACIÓN OPERATIVA — DATOS — IA — SOFTWARE — IMPLEMENTACIÓN — OPERACIÓN —</div></div></section>
+      <div class="hero-visual" aria-label="Sistema visual global de relaciones y capacidad institucional">
+        <canvas id="hero-globe"></canvas>
+        <div class="globe-orbit orbit-a"></div><div class="globe-orbit orbit-b"></div>
+        <div class="globe-module module-a"><span>DX / 01</span><b></b><b></b><b></b></div>
+        <div class="globe-module module-b"><i></i><i></i><i></i><i></i><span>CAPACIDAD</span></div>
+        <div class="chrome-signal"><span>INSTITUTIONAL SIGNAL</span><i></i></div>
+        <pre class="ascii-legend" aria-hidden="true">● ACTOR
+■ DATO
++ REGLA
+━ FLUJO
+□ DECISIÓN</pre>
+      </div>
 
-<section class="process-zone"><div class="process-shell shell-wide"><div class="process-intro"><p class="section-code">03 — CICLO</p><h2>De entender<br/>a operar.</h2><p>Dixios puede intervenir en una etapa o responsabilizarse del ciclo completo. La misma red cambia de estado; la trazabilidad permanece.</p></div><div class="process-orbit"><div class="orbit-core"><span>DX</span><small>OPERATING<br/>SYSTEM</small></div>{process.map((step,i)=><div class="orbit-step" data-step={i} style={`--i:${i}`}><i></i><span>{step}</span></div>)}<svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="220"/><circle cx="300" cy="300" r="150"/><circle cx="300" cy="300" r="76"/></svg></div></div><div class="process-progress"><i></i></div></section>
+      <aside class="hero-side-note">
+        <span>DATOS</span><span>SISTEMAS</span><span>PERSONAS</span><span>INSTITUCIONES</span><span>IMPACTO</span>
+      </aside>
+    </div>
+  </section>
 
-<section class="ops"><div class="ops-intro shell-wide"><div><p class="section-code">04 — OPERACIÓN</p><h2>La estrategia entra<br/><em>en el sistema.</em></h2></div><p>Interfaces, mapas, modelos y automatización valen cuando una institución puede ver qué pasa, quién responde y qué debe corregirse.</p></div><div class="ops-console shell-wide"><div class="console-bar"><span>DX / COMMAND SYSTEM</span><span>LIVE MODEL</span><span>INSTITUTIONAL LAYER</span><span class="live">● LIVE</span></div><div class="console-grid"><article class="console-map panel-blue"><div class="panel-head"><span>TERRITORIO / OPERACIÓN</span><span>CAPA 04</span></div><svg viewBox="0 0 900 560" fill="none"><g class="map-grid"><path d="M0 80H900M0 160H900M0 240H900M0 320H900M0 400H900M0 480H900"/><path d="M100 0V560M200 0V560M300 0V560M400 0V560M500 0V560M600 0V560M700 0V560M800 0V560"/></g><path class="route route-a" d="M66 454C165 398 210 418 286 338S422 298 494 224S622 165 706 114S804 83 850 44"/><path class="route route-b" d="M92 112C175 194 257 168 326 244S468 372 545 318S676 244 818 298"/><g class="map-points"><circle cx="66" cy="454" r="6"/><circle cx="286" cy="338" r="6"/><circle cx="494" cy="224" r="6"/><circle cx="706" cy="114" r="6"/><rect x="540" y="313" width="10" height="10"/><rect x="321" y="239" width="10" height="10"/></g></svg><div class="map-tags"><span>ACTOR 03</span><span>PROGRAMA 08</span><span>INCIDENCIA 14</span></div></article><article class="console-card status-card"><div class="panel-head"><span>ESTADO</span><span>08:41:22</span></div><div class="radar"><i></i><i></i><i></i><b></b></div><div class="status-list"><span><i></i> Datos sincronizados</span><span><i></i> Responsables asignados</span><span class="warn"><i></i> 3 alertas activas</span></div></article><article class="console-card metric-card"><div class="panel-head"><span>SEÑAL OPERATIVA</span><span>24H</span></div><strong>87<span>%</span></strong><p>acciones dentro de ventana</p><div class="micro-bars">{[46,72,55,91,68,84,59,95,76,88,63,92].map(v=><i style={`--h:${v}%`}></i>)}</div></article><article class="console-card trace-card"><div class="panel-head"><span>TRAZABILIDAD</span><span>DX/LOG</span></div><div class="trace-lines"><p><b>08:41</b> decisión validada <span>→</span></p><p><b>08:32</b> evidencia agregada <span>+</span></p><p><b>08:17</b> responsable confirmado <span>✓</span></p><p><b>07:58</b> alerta redirigida <span>↗</span></p></div></article></div></div></section>
+  <section id="sistema" class="system-section section-light">
+    <div class="shell system-grid">
+      <div class="system-copy">
+        <p class="eyebrow">01 / SISTEMA</p>
+        <h2>La complejidad<br/>no desaparece.<br/><strong>Se vuelve operable.</strong></h2>
+        <p>Un problema institucional reúne actores, datos, reglas, territorio, presupuesto, procesos y decisiones. Dixios construye la estructura que permite trabajar con todo eso como un sistema.</p>
+        <a href="#capacidades" class="micro-link"><span></span> Complejidad en movimiento <b>→</b></a>
+      </div>
 
-<section id="nosotros" class="manifesto"><div class="manifesto-grid shell-wide"><p class="section-code dark">05 — DIXIOS</p><p class="manifesto-big">No entregamos únicamente <span>recomendaciones.</span><br/>Construimos <strong>capacidad institucional.</strong></p><div class="manifesto-copy"><p>Somos una firma mexicana de inteligencia, transformación y tecnología institucional.</p><p>Integramos estrategia, software, datos, operación y disciplinas humanas para llevar un problema desde la comprensión hasta una capacidad que realmente funcione.</p></div></div><div class="manifesto-word">dixios</div></section>
+      <div class="system-transform" aria-label="Transformación conceptual de fragmentación a capacidad">
+        <div class="fragment-field">
+          <span class="field-title">REALIDAD FRAGMENTADA</span>
+          <i class="frag circle" style="--x:8%;--y:18%"></i><i class="frag square coral" style="--x:22%;--y:68%"></i><i class="frag cross" style="--x:38%;--y:22%"></i><i class="frag triangle" style="--x:54%;--y:74%"></i><i class="frag circle" style="--x:72%;--y:31%"></i><i class="frag square" style="--x:82%;--y:62%"></i><i class="frag cross coral" style="--x:61%;--y:47%"></i><i class="frag circle small" style="--x:30%;--y:43%"></i><i class="frag square small" style="--x:47%;--y:53%"></i>
+          <svg viewBox="0 0 300 250" aria-hidden="true"><path d="M22 62C89 37 104 174 168 90S239 82 282 45"/><path d="M16 202C67 151 116 230 171 166S229 108 287 187"/><path d="M41 121C82 95 117 142 157 122S224 143 266 107"/></svg>
+          <div class="fragment-labels"><span>ACTOR</span><span>DATO</span><span>REGLA</span><span>TERRITORIO</span></div>
+        </div>
 
-<section id="publicaciones" class="publications"><div class="pub-head shell-wide"><p class="section-code">06 — PUBLICACIONES</p><h2>Ideas para pensar<br/>lo que viene.</h2></div><div class="pub-grid shell-wide">{publications.map(([num,title,tag],i)=><article class={`publication p${i+1}`}><div class="publication-art"><div class="pub-grid-art"></div><div class="pub-orbit"></div><div class="pub-cross"></div><span>DX / {num}</span></div><div class="publication-meta"><span>{tag}</span><span>{num} / 03</span></div><h3>{title}</h3><a href="#contacto">Próximamente <b>↗</b></a></article>)}</div></section>
+        <div class="transform-gate">
+          <span>INTEGRAR</span><span>VERIFICAR</span><span>PRIORIZAR</span><span>MODELAR</span><span>OPERAR</span>
+          <div class="gate-plate"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
 
-<section id="contacto" class="contact"><div class="contact-grid shell-wide"><div class="contact-title"><p class="section-code">07 — CONTACTO</p><h2>Hablemos del<br/><em>problema real.</em></h2><div class="contact-coords"><span>25.6866° N</span><span>100.3161° W</span><span>MONTERREY / MX</span></div></div><form class="contact-form" id="contact-form" method="post"><label><span>01 / NOMBRE</span><input name="nombre" autocomplete="name" required placeholder="Tu nombre"/></label><label><span>02 / EMAIL</span><input type="email" name="email" autocomplete="email" required placeholder="nombre@organizacion.mx"/></label><label><span>03 / TELÉFONO</span><input type="tel" name="telefono" autocomplete="tel" placeholder="+52"/></label><label><span>04 / PROBLEMA</span><textarea name="mensaje" required placeholder="¿Qué quieres resolver?"></textarea></label><button type="submit"><span>Preparar contacto</span><i>↗</i></button><p id="form-note">El envío directo se activa al conectar el buzón oficial.</p></form></div><footer class="footer shell-wide"><strong>dixios</strong><div><span>© {new Date().getFullYear()}</span><span>INTELIGENCIA / TRANSFORMACIÓN / TECNOLOGÍA INSTITUCIONAL</span></div></footer></section>
+        <div class="capacity-field">
+          <span class="field-title">CAPACIDAD OPERABLE</span>
+          <div class="capacity-matrix">{Array.from({length:24}).map((_,i)=><i class:list={[i===7||i===14||i===19?'hot':'']} style={`--i:${i}`}></i>)}</div>
+          <div class="capacity-rails"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="capacity-labels"><span>DECISIÓN</span><span>RESPONSABLE</span><span>TRAZABILIDAD</span></div>
+        </div>
+      </div>
+
+      <aside class="system-outcomes"><span>DECISIONES<br/>MÁS INFORMADAS</span><span>INSTITUCIONES<br/>MÁS EFECTIVAS</span><span>CAPACIDADES<br/>QUE PERMANECEN</span></aside>
+    </div>
+  </section>
+
+  <section id="capacidades" class="capabilities section-light">
+    <div class="shell cap-heading">
+      <p class="eyebrow">02 / NUESTRAS CAPACIDADES</p>
+      <h2>Del conocimiento<br/>a la transformación.</h2>
+      <p class="cap-heading-note">La forma visual cambia porque cada capacidad resuelve un problema distinto. La gramática Dixios permanece.</p>
+    </div>
+
+    <div class="capability-grid shell">
+      {capabilities.map((cap)=><article class="cap-card" data-cap={cap.kind}>
+        <div class="cap-meta"><span>{cap.num}</span><span>DX / CAP</span></div>
+        <h3>{cap.name}</h3>
+        <p>{cap.desc}</p>
+        <div class={`cap-art art-${cap.kind}`} aria-hidden="true">
+          {cap.kind==='systems' && <><div class="stack s1"></div><div class="stack s2"></div><div class="stack s3"></div><div class="stack s4"></div><div class="stack-pin p1"></div><div class="stack-pin p2"></div></>}
+          {cap.kind==='data' && <><div class="data-dots">{Array.from({length:42}).map((_,i)=><i style={`--i:${i}`}></i>)}</div><div class="data-core"></div><div class="data-ray"></div></>}
+          {cap.kind==='public' && <><svg viewBox="0 0 220 130"><path d="M18 70C42 18 78 18 106 69S170 121 202 63"/><path d="M20 92C58 115 71 32 111 49S159 104 199 30"/><circle cx="18" cy="70" r="8"/><circle cx="106" cy="69" r="8"/><circle cx="202" cy="63" r="8"/></svg><span class="journey-label j1">PERSONA</span><span class="journey-label j2">SERVICIO</span><span class="journey-label j3">RESULTADO</span></>}
+          {cap.kind==='advisory' && <><div class="dossier-lines">{Array.from({length:7}).map((_,i)=><i style={`--i:${i}`}></i>)}</div><div class="redact r1"></div><div class="redact r2"></div><div class="decision-stamp">DECIDIR</div></>}
+          {cap.kind==='training' && <><div class="seed-node"></div><div class="propagation">{Array.from({length:30}).map((_,i)=><i style={`--i:${i}`}></i>)}</div></>}
+        </div>
+        <div class="cap-tag">{cap.tag} <span>→</span></div>
+      </article>)}
+    </div>
+  </section>
+
+  <section id="ciclo" class="cycle-section">
+    <div class="shell cycle-heading">
+      <div><p class="eyebrow light">03 / CICLO DE VALOR</p><h2>De entender<br/>a operar.</h2></div>
+      <p>El ciclo completo contiene comprender, verificar, definir, diseñar, desarrollar, implementar, operar, medir y corregir. Aquí lo agrupamos en cinco estados visibles de una misma capacidad.</p>
+    </div>
+    <div class="cycle-steps shell">
+      {cycle.map(([num,name,sub,kind],idx)=><article class="cycle-step" data-cycle={idx}>
+        <div class="cycle-meta"><span>{num}</span><span>{name}</span></div>
+        <small>{sub}</small>
+        <div class={`cycle-art cycle-${kind}`} aria-hidden="true">
+          {kind==='fragment' && <>{Array.from({length:18}).map((_,i)=><i style={`--i:${i}`}></i>)}</>}
+          {kind==='scan' && <><div class="scan-grid">{Array.from({length:24}).map((_,i)=><i style={`--i:${i}`}></i>)}</div><b></b></>}
+          {kind==='blueprint' && <><i></i><i></i><i></i><b></b></>}
+          {kind==='deploy' && <><i></i><i></i><i></i><i></i><span></span></>}
+          {kind==='feedback' && <><div class="feedback-ring"></div><div class="feedback-core"></div><i></i><i></i><i></i></>}
+        </div>
+        {idx<cycle.length-1 && <div class="cycle-arrow">→</div>}
+      </article>)}
+    </div>
+    <div class="cycle-progress shell"><span></span><i></i><b>CAPACIDAD</b></div>
+  </section>
+
+  <section id="operacion" class="operation-section">
+    <div class="shell operation-grid">
+      <div class="operation-copy">
+        <p class="eyebrow cyan">04 / TERRITORIO EN TIEMPO REAL</p>
+        <h2>Información para<br/>mejores decisiones.</h2>
+        <p>Cuando la capacidad entra en operación, territorio, responsables, evidencia, excepciones y decisiones necesitan compartir una misma estructura.</p>
+        <a href="#contacto" class="operation-cta">Conoce nuestras soluciones <span>→</span></a>
+        <small>Visualización conceptual. No representa cobertura o clientes actuales.</small>
+      </div>
+
+      <div class="ops-product">
+        <div class="ops-topbar"><span>DX / OPERATIONAL ATLAS</span><span>CAPA TERRITORIAL</span><span>MODELO CONCEPTUAL</span></div>
+        <div class="ops-layout">
+          <nav class="ops-layers" aria-label="Capas del modelo conceptual"><button class="active"><i></i>Territorio</button><button><i></i>Servicios</button><button><i></i>Programas</button><button><i></i>Riesgos</button><button><i></i>Indicadores</button></nav>
+          <div class="mexico-map" set:html={mexicoMap}></div>
+          <div class="map-markers" aria-hidden="true"><i style="--x:58%;--y:45%"></i><i style="--x:48%;--y:53%"></i><i style="--x:67%;--y:62%"></i><i style="--x:38%;--y:39%"></i><i style="--x:74%;--y:72%"></i></div>
+          <aside class="ops-event">
+            <span class="panel-label">FLUJO OPERATIVO</span>
+            <ol><li><b>01</b> Instrucción</li><li><b>02</b> Responsable</li><li><b>03</b> Evidencia</li><li><b>04</b> Excepción</li><li><b>05</b> Decisión</li><li><b>06</b> Cierre</li></ol>
+          </aside>
+        </div>
+        <div class="ops-tabs"><span class="active">Vista territorial</span><span>Red de servicios</span><span>Flujos de trabajo</span><span>Riesgos y alertas</span><span>Escenarios</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros" class="manifesto section-light">
+    <div class="shell manifesto-grid">
+      <p class="eyebrow">05 / DIXIOS</p>
+      <h2>La tecnología es un instrumento.<br/><strong>La capacidad institucional es el resultado.</strong></h2>
+      <p>Dixios es una firma mexicana de inteligencia, transformación y tecnología institucional de extremo a extremo. Puede investigar, diseñar, construir, implementar y operar cuando el problema lo requiere.</p>
+    </div>
+  </section>
+
+  <section id="publicaciones" class="publications section-light">
+    <div class="shell publication-row">
+      <div class="pub-intro"><p class="eyebrow">06 / PUBLICACIONES</p><h2>Ideas para<br/>un mejor mañana.</h2><span>→</span></div>
+      {publications.map(([type,title,art],idx)=><article class="pub-card">
+        <div class={`pub-art pub-${art.toLowerCase()}`} aria-label={`Arte editorial ${art}`}>
+          {art==='PIXEL' && <>{Array.from({length:60}).map((_,i)=><i style={`--i:${i}`}></i>)}</>}
+          {art==='CHROME' && <><span>DX</span><i></i><i></i></>}
+          {art==='ASCII' && <pre>{`+-----DX-----+\n| 01 10 01  |\n| > SYSTEM  |\n| > PEOPLE  |\n| > RULES   |\n+-----------+`}</pre>}
+        </div>
+        <div class="pub-type">{type}</div><h3>{title}</h3><span class="pub-index">0{idx+1} / 03</span>
+      </article>)}
+      <div class="pub-contact"><p class="eyebrow">HABLEMOS</p><h3>Construyamos<br/>lo siguiente, juntos.</h3><a href="#contacto">→</a></div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div class="shell contact-grid">
+      <div><p class="eyebrow light">07 / CONTACTO</p><h2>Hablemos del<br/>problema real.</h2><p>No empezamos preguntando qué tecnología vender. Empezamos por el resultado que la institución necesita producir.</p></div>
+      <form id="contact-form" method="post"><label><span>Nombre</span><input name="nombre" autocomplete="name" required/></label><label><span>Email</span><input type="email" name="email" autocomplete="email" required/></label><label><span>Teléfono</span><input type="tel" name="telefono" autocomplete="tel"/></label><label><span>Problema</span><textarea name="mensaje" required></textarea></label><button type="submit">Preparar contacto <span>→</span></button><p id="form-note">El envío directo se activa cuando conectemos el buzón oficial.</p></form>
+    </div>
+    <footer class="shell footer"><strong>dixios</strong><span>Tecnología institucional. Capacidad real.</span><span>© {new Date().getFullYear()}</span></footer>
+  </section>
 </main>
+
 <script>import '../scripts/scene.ts'; import '../scripts/motion.ts';</script>
