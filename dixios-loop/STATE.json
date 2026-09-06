@@ -14,11 +14,11 @@
     "S00": {
       "name": "Hero",
       "attempt": 0,
-      "phase": "TECH_RESEARCH",
+      "phase": "BUILD",
       "analysis_done": true,
       "concept_locked": true,
       "visual_research_done": true,
-      "tech_research_done": false,
+      "tech_research_done": true,
       "implemented": false,
       "screenshots_ready": false,
       "technical_pass": false,
