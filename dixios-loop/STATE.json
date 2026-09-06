@@ -14,9 +14,9 @@
     "S00": {
       "name": "Hero",
       "attempt": 0,
-      "phase": "CONCEPT_RESEARCH",
+      "phase": "VISUAL_RESEARCH",
       "analysis_done": true,
-      "concept_locked": false,
+      "concept_locked": true,
       "visual_research_done": false,
       "tech_research_done": false,
       "implemented": false,
