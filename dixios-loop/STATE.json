@@ -14,7 +14,7 @@
     "S00": {
       "name": "Hero",
       "attempt": 1,
-      "phase": "VISUAL_JUDGE",
+      "phase": "BUILD",
       "analysis_done": true,
       "concept_locked": true,
       "visual_research_done": true,
@@ -26,9 +26,9 @@
       "judge_pass_order_b": false,
       "visually_better_than_baseline": false,
       "status": "ACTIVE",
-      "failure_route_count": 0,
-      "last_failure_route": null,
-      "last_diagnosis": null,
+      "failure_route_count": 1,
+      "last_failure_route": "BUILD",
+      "last_diagnosis": "Candidate lost both pairwise orders: composition drifted too far from the baseline, the territorial focus sat too low for the comparison crop, and the country was not perceptually dominant without explanatory text.",
       "candidate_commit": "6e38d9513772a3a07fa93860776d3676a096092e"
     },
     "S01": {"name":"System","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
