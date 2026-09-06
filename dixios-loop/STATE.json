@@ -14,7 +14,7 @@
     "S00": {
       "name": "Hero",
       "attempt": 1,
-      "phase": "BUILD",
+      "phase": "VERIFY",
       "analysis_done": true,
       "concept_locked": true,
       "visual_research_done": true,
@@ -29,7 +29,7 @@
       "failure_route_count": 0,
       "last_failure_route": null,
       "last_diagnosis": null,
-      "candidate_commit": "472146b660b63f6b4be3ab3c2c6e8b32a0cb6ea5"
+      "candidate_commit": "6e38d9513772a3a07fa93860776d3676a096092e"
     },
     "S01": {"name":"System","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
     "S02": {"name":"Capabilities","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
