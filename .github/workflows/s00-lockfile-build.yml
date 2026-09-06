@@ -5,14 +5,17 @@ on:
     branches: ["loop/S00-hero"]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   lockfile-build:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout candidate
         uses: actions/checkout@v4
+        with:
+          ref: loop/S00-hero
 
       - name: Setup exact Node
         uses: actions/setup-node@v4
@@ -44,10 +47,13 @@ jobs:
       - name: Audit frozen tree
         run: npm audit --audit-level=high
 
-      - name: Upload generated lockfile
-        uses: actions/upload-artifact@v4
-        with:
-          name: s00-package-lock
-          path: package-lock.json
-          if-no-files-found: error
-          retention-days: 1
+      - name: Commit validated lockfile and remove temporary workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          git rm .github/workflows/s00-lockfile-build.yml
+          git commit -m "loop(S00): repair attempt 01 reproducible install"
+          git push origin HEAD:loop/S00-hero
