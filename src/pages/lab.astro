@@ -1,0 +1,91 @@
+---
+import '../styles/lab.css';
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Dixios Visual Lab v1</title>
+  </head>
+  <body>
+    <main class="lab-shell">
+      <header class="lab-header">
+        <div>
+          <p class="eyebrow">DIXIOS / VISUAL LAB / V1</p>
+          <h1>Pruebas técnicas antes de tocar el home.</h1>
+        </div>
+        <p class="lede">Cada módulo prueba una pieza existente o una implementación mínima. La decisión será por control, peso, móvil y encaje con Dixios; no por hype.</p>
+      </header>
+
+      <section class="lab-grid" aria-label="Experimentos visuales">
+        <article class="lab-card lab-card--hero">
+          <div class="card-meta"><span>01</span><span>COBE</span><span>DROP-IN</span></div>
+          <div class="globe-stage"><canvas id="lab-globe" aria-label="Prueba de globo COBE"></canvas></div>
+          <div class="card-copy"><h2>Globo / territorio</h2><p>Prueba aislada del motor ya existente en el repo. Sin UI prestada; sólo COBE y paleta Dixios.</p></div>
+        </article>
+
+        <article class="lab-card">
+          <div class="card-meta"><span>02</span><span>PIXIJS</span><span>COMPOSE</span></div>
+          <div class="pixi-stage" id="pixi-stage" aria-label="Campo de primitivas Dixios"></div>
+          <div class="card-copy"><h2>Campo de conversión</h2><p>Evalúa miles de primitivas 2D con batching GPU. Debe servir para ● + ■ ━ ║ sin convertir el hero en una escena 3D.</p></div>
+        </article>
+
+        <article class="lab-card">
+          <div class="card-meta"><span>03</span><span>GSAP / SVG</span><span>ADAPT</span></div>
+          <div class="morph-stage">
+            <svg viewBox="0 0 640 360" role="img" aria-label="Prueba de transformación estructural">
+              <g id="morph-fragmented" class="morph-layer">
+                <circle cx="100" cy="90" r="8"/><circle cx="195" cy="62" r="8"/><circle cx="290" cy="120" r="8"/>
+                <rect x="420" y="55" width="18" height="18"/><rect x="520" y="120" width="18" height="18"/>
+                <path d="M70 250h120M270 280h90M440 245h125" />
+              </g>
+              <g id="morph-structured" class="morph-layer morph-target">
+                <rect x="142" y="96" width="356" height="168" rx="0"/>
+                <path d="M142 152h356M260 96v168M380 96v168" />
+                <circle cx="201" cy="124" r="7"/><circle cx="320" cy="206" r="7"/><rect x="433" y="188" width="14" height="14"/>
+              </g>
+            </svg>
+            <button id="morph-toggle" type="button">CAMBIAR ESTADO</button>
+          </div>
+          <div class="card-copy"><h2>Fragmentación → estructura</h2><p>Prueba del lenguaje de estado con SVG + GSAP. Si esto basta, no metemos D3 ni canvas.</p></div>
+        </article>
+
+        <article class="lab-card">
+          <div class="card-meta"><span>04</span><span>MAPLIBRE</span><span>DROP-IN</span></div>
+          <div class="map-stage" id="lab-map" aria-label="Mapa operativo de demostración"></div>
+          <div class="card-copy"><h2>Territorio / operación</h2><p>Mapa real y navegable con datos de demostración explícitos. Evalúa si 04 Operación puede apoyarse en geografía real.</p></div>
+        </article>
+
+        <article class="lab-card lab-card--wide">
+          <div class="card-meta"><span>05</span><span>TYPE / STATE</span><span>NATIVE + GSAP</span></div>
+          <div class="type-stage">
+            <p class="machine-id">DX / OBJECT-042</p>
+            <h2 id="state-word">COMPRENDER</h2>
+            <div class="state-track" aria-hidden="true"><i></i></div>
+            <button id="state-next" type="button">SIGUIENTE ESTADO</button>
+          </div>
+          <div class="card-copy"><h2>Objeto persistente</h2><p>Prueba mínima del ciclo: una entidad conserva identidad mientras cambia de estado. La visualización final vendrá después.</p></div>
+        </article>
+      </section>
+
+      <section class="lab-registry">
+        <p class="eyebrow">REGISTRY / V1</p>
+        <table>
+          <thead><tr><th>Prueba</th><th>Fuente</th><th>Licencia</th><th>Criterio</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>COBE globe</td><td>cobe</td><td>MIT</td><td>peso + control + móvil</td><td>TEST</td></tr>
+            <tr><td>Primitive field</td><td>PixiJS</td><td>MIT</td><td>FPS + densidad</td><td>TEST</td></tr>
+            <tr><td>Structural states</td><td>GSAP + SVG</td><td>GSAP terms</td><td>claridad + control</td><td>TEST</td></tr>
+            <tr><td>Operational map</td><td>MapLibre GL JS</td><td>BSD-3-Clause</td><td>peso + interacción</td><td>TEST</td></tr>
+            <tr><td>ASCII pipeline</td><td>textmode.js</td><td>MIT</td><td>API + resultado</td><td>QUEUED</td></tr>
+            <tr><td>Replication</td><td>Rive vs SVG</td><td>por decidir</td><td>runtime + control</td><td>QUEUED</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <script>
+      import '../scripts/lab.ts';
+    </script>
+  </body>
+</html>

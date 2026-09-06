@@ -1,0 +1,32 @@
+name: Visual Lab CI
+
+on:
+  push:
+    branches: [visual-lab-v1]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lab-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install
+        run: npm install --no-audit --no-fund
+      - name: Build and capture log
+        shell: bash
+        run: |
+          set +e
+          npm run build > build.log 2>&1
+          echo $? > build-exit-code.txt
+          exit 0
+      - name: Upload diagnostic
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-lab-build-diagnostic
+          path: |
+            build.log
+            build-exit-code.txt
