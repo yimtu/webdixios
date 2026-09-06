@@ -1,0 +1,53 @@
+name: S00 Lockfile Build
+
+on:
+  push:
+    branches: ["loop/S00-hero"]
+
+permissions:
+  contents: read
+
+jobs:
+  lockfile-build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@v4
+
+      - name: Setup exact Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.2
+
+      - name: Confirm toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(node --version)" = "v22.23.2"
+          test "$(npm --version)" = "10.9.8"
+          node --version
+          npm --version
+
+      - name: Generate lockfile only
+        run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+
+      - name: Validate frozen install
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf node_modules
+          npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Build candidate
+        run: npm run build
+
+      - name: Audit frozen tree
+        run: npm audit --audit-level=high
+
+      - name: Upload generated lockfile
+        uses: actions/upload-artifact@v4
+        with:
+          name: s00-package-lock
+          path: package-lock.json
+          if-no-files-found: error
+          retention-days: 1
