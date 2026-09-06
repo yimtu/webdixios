@@ -12,8 +12,43 @@
 .capacity-field{background:radial-gradient(circle at 48% 46%,rgba(22,79,150,.055),transparent 58%)}
 .capacity-matrix{position:relative;z-index:2}.capacity-rails{z-index:1}.system-transform{isolation:isolate}
 
+/* S00 / attempt 01 — the globe remains global context; the local field makes Mexico the situated focus. */
+.hero{--focus-scale:1;--focus-outer-scale:1;--focus-opacity:1;--focus-blur:0px;--instrument-opacity:1;--signal-scale:1;--periphery-opacity:.54}
+.hero-visual{isolation:isolate}
+.hero.hero-enhanced .hero-pixel-field,.hero.hero-enhanced .hero-lines{opacity:var(--periphery-opacity)}
+.hero-visual::before{width:min(640px,58vw);right:5%;bottom:-3%;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.78) 0 1.05px,transparent 1.5px),radial-gradient(circle at 55% 42%,rgba(67,216,223,.18),transparent 28%);background-size:10px 10px,100% 100%;opacity:.25;box-shadow:inset 0 0 80px rgba(67,216,223,.2),0 0 90px rgba(4,24,73,.18)}
+.hero-visual::after{width:min(640px,58vw);right:5%;bottom:-3%;background:linear-gradient(transparent 49.85%,rgba(255,255,255,.16) 50%,transparent 50.15%),linear-gradient(90deg,transparent 49.85%,rgba(255,255,255,.09) 50%,transparent 50.15%);box-shadow:inset 105px 0 105px -118px rgba(255,255,255,.52)}
+.hero-visual canvas{filter:saturate(1.04) contrast(1.08);mix-blend-mode:screen}
+
+.globe-orbit{right:auto;bottom:auto;border-radius:50%;pointer-events:none;transform-origin:center;transition:none}
+.orbit-a{left:55%;top:49%;width:clamp(205px,23vw,286px);height:clamp(142px,16vw,192px);aspect-ratio:auto;border:1px solid rgba(255,255,255,.86);transform:translate(-50%,-50%) scale(var(--focus-scale));opacity:var(--focus-opacity);filter:blur(var(--focus-blur));background:radial-gradient(circle at 50% 50%,rgba(255,99,76,.94) 0 3px,transparent 4px),repeating-radial-gradient(ellipse at center,transparent 0 19px,rgba(255,255,255,.2) 20px,transparent 21px),linear-gradient(90deg,transparent 49.7%,rgba(255,255,255,.45) 50%,transparent 50.3%),linear-gradient(transparent 49.7%,rgba(255,255,255,.34) 50%,transparent 50.3%),radial-gradient(ellipse at center,rgba(67,216,223,.12),rgba(5,48,126,.28) 65%,rgba(4,42,112,.1));box-shadow:0 0 0 11px rgba(255,255,255,.045),0 0 0 12px rgba(255,255,255,.16),0 0 0 29px rgba(67,216,223,.035),0 0 42px rgba(67,216,223,.18);z-index:5}
+.orbit-a::before{content:"";position:absolute;inset:10%;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(255,255,255,.12) 23px,transparent 24px),repeating-linear-gradient(0deg,transparent 0 17px,rgba(255,255,255,.1) 18px,transparent 19px);clip-path:ellipse(50% 50% at 50% 50%)}
+.orbit-a::after{content:"MÉXICO";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:800 clamp(27px,2.7vw,42px)/1 "Helvetica Neue",Arial,sans-serif;letter-spacing:-.055em;color:#fff;text-shadow:0 0 18px rgba(67,216,223,.32);white-space:nowrap}
+.orbit-b{left:55%;top:49%;width:clamp(286px,32vw,400px);height:clamp(196px,22vw,270px);aspect-ratio:auto;border:1px dashed rgba(255,255,255,.46);transform:translate(-50%,-50%) rotate(-7deg) scale(var(--focus-outer-scale));opacity:var(--focus-opacity);z-index:4;background:conic-gradient(from 12deg,transparent 0 15%,rgba(255,255,255,.035) 15% 17%,transparent 17% 48%,rgba(255,99,76,.07) 48% 50%,transparent 50% 100%)}
+.orbit-b::before{content:"";position:absolute;left:-9%;right:-9%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25) 18%,#ff634c 49.4% 50.6%,rgba(255,255,255,.25) 82%,transparent);transform:rotate(7deg) scaleX(var(--signal-scale));transform-origin:center}
+.orbit-b::after{content:"FOCO SITUADO  /  CAMPO → CAPACIDAD";position:absolute;right:7%;bottom:-25px;font:700 7px/1 "SFMono-Regular",Consolas,monospace;letter-spacing:.16em;color:rgba(255,255,255,.84);white-space:nowrap;transform:rotate(7deg)}
+
+.globe-module,.chrome-signal,.ascii-legend{opacity:var(--instrument-opacity)}
+.module-a{left:67%;right:auto;top:24%;width:112px;height:60px;padding:9px;background:rgba(2,43,112,.46);border-color:rgba(255,255,255,.5);backdrop-filter:none;box-shadow:8px 8px 0 rgba(1,31,86,.2)}
+.module-a::after{content:"RESOLVER";position:absolute;left:8px;bottom:-17px;font:700 7px monospace;letter-spacing:.15em;color:#43d8df}
+.module-a b{height:3px;margin-top:7px}.module-a b:nth-of-type(1){width:92%}.module-a b:nth-of-type(2){width:62%}.module-a b:nth-of-type(3){width:38%;background:#43d8df}
+.module-b{left:36%;bottom:17%;width:146px;height:67px;padding:10px 12px;background:rgba(2,43,112,.42);border-color:rgba(255,255,255,.36);grid-template-columns:repeat(4,1fr)}
+.module-b span{align-self:end;color:rgba(255,255,255,.9)}
+.chrome-signal{left:37%;top:31%;gap:8px;transform-origin:left center;transform:scaleX(var(--signal-scale))}
+.chrome-signal span{font-size:6px;color:rgba(255,255,255,.72)}
+.chrome-signal i{width:128px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,.3),#43d8df 36%,#fff 50%,#ff634c 67%,rgba(255,255,255,.2));box-shadow:0 0 13px rgba(67,216,223,.28)}
+.ascii-legend{right:1%;bottom:10%;font-size:8px;line-height:1.7;color:rgba(255,255,255,.88);border-left-color:rgba(255,255,255,.34)}
+.hero.is-resolved .orbit-a{box-shadow:0 0 0 11px rgba(255,255,255,.045),0 0 0 12px rgba(255,255,255,.2),0 0 0 29px rgba(67,216,223,.045),0 0 48px rgba(67,216,223,.24)}
+.hero.gpu-fallback .hero-visual::before{opacity:.33}.hero.gpu-fallback .hero-visual::after{border-color:rgba(255,255,255,.26)}
+
+@media(max-width:1100px){
+ .orbit-a,.orbit-b{left:59%}.module-a{left:auto;right:2%}.module-b{left:30%}.chrome-signal{left:31%}
+}
+
 @media(max-width:760px){
- .hero-visual::before,.hero-visual::after{width:365px;right:-67px;bottom:7px}.hero-visual::before{background-size:9px 9px;opacity:.27}
+ .hero-visual::before,.hero-visual::after{width:365px;right:-67px;bottom:7px}.hero-visual::before{background-size:9px 9px,100% 100%;opacity:.27}
+ .orbit-a{left:75%;top:42%;width:220px;height:150px}.orbit-a::after{font-size:31px}.orbit-b{left:75%;top:42%;width:292px;height:198px}.orbit-b::after{right:2%;bottom:-21px;font-size:6px;letter-spacing:.1em}
+ .module-a{right:1%;top:8%;width:96px;height:54px}.module-b{left:3%;bottom:10%;width:126px;height:60px}.chrome-signal{left:5%;top:20%}.chrome-signal i{width:88px}.hero.hero-enhanced .hero-pixel-field,.hero.hero-enhanced .hero-lines{opacity:.4}
  .system-transform{height:650px;display:grid;grid-template-columns:1fr;grid-template-rows:220px 112px 250px;gap:18px;margin-top:38px}
  .fragment-field{min-height:220px;border-bottom:1px solid #d6dfe6}.transform-gate{min-height:112px;display:grid;grid-template-columns:repeat(5,1fr);align-items:start;gap:3px;padding:16px 0 0;font-size:6px;border-bottom:1px solid #d6dfe6}.transform-gate>span{text-align:center}.gate-plate{left:8%;right:8%;top:auto;bottom:24px;width:auto;height:22px;transform:none;background:linear-gradient(90deg,#d8e4ec,#fff 33%,#aac3d6 51%,#fff 70%,#d8e4ec);box-shadow:0 8px 16px rgba(26,73,135,.08)}.gate-plate i{display:inline-block;width:16.66%;height:100%;border-right:1px solid rgba(10,58,113,.13);border-bottom:0}.capacity-field{min-height:250px;padding:34px 16px 28px}.capacity-matrix{width:148px;margin:28px auto 0;gap:7px}.capacity-rails{right:12%;top:84px;width:118px}.field-title{top:7px}.capacity-labels{display:flex;font-size:6px}
  .ops-layout{height:455px;display:block}.ops-layers{height:58px;padding:0 10px;display:flex;align-items:center;gap:14px;border-right:0;border-bottom:1px solid #174771;overflow-x:auto}.ops-layers button{flex:0 0 auto}.mexico-map{height:355px;padding:12px 6px 4px}.map-markers{left:0;right:0;top:58px;bottom:42px}.ops-tabs{height:42px}
