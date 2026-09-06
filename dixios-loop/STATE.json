@@ -14,7 +14,7 @@
     "S00": {
       "name": "Hero",
       "attempt": 3,
-      "phase": "VISUAL_JUDGE",
+      "phase": "BUILD",
       "analysis_done": true,
       "concept_locked": true,
       "visual_research_done": true,
@@ -26,9 +26,9 @@
       "judge_pass_order_b": false,
       "visually_better_than_baseline": false,
       "status": "ACTIVE",
-      "failure_route_count": 2,
+      "failure_route_count": 3,
       "last_failure_route": "BUILD",
-      "last_diagnosis": "Attempt 02 improved baseline alignment and kept the enlarged territorial focus inside the crop without a country-name label, but the focus reads as a bright translucent overlay pasted over the globe. Integrate the territory into the globe's dot/shading system, reduce competing diagnostic modules, and recover the baseline's coherent editorial network rather than enlarging the focus further.",
+      "last_diagnosis": "Attempt 03 improved integration and preserved the unlabeled territorial focus, but the globe became too pale and uniform and the Hero lost the baseline's editorial density, spatial tension, and distributed coral/white/cyan technical motifs. Next build should move the territorial emphasis into COBE marker-space and restore baseline-like density without reintroducing a flat silhouette overlay.",
       "candidate_commit": "334173e729053f16676033d1b3b2aeef4f3cf798"
     },
     "S01": {"name":"System","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
