@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project": "DIXIOS_WEB",
+  "baseline_id": "BASELINE_2026_09_05",
+  "baseline_locked": true,
+  "current_section": "S00",
+  "global_status": "ACTIVE",
+  "limits": {
+    "max_attempts_per_section": 12,
+    "max_consecutive_technical_failures": 3,
+    "max_same_failure_route": 3
+  },
+  "sections": {
+    "S00": {
+      "name": "Hero",
+      "attempt": 0,
+      "phase": "ANALYZE",
+      "analysis_done": false,
+      "concept_locked": false,
+      "visual_research_done": false,
+      "tech_research_done": false,
+      "implemented": false,
+      "screenshots_ready": false,
+      "technical_pass": false,
+      "judge_pass_order_a": false,
+      "judge_pass_order_b": false,
+      "visually_better_than_baseline": false,
+      "status": "ACTIVE",
+      "failure_route_count": 0,
+      "last_failure_route": null,
+      "last_diagnosis": null,
+      "candidate_commit": null
+    },
+    "S01": {"name":"System","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
+    "S02": {"name":"Capabilities","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
+    "S03": {"name":"Cycle","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
+    "S04": {"name":"Operations","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
+    "S05": {"name":"Publications","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false}
+  },
+  "full_page_technical_pass": false,
+  "human_approved": false,
+  "ready_for_deploy": false
+}
