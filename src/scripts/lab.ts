@@ -1,12 +1,11 @@
 import createGlobe from 'cobe';
 import { Application, Graphics } from 'pixi.js';
 import gsap from 'gsap';
-import maplibregl from 'maplibre-gl';
+import * as maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// 01 — COBE: prove we can reuse a dedicated globe instead of rebuilding one.
 const globeCanvas = document.querySelector<HTMLCanvasElement>('#lab-globe');
 if (globeCanvas) {
   let phi = 4.65;
@@ -49,13 +48,11 @@ if (globeCanvas) {
   addEventListener('pagehide', () => { ro.disconnect(); globe.destroy(); }, { once: true });
 }
 
-// 02 — PixiJS: dense 2D primitive field. No 3D scene required.
 const pixiStage = document.querySelector<HTMLElement>('#pixi-stage');
 if (pixiStage) {
   const app = new Application();
   await app.init({ resizeTo: pixiStage, background: '#000d2d', antialias: true, resolution: Math.min(devicePixelRatio || 1, 1.5), autoDensity: true });
   pixiStage.appendChild(app.canvas);
-
   const field = new Graphics();
   const draw = () => {
     field.clear();
@@ -82,7 +79,6 @@ if (pixiStage) {
   addEventListener('pagehide', () => app.destroy(true, { children: true }), { once: true });
 }
 
-// 03 — SVG + GSAP: state change without fake data-viz.
 const frag = document.querySelector('#morph-fragmented');
 const structured = document.querySelector('#morph-structured');
 const morphButton = document.querySelector<HTMLButtonElement>('#morph-toggle');
@@ -94,7 +90,6 @@ morphButton?.addEventListener('click', () => {
   gsap.to(structured, { opacity: structuredOn ? 1 : 0, scale: structuredOn ? 1 : 1.06, transformOrigin: '50% 50%', duration, ease: 'power3.inOut' });
 });
 
-// 04 — MapLibre: real geographic substrate for an operational story.
 const mapNode = document.querySelector<HTMLElement>('#lab-map');
 if (mapNode) {
   const map = new maplibregl.Map({
@@ -108,10 +103,7 @@ if (mapNode) {
   map.on('load', () => {
     map.addSource('dixios-route', {
       type: 'geojson',
-      data: {
-        type: 'FeatureCollection',
-        features: [{ type: 'Feature', properties: { demo: true }, geometry: { type: 'LineString', coordinates: [[-99.22,19.38],[-99.18,19.43],[-99.11,19.46],[-99.06,19.41]] } }]
-      }
+      data: { type: 'FeatureCollection', features: [{ type: 'Feature', properties: { demo: true }, geometry: { type: 'LineString', coordinates: [[-99.22,19.38],[-99.18,19.43],[-99.11,19.46],[-99.06,19.41]] } }] }
     });
     map.addLayer({ id: 'dixios-route', type: 'line', source: 'dixios-route', paint: { 'line-color': '#e14e38', 'line-width': 4, 'line-opacity': 0.9 } });
     [[-99.22,19.38],[-99.11,19.46],[-99.06,19.41]].forEach((lngLat, i) => {
@@ -123,7 +115,6 @@ if (mapNode) {
   addEventListener('pagehide', () => map.remove(), { once: true });
 }
 
-// 05 — Persistent object: same ID, explicit states.
 const states = ['COMPRENDER','VERIFICAR','DEFINIR','DISEÑAR','DESARROLLAR','IMPLEMENTAR','OPERAR','MEDIR','CORREGIR'];
 const word = document.querySelector<HTMLElement>('#state-word');
 const bar = document.querySelector<HTMLElement>('.state-track i');
