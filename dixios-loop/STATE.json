@@ -14,11 +14,11 @@
     "S00": {
       "name": "Hero",
       "attempt": 4,
-      "phase": "VISUAL_RESEARCH",
+      "phase": "TECH_RESEARCH",
       "analysis_done": true,
       "concept_locked": true,
-      "visual_research_done": false,
-      "tech_research_done": true,
+      "visual_research_done": true,
+      "tech_research_done": false,
       "implemented": true,
       "screenshots_ready": false,
       "technical_pass": false,
@@ -28,7 +28,7 @@
       "status": "ACTIVE",
       "failure_route_count": 1,
       "last_failure_route": "VISUAL_RESEARCH",
-      "last_diagnosis": "Early pairwise visual judge failed in both orders. Attempt 04 overcorrects into an oversized dark globe, weakens or loses the left-side copy hierarchy in the baseline crop, and concentrates the territorial markers into a dense patch that reads less like an integrated editorial system. Re-establish baseline compositional balance, distributed instrumentation, and territorial emphasis that remains native to the globe without becoming the dominant mass.",
+      "last_diagnosis": "Visual research/program loop A-H resolved the core rendering direction. COBE's opaque base sphere is incompatible with the reference's transparent point-world grammar and transparent base color remains unsupported upstream. GitHub's published Three.js globe architecture was prototyped successfully: transparent canvas, depth-only sphere, world land as fine points, and the situated territory as a brighter same-sphere point cloud. Prototypes G/H remove the opaque-disc failure and restore the baseline hierarchy; remaining risk is technical productization and editorial craft, so Three.js bundle/load/fallback/performance now require formal tech research before production BUILD.",
       "candidate_commit": "50cf73692c7df67feca7eebbc837ae9786269f82"
     },
     "S01": {"name":"System","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
