@@ -13,15 +13,15 @@
   "sections": {
     "S00": {
       "name": "Hero",
-      "attempt": 1,
-      "phase": "BUILD",
+      "attempt": 2,
+      "phase": "VERIFY",
       "analysis_done": true,
       "concept_locked": true,
       "visual_research_done": true,
       "tech_research_done": true,
       "implemented": true,
-      "screenshots_ready": true,
-      "technical_pass": true,
+      "screenshots_ready": false,
+      "technical_pass": false,
       "judge_pass_order_a": false,
       "judge_pass_order_b": false,
       "visually_better_than_baseline": false,
@@ -29,7 +29,7 @@
       "failure_route_count": 1,
       "last_failure_route": "BUILD",
       "last_diagnosis": "Candidate lost both pairwise orders: composition drifted too far from the baseline, the territorial focus sat too low for the comparison crop, and the country was not perceptually dominant without explanatory text.",
-      "candidate_commit": "6e38d9513772a3a07fa93860776d3676a096092e"
+      "candidate_commit": "62535a5ac5984fa61879d00323e42248ee18363f"
     },
     "S01": {"name":"System","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
     "S02": {"name":"Capabilities","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
