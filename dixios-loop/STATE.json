@@ -13,15 +13,15 @@
   "sections": {
     "S00": {
       "name": "Hero",
-      "attempt": 2,
-      "phase": "BUILD",
+      "attempt": 3,
+      "phase": "VERIFY",
       "analysis_done": true,
       "concept_locked": true,
       "visual_research_done": true,
       "tech_research_done": true,
       "implemented": true,
-      "screenshots_ready": true,
-      "technical_pass": true,
+      "screenshots_ready": false,
+      "technical_pass": false,
       "judge_pass_order_a": false,
       "judge_pass_order_b": false,
       "visually_better_than_baseline": false,
@@ -29,7 +29,7 @@
       "failure_route_count": 2,
       "last_failure_route": "BUILD",
       "last_diagnosis": "Attempt 02 improved baseline alignment and kept the enlarged territorial focus inside the crop without a country-name label, but the focus reads as a bright translucent overlay pasted over the globe. Integrate the territory into the globe's dot/shading system, reduce competing diagnostic modules, and recover the baseline's coherent editorial network rather than enlarging the focus further.",
-      "candidate_commit": "62535a5ac5984fa61879d00323e42248ee18363f"
+      "candidate_commit": "334173e729053f16676033d1b3b2aeef4f3cf798"
     },
     "S01": {"name":"System","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
     "S02": {"name":"Capabilities","attempt":0,"phase":"ANALYZE","status":"PENDING","visually_better_than_baseline":false},
