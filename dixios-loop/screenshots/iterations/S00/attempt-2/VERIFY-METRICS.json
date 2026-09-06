@@ -1,0 +1,504 @@
+{
+  "candidate": "62535a5ac5984fa61879d00323e42248ee18363f",
+  "checkedAt": "2026-09-06T05:20:35.485Z",
+  "environment": {
+    "os": "ubuntu-24.04",
+    "node": "v22.23.2",
+    "playwright": "1.55.0",
+    "dpr": 1
+  },
+  "checks": {
+    "offscreenPause": {
+      "before": 0.7284,
+      "paused": 0.7284,
+      "resumed": 1,
+      "deltaWhileOffscreen": 0
+    },
+    "s00NoHorizontalOverflow": true,
+    "linksGood": true,
+    "noCountryWordInHero": true,
+    "focusInsideHero": true,
+    "noConsoleErrors": true,
+    "noNetworkErrors": true,
+    "reducedGood": true,
+    "saveDataGood": true,
+    "desktopWebglGood": true,
+    "contextLossGood": true,
+    "offscreenGood": true,
+    "performanceGood": true,
+    "allBrowserChecksPass": true
+  },
+  "views": {
+    "candidate-baseline-size": {
+      "viewportWidth": 1084,
+      "documentClientWidth": 1084,
+      "documentScrollWidth": 1084,
+      "isolatedDocumentScrollWidth": 1084,
+      "heroClientWidth": 1084,
+      "heroScrollWidth": 1084,
+      "heroClass": "hero hero-enhanced is-resolved",
+      "focusScale": "1.0000",
+      "focusOpacity": "1.0000",
+      "focusRect": {
+        "left": 513.578125,
+        "top": 75.671875,
+        "right": 798.578125,
+        "bottom": 249.671875,
+        "width": 285,
+        "height": 174
+      },
+      "heroRect": {
+        "left": 0,
+        "top": 0,
+        "right": 1084,
+        "bottom": 292,
+        "width": 1084,
+        "height": 292
+      },
+      "heroNamesCountry": false,
+      "generatedCountryLabel": false,
+      "anchors": [
+        {
+          "href": "#sistema",
+          "exists": true
+        }
+      ],
+      "canvasHidden": false,
+      "canvasCssWidth": 390,
+      "canvasCssHeight": 390,
+      "canvasBackingWidth": 390,
+      "canvasBackingHeight": 390,
+      "webglAvailable": true,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "perf": {
+        "cls": 0,
+        "longTasks": [
+          60,
+          276
+        ]
+      }
+    },
+    "desktop": {
+      "viewportWidth": 1440,
+      "documentClientWidth": 1440,
+      "documentScrollWidth": 1440,
+      "isolatedDocumentScrollWidth": 1440,
+      "heroClientWidth": 1440,
+      "heroScrollWidth": 1440,
+      "heroClass": "hero hero-enhanced",
+      "focusScale": "0.7284",
+      "focusOpacity": "0.2822",
+      "focusRect": {
+        "left": 722.8018798828125,
+        "top": 268.0442199707031,
+        "right": 1068.7918701171875,
+        "bottom": 480.73699951171875,
+        "width": 345.989990234375,
+        "height": 212.69277954101562
+      },
+      "heroRect": {
+        "left": 0,
+        "top": 0,
+        "right": 1440,
+        "bottom": 702,
+        "width": 1440,
+        "height": 702
+      },
+      "heroNamesCountry": false,
+      "generatedCountryLabel": false,
+      "anchors": [
+        {
+          "href": "#sistema",
+          "exists": true
+        }
+      ],
+      "canvasHidden": false,
+      "canvasCssWidth": 620,
+      "canvasCssHeight": 620,
+      "canvasBackingWidth": 620,
+      "canvasBackingHeight": 620,
+      "webglAvailable": true,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "perf": {
+        "cls": 0,
+        "longTasks": [
+          80,
+          1291
+        ]
+      }
+    },
+    "laptop": {
+      "viewportWidth": 1280,
+      "documentClientWidth": 1280,
+      "documentScrollWidth": 1280,
+      "isolatedDocumentScrollWidth": 1280,
+      "heroClientWidth": 1280,
+      "heroScrollWidth": 1280,
+      "heroClass": "hero hero-enhanced",
+      "focusScale": "0.7366",
+      "focusOpacity": "0.3039",
+      "focusRect": {
+        "left": 627.329833984375,
+        "top": 233.79898071289062,
+        "right": 947.888916015625,
+        "bottom": 431.79473876953125,
+        "width": 320.55908203125,
+        "height": 197.99575805664062
+      },
+      "heroRect": {
+        "left": 0,
+        "top": 0,
+        "right": 1280,
+        "bottom": 624,
+        "width": 1280,
+        "height": 624
+      },
+      "heroNamesCountry": false,
+      "generatedCountryLabel": false,
+      "anchors": [
+        {
+          "href": "#sistema",
+          "exists": true
+        }
+      ],
+      "canvasHidden": false,
+      "canvasCssWidth": 620,
+      "canvasCssHeight": 620,
+      "canvasBackingWidth": 620,
+      "canvasBackingHeight": 620,
+      "webglAvailable": true,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "perf": {
+        "cls": 0,
+        "longTasks": [
+          675
+        ]
+      }
+    },
+    "tablet": {
+      "viewportWidth": 768,
+      "documentClientWidth": 768,
+      "documentScrollWidth": 922,
+      "isolatedDocumentScrollWidth": 768,
+      "heroClientWidth": 768,
+      "heroScrollWidth": 768,
+      "heroClass": "hero hero-enhanced",
+      "focusScale": "0.7284",
+      "focusOpacity": "0.2821",
+      "focusRect": {
+        "left": 439.6917419433594,
+        "top": 363.192626953125,
+        "right": 665.4957275390625,
+        "bottom": 501.588623046875,
+        "width": 225.80398559570312,
+        "height": 138.39599609375
+      },
+      "heroRect": {
+        "left": 0,
+        "top": 0,
+        "right": 768,
+        "bottom": 760,
+        "width": 768,
+        "height": 760
+      },
+      "heroNamesCountry": false,
+      "generatedCountryLabel": false,
+      "anchors": [
+        {
+          "href": "#sistema",
+          "exists": true
+        }
+      ],
+      "canvasHidden": false,
+      "canvasCssWidth": 430.078125,
+      "canvasCssHeight": 430.078125,
+      "canvasBackingWidth": 430,
+      "canvasBackingHeight": 430,
+      "webglAvailable": true,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "perf": {
+        "cls": 0,
+        "longTasks": [
+          58,
+          1898
+        ]
+      }
+    },
+    "mobile": {
+      "viewportWidth": 390,
+      "documentClientWidth": 390,
+      "documentScrollWidth": 390,
+      "isolatedDocumentScrollWidth": 390,
+      "heroClientWidth": 390,
+      "heroScrollWidth": 438,
+      "heroClass": "hero hero-enhanced",
+      "focusScale": "0.7331",
+      "focusOpacity": "0.2947",
+      "focusRect": {
+        "left": 167.0517578125,
+        "top": 495.41705322265625,
+        "right": 361.3232421875,
+        "bottom": 615.6454467773438,
+        "width": 194.271484375,
+        "height": 120.2283935546875
+      },
+      "heroRect": {
+        "left": 0,
+        "top": 0,
+        "right": 390,
+        "bottom": 742.71875,
+        "width": 390,
+        "height": 742.71875
+      },
+      "heroNamesCountry": false,
+      "generatedCountryLabel": false,
+      "anchors": [
+        {
+          "href": "#sistema",
+          "exists": true
+        }
+      ],
+      "canvasHidden": false,
+      "canvasCssWidth": 385,
+      "canvasCssHeight": 385,
+      "canvasBackingWidth": 385,
+      "canvasBackingHeight": 385,
+      "webglAvailable": true,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "perf": {
+        "cls": 0,
+        "longTasks": [
+          1130
+        ]
+      }
+    },
+    "reduced-motion": {
+      "viewportWidth": 1084,
+      "documentClientWidth": 1084,
+      "documentScrollWidth": 1084,
+      "isolatedDocumentScrollWidth": 1084,
+      "heroClientWidth": 1084,
+      "heroScrollWidth": 1084,
+      "heroClass": "hero hero-enhanced is-resolved",
+      "focusScale": "1.0000",
+      "focusOpacity": "1.0000",
+      "focusRect": {
+        "left": 500.5078125,
+        "top": 218.984375,
+        "right": 869.0546875,
+        "bottom": 446.609375,
+        "width": 368.546875,
+        "height": 227.625
+      },
+      "heroRect": {
+        "left": 0,
+        "top": 0,
+        "right": 1084,
+        "bottom": 624,
+        "width": 1084,
+        "height": 624
+      },
+      "heroNamesCountry": false,
+      "generatedCountryLabel": false,
+      "anchors": [
+        {
+          "href": "#sistema",
+          "exists": true
+        }
+      ],
+      "canvasHidden": false,
+      "canvasCssWidth": 607.03125,
+      "canvasCssHeight": 607.03125,
+      "canvasBackingWidth": 607,
+      "canvasBackingHeight": 607,
+      "webglAvailable": true,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "perf": {
+        "cls": 0,
+        "longTasks": [
+          605
+        ]
+      }
+    },
+    "save-data": {
+      "viewportWidth": 1084,
+      "documentClientWidth": 1084,
+      "documentScrollWidth": 1084,
+      "isolatedDocumentScrollWidth": 1084,
+      "heroClientWidth": 1084,
+      "heroScrollWidth": 1084,
+      "heroClass": "hero hero-enhanced is-resolved gpu-fallback",
+      "focusScale": "1.0000",
+      "focusOpacity": "1.0000",
+      "focusRect": {
+        "left": 500.5078125,
+        "top": 218.984375,
+        "right": 869.0546875,
+        "bottom": 446.609375,
+        "width": 368.546875,
+        "height": 227.625
+      },
+      "heroRect": {
+        "left": 0,
+        "top": 0,
+        "right": 1084,
+        "bottom": 624,
+        "width": 1084,
+        "height": 624
+      },
+      "heroNamesCountry": false,
+      "generatedCountryLabel": false,
+      "anchors": [
+        {
+          "href": "#sistema",
+          "exists": true
+        }
+      ],
+      "canvasHidden": true,
+      "canvasCssWidth": 0,
+      "canvasCssHeight": 0,
+      "canvasBackingWidth": 300,
+      "canvasBackingHeight": 150,
+      "webglAvailable": true,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "perf": {
+        "cls": 0,
+        "longTasks": [
+          94
+        ]
+      }
+    }
+  },
+  "performance": {
+    "resolveWindowMs": 1800,
+    "scriptTotalMs": 9.281000000000095,
+    "taskTotalMs": 28.61899999999995,
+    "layoutTotalMs": 1.1820000000000026,
+    "recalcStyleTotalMs": 0.6970000000000032,
+    "avgScriptMsPer60fpsFrame": 0.08595237222222311,
+    "avgTaskMsPer60fpsFrame": 0.26504373888888844,
+    "estimatedHeadroomMs": 16.404956261111113,
+    "cls": 0,
+    "longTasksDiagnostic": [
+      84,
+      1589
+    ],
+    "js": {
+      "raw": 131945,
+      "gzip": 52029
+    },
+    "css": {
+      "raw": 40413,
+      "gzip": 10564
+    },
+    "html": {
+      "raw": 1173910,
+      "gzip": 344160
+    }
+  },
+  "webgl": {
+    "before": {
+      "viewportWidth": 1084,
+      "documentClientWidth": 1084,
+      "documentScrollWidth": 1084,
+      "isolatedDocumentScrollWidth": 1084,
+      "heroClientWidth": 1084,
+      "heroScrollWidth": 1084,
+      "heroClass": "hero hero-enhanced",
+      "focusScale": "0.7284",
+      "focusOpacity": "0.2822",
+      "focusRect": {
+        "left": 550.5564575195312,
+        "top": 249.89584350585938,
+        "right": 819.0060424804688,
+        "bottom": 415.6978759765625,
+        "width": 268.4495849609375,
+        "height": 165.80203247070312
+      },
+      "heroRect": {
+        "left": 0,
+        "top": 0,
+        "right": 1084,
+        "bottom": 624,
+        "width": 1084,
+        "height": 624
+      },
+      "heroNamesCountry": false,
+      "generatedCountryLabel": false,
+      "anchors": [
+        {
+          "href": "#sistema",
+          "exists": true
+        }
+      ],
+      "canvasHidden": false,
+      "canvasCssWidth": 607.03125,
+      "canvasCssHeight": 607.03125,
+      "canvasBackingWidth": 607,
+      "canvasBackingHeight": 607,
+      "webglAvailable": true,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "perf": {
+        "cls": 0,
+        "longTasks": [
+          631
+        ]
+      }
+    },
+    "loss": {
+      "attempted": true,
+      "extension": true
+    },
+    "after": {
+      "viewportWidth": 1084,
+      "documentClientWidth": 1084,
+      "documentScrollWidth": 1084,
+      "isolatedDocumentScrollWidth": 1084,
+      "heroClientWidth": 1084,
+      "heroScrollWidth": 1084,
+      "heroClass": "hero hero-enhanced is-resolved gpu-fallback",
+      "focusScale": "1.0000",
+      "focusOpacity": "1.0000",
+      "focusRect": {
+        "left": 500.5078125,
+        "top": 218.984375,
+        "right": 869.0546875,
+        "bottom": 446.609375,
+        "width": 368.546875,
+        "height": 227.625
+      },
+      "heroRect": {
+        "left": 0,
+        "top": 0,
+        "right": 1084,
+        "bottom": 624,
+        "width": 1084,
+        "height": 624
+      },
+      "heroNamesCountry": false,
+      "generatedCountryLabel": false,
+      "anchors": [
+        {
+          "href": "#sistema",
+          "exists": true
+        }
+      ],
+      "canvasHidden": true,
+      "canvasCssWidth": 0,
+      "canvasCssHeight": 0,
+      "canvasBackingWidth": 1,
+      "canvasBackingHeight": 1,
+      "webglAvailable": true,
+      "renderer": null,
+      "perf": {
+        "cls": 0,
+        "longTasks": [
+          631,
+          2178
+        ]
+      }
+    }
+  },
+  "consoleErrors": [],
+  "networkErrors": []
+}
