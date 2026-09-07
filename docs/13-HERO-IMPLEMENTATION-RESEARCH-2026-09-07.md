@@ -1,109 +1,71 @@
-# HERO CITY V1 — IMPLEMENTATION RESEARCH / BUG AVOIDANCE
+# HERO CITY V1 — PRE-IMPLEMENTATION RESEARCH / BUG AVOIDANCE
 
 Date: 2026-09-07
 
-This note records the implementation decisions made immediately before coding Milestone 01. It exists to stop the team from reintroducing known 3D/web integration problems later.
-
-## Decision
+## Decision after official docs + developer/designer community review
 
 Hero V1 uses:
+- Astro for semantic/editorial UI;
+- one vanilla Three.js canvas on capable desktop devices only;
+- an existing CC0 city asset family rather than modeled/procedural buildings;
+- no React/R3F in the Hero;
+- no custom shaders or postprocessing chain;
+- static SVG fallback on mobile/coarse-pointer/reduced-motion/save-data;
+- dynamically imported Three.js so fallback paths do not pay the 3D runtime cost.
 
-- Astro for all semantic/editorial UI;
-- one vanilla Three.js canvas for desktop 3D only;
-- one existing, licensed city asset rather than generated city geometry;
-- no React and no React Three Fiber in Hero V1;
-- no custom shaders;
-- no postprocessing chain;
-- static SVG fallback as the default on mobile/coarse-pointer/reduced-motion/save-data;
-- local-at-build asset download with a pinned remote runtime fallback.
+## Bugs/risk patterns explicitly designed around
 
-This overrides the older R3F recommendation in docs/08 for Milestone 01 only.
+### WebGL context churn
+Current R3F/React community reports include React 19 + StrictMode development context-loss behavior during delayed unmount/remount. Browsers also limit active WebGL contexts. Hero V1 therefore owns exactly one renderer with explicit lifecycle and never mounts a canvas per card/state.
 
-## Why vanilla Three.js instead of R3F for this milestone
+### Mobile GPU / Spline embed cost
+Spline remains a valid editing tool, but current user reports still show iOS/mobile stutter on complex scenes. Above-the-fold Hero performance is too sensitive to make a hosted 3D viewer an unconditional dependency. Mobile gets an art-directed static path.
 
-Current community evidence exposed an avoidable risk in the exact stack we were considering:
+### Continuous rendering waste
+The renderer stops when the Hero leaves the viewport or the tab is hidden. DPR is capped at 1.5. There are no shadow maps or postprocessing passes.
 
-- React Three Fiber issue #3863 (opened Aug 2026) reports a React 19 + StrictMode development bug where deferred unmount can force-loss the WebGL context of a remounted Canvas.
-- pmndrs discussions repeatedly recommend keeping a single stable canvas instead of mounting/unmounting canvases between states/routes because browsers cap active WebGL contexts.
-- R3F maintainers recommend on-demand rendering / invalidation and IntersectionObserver when continuous rendering is not required.
+### “Fallback hides broken production asset”
+The first CI pass proved the fallback was robust but also revealed a bad certification condition: the originally selected SceneView catalog URL returned 404 while tests still passed.
 
-Dixios only needs one decorative-but-meaningful city canvas. React brings no material advantage for this first implementation, so the simpler dependency graph wins.
+The fix is structural:
+- the canonical asset is now a pinned, directly verified GitHub binary;
+- CI exits non-zero if that asset cannot be downloaded;
+- desktop browser test requires `data-city-status="ready"`;
+- fallback remains a runtime resilience feature, not a CI success criterion.
 
-## Spline research
+## Asset chosen after second sourcing pass
 
-Spline remains a valid design/editing route, but is not the production dependency chosen for V1 because:
+**Quaternius Downtown City MegaKit — Standard Edition**
+- CC0;
+- specifically built as reusable city geometry;
+- current free pack supports web-friendly formats.
 
-- community reports show significant mobile/iOS stutter even on optimized scenes;
-- some developers report better Lighthouse performance when bypassing integrated viewers and loading the runtime directly/lazily;
-- the Hero is above the fold, making uncontrolled runtime cost especially sensitive;
-- we do not currently own a specific editable city scene that is already art-directed to Dixios.
+For V1 we consume the already web-optimized derivative in:
+- `TonPlaygramBot/TonPlaygramWebApp`
+- pinned commit `dccec03c704fce20e9414ad37d1efca0566a546b`
+- `webapp/public/assets/kart-royale/city.glb`
+- ~3.79 MB
 
-Spline can replace the GLB later if a superior editable scene is selected. The Astro DOM structure is intentionally independent from the renderer.
+That project's own attribution record identifies the derivative as Quaternius Downtown City MegaKit and documents its conversion into centered GLB templates with LODs. The project code is MIT licensed.
 
-## Asset selected
+## Rendering/art direction rules
 
-**Low Poly Night City Building Skyline — 99.Miles**
+1. The city is visual infrastructure, not a game.
+2. No OrbitControls or user navigation.
+3. Buildings are existing authored assets; Dixios only arranges the already-optimized blocks for editorial composition.
+4. Dark ink + two dominant blues; white for typography/highlights.
+5. Primary text never lives inside WebGL.
+6. Labels are restrained HTML overlays.
+7. City remains subordinate to reading hierarchy.
+8. The Hero must remain usable if WebGL disappears completely.
 
-- original Sketchfab asset: CC Attribution;
-- 12 buildings;
-- ~6.1k triangles / ~2.9k vertices;
-- existing optimized GLB copy in SceneView asset catalog: ~4.0 MB, recorded CC-BY-4.0;
-- pinned SceneView commit: `2056ddd0fd76de38b69f590589894ff966d97a83`.
-
-This is dramatically safer than loading a 20–50 MB city scene and much closer to the requirement “take a city someone already built.”
-
-## Runtime rules derived from forum + docs review
-
-1. One canvas only.
-2. Canvas never receives pointer input; DOM remains in control.
-3. Pixel ratio capped at 1.5.
-4. No shadows.
-5. No postprocessing.
-6. Stop `requestAnimationFrame` when the Hero leaves the viewport or the tab is hidden.
-7. Do not instantiate WebGL at all on mobile/coarse-pointer/reduced-motion/save-data.
-8. Handle `webglcontextlost` and keep the poster visible.
-9. Asset failure never breaks layout or copy.
-10. Primary copy remains HTML, never texture/3D text.
-11. City coloration happens in CSS using grayscale + a two-blue color blend, avoiding a custom shader and preserving authored model detail.
-12. Attribution is visible and provenance is recorded under `licenses/`.
-
-## Content lock
-
-From the approved proposal:
-
-- claim: `EL ENCUENTRO DE LA TECNOLOGÍA CON LO HUMANO`;
-- visible navigation: Nosotros / Publicaciones / Contacto.
-
-From Contexto Maestro, used only to make the supporting paragraph precise:
-
-- Dixios is a firm of intelligence, transformation and institutional technology;
-- Dixios converts complex public problems into functional decision and execution systems.
-
-## Palette lock
-
-Hero city uses only the Dixios blue family plus white typography:
-
-- ink: `#010824`
-- deep blue: `#062B6F`
-- primary blue: `#0B4FD3`
-- light blue is reserved for small line/window highlights, not a third dominant city color.
-
-## Mobile strategy
-
-Mobile is not “desktop WebGL but smaller.” It is a separate rendering policy:
-
-- no live 3D by default at <= 767px;
-- local SVG poster fills the same composition slot;
-- no labels floating over the city;
-- copy remains fully readable and is placed near the lower half of the viewport;
-- no horizontal page overflow.
-
-## QA gates
+## Current QA gates
 
 - `npm run check:hero`
+- CI-only canonical asset fetch must succeed
 - `npm run build`
-- Playwright desktop Chromium smoke
-- Playwright mobile Chromium smoke
-- screenshot artifact generated by CI for visual review
+- Playwright desktop: live city must become `ready`
+- Playwright mobile: deliberate static fallback
+- screenshots from both projects
 - no uncaught page errors
-- 3D status may be `ready` or `fallback`; neither state may alter the semantic Hero layout.
+- visual review before PR leaves draft state

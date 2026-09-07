@@ -11,10 +11,10 @@ test('hero contract', async ({ page }, testInfo) => {
   await expect(page.locator('.hero-city__poster')).toBeVisible();
 
   const isMobile = testInfo.project.name.includes('mobile');
-  if (!isMobile) {
-    await page.waitForTimeout(3500);
-    const status = await page.locator('[data-city-scene]').getAttribute('data-city-status');
-    expect(['ready', 'fallback', 'poster']).toContain(status);
+  if (isMobile) {
+    await expect(page.locator('[data-city-scene]')).toHaveAttribute('data-city-status', 'fallback');
+  } else {
+    await expect(page.locator('[data-city-scene]')).toHaveAttribute('data-city-status', 'ready', { timeout: 15_000 });
   }
 
   expect(pageErrors).toEqual([]);

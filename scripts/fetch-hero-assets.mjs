@@ -2,10 +2,10 @@ import { mkdir, readFile, writeFile, unlink } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 
 const asset = {
-  url: 'https://raw.githubusercontent.com/sceneview/sceneview/2056ddd0fd76de38b69f590589894ff966d97a83/assets/models/glb/night_city.glb',
+  url: 'https://raw.githubusercontent.com/TonPlaygramBot/TonPlaygramWebApp/dccec03c704fce20e9414ad37d1efca0566a546b/webapp/public/assets/kart-royale/city.glb',
   output: resolve('public/assets/hero/night-city.glb'),
-  minBytes: 1_000_000,
-  maxBytes: 8_000_000
+  minBytes: 3_000_000,
+  maxBytes: 5_000_000
 };
 
 async function isValidGlb(path) {
@@ -34,6 +34,8 @@ try {
   console.log(`[assets] Downloaded hero city (${(bytes.length / 1024 / 1024).toFixed(2)} MiB).`);
 } catch (error) {
   await unlink(asset.output).catch(() => {});
-  console.warn('[assets] Hero city download failed; build continues with SVG fallback and runtime remote fallback.');
-  console.warn(error instanceof Error ? error.message : error);
+  console.error('[assets] Canonical Hero city download failed.');
+  console.error(error instanceof Error ? error.message : error);
+  if (process.env.CI) process.exit(1);
+  console.warn('[assets] Local development may continue with the SVG/runtime fallback.');
 }

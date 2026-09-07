@@ -1,6 +1,3 @@
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-
 const initialized = new WeakSet();
 
 function shouldUseLive3D() {
@@ -9,6 +6,14 @@ function shouldUseLive3D() {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const saveData = Boolean(navigator.connection?.saveData);
   return !isSmall && !coarse && !reduce && !saveData;
+}
+
+async function loadThree() {
+  const [THREE, loaderModule] = await Promise.all([
+    import('three'),
+    import('three/addons/loaders/GLTFLoader.js')
+  ]);
+  return { THREE, GLTFLoader: loaderModule.GLTFLoader };
 }
 
 function loadGltf(loader, url) {
@@ -24,33 +29,96 @@ async function loadWithFallback(loader, localUrl, remoteUrl) {
   }
 }
 
-function centerObject(object) {
+function tuneMaterial(material) {
+  const next = material.clone();
+  if ('metalness' in next) next.metalness = Math.min(next.metalness ?? 0.12, 0.3);
+  if ('roughness' in next) next.roughness = Math.max(next.roughness ?? 0.58, 0.5);
+  if ('emissiveIntensity' in next && next.emissiveMap) next.emissiveIntensity = Math.max(next.emissiveIntensity || 0, 0.5);
+  return next;
+}
+
+function tuneImportedScene(root) {
+  root.traverse((node) => {
+    if (!node.isMesh) return;
+    node.castShadow = false;
+    node.receiveShadow = false;
+    const isArray = Array.isArray(node.material);
+    const materials = isArray ? node.material : [node.material];
+    const tuned = materials.map(tuneMaterial);
+    node.material = isArray ? tuned : tuned[0];
+  });
+}
+
+function createCityCluster(THREE, source) {
+  const names = ['brick_block', 'corner_block'];
+  const templates = names
+    .map((name) => source.getObjectByName(name) || source.getObjectByName(`${name}_lod`))
+    .filter(Boolean);
+
+  // If a future source is a complete authored city instead of the current block pack,
+  // retain its authored composition rather than forcing the Dixios placement adapter.
+  if (templates.length < 2) return source;
+
+  source.updateMatrixWorld(true);
+  const cluster = new THREE.Group();
+  cluster.name = 'dixios_city_cluster';
+
+  const placements = [];
+  const columns = 7;
+  const rows = 5;
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < columns; col++) {
+      if ((row === 2 && col === 3) || (row === 1 && col === 5) || (row === 3 && col === 1)) continue;
+      const seed = row * columns + col;
+      placements.push({
+        template: templates[seed % templates.length],
+        x: (col - (columns - 1) / 2) * 14 + ((row % 2) * 2.5),
+        z: (row - (rows - 1) / 2) * 15,
+        scale: 0.82 + ((seed * 17) % 7) * 0.055,
+        rotation: ((seed * 13) % 4) * (Math.PI / 2)
+      });
+    }
+  }
+
+  for (const placement of placements) {
+    const block = placement.template.clone(true);
+    block.position.set(placement.x, 0, placement.z);
+    block.rotation.y = placement.rotation;
+    block.scale.setScalar(placement.scale);
+    cluster.add(block);
+  }
+
+  tuneImportedScene(cluster);
+  return cluster;
+}
+
+function centerObject(THREE, object) {
+  object.updateMatrixWorld(true);
   const box = new THREE.Box3().setFromObject(object);
   const center = box.getCenter(new THREE.Vector3());
   object.position.sub(center);
   object.updateMatrixWorld(true);
 }
 
-function frameObject(camera, object, container) {
+function frameObject(THREE, camera, object, container) {
   const box = new THREE.Box3().setFromObject(object);
   const size = box.getSize(new THREE.Vector3());
   const maxDim = Math.max(size.x, size.y, size.z, 1);
   const fov = THREE.MathUtils.degToRad(camera.fov);
-  const distance = (maxDim * 0.64) / Math.tan(fov / 2);
-  const aspectBias = container.clientWidth / Math.max(container.clientHeight, 1);
+  const distance = (maxDim * 0.59) / Math.tan(fov / 2);
+  const aspect = container.clientWidth / Math.max(container.clientHeight, 1);
 
-  camera.position.set(maxDim * 0.18, maxDim * 0.16, distance * (aspectBias > 1.3 ? 1.02 : 1.18));
-  camera.lookAt(0, maxDim * 0.02, 0);
-  camera.near = Math.max(distance / 100, 0.01);
+  camera.position.set(maxDim * 0.34, maxDim * 0.30, distance * (aspect > 1.3 ? 0.88 : 1.05));
+  camera.lookAt(0, -maxDim * 0.045, 0);
+  camera.near = Math.max(distance / 120, 0.01);
   camera.far = distance * 12;
   camera.updateProjectionMatrix();
-
   return { maxDim };
 }
 
-function makeScene(container, canvas) {
+function makeScene(THREE, container, canvas) {
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 1000);
+  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer({
     canvas,
     alpha: true,
@@ -61,15 +129,15 @@ function makeScene(container, canvas) {
 
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 0.9;
+  renderer.toneMappingExposure = 1.0;
   renderer.setClearColor(0x000000, 0);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
 
-  const hemi = new THREE.HemisphereLight(0x6da8ff, 0x010824, 2.2);
-  const key = new THREE.DirectionalLight(0x6da8ff, 2.5);
-  key.position.set(4, 8, 6);
-  const rim = new THREE.DirectionalLight(0x0b4fd3, 3.2);
-  rim.position.set(-6, 3, -4);
+  const hemi = new THREE.HemisphereLight(0x6da8ff, 0x010824, 2.4);
+  const key = new THREE.DirectionalLight(0x6da8ff, 2.8);
+  key.position.set(5, 10, 8);
+  const rim = new THREE.DirectionalLight(0x0b4fd3, 3.4);
+  rim.position.set(-8, 5, -6);
   scene.add(hemi, key, rim);
 
   const resize = () => {
@@ -81,43 +149,26 @@ function makeScene(container, canvas) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
   };
   resize();
-
   return { scene, camera, renderer, resize };
 }
 
-function tuneImportedScene(root) {
-  root.traverse((node) => {
-    if (!node.isMesh) return;
-    node.castShadow = false;
-    node.receiveShadow = false;
-
-    const hadMaterialArray = Array.isArray(node.material);
-    const materials = hadMaterialArray ? node.material : [node.material];
-    const tunedMaterials = materials.map((material) => {
-      const next = material.clone();
-      if ('metalness' in next) next.metalness = Math.min(next.metalness ?? 0.2, 0.42);
-      if ('roughness' in next) next.roughness = Math.max(next.roughness ?? 0.55, 0.42);
-      if ('emissiveIntensity' in next && next.emissiveMap) next.emissiveIntensity = Math.max(next.emissiveIntensity || 0, 0.7);
-      return next;
-    });
-
-    node.material = hadMaterialArray ? tunedMaterials : tunedMaterials[0];
-  });
-}
-
 function disposeObject(root) {
+  const materials = new Set();
+  const geometries = new Set();
+  const textures = new Set();
   root.traverse((node) => {
     if (!node.isMesh) return;
-    node.geometry?.dispose?.();
-    const materials = Array.isArray(node.material) ? node.material : [node.material];
-    for (const material of materials) {
+    if (node.geometry) geometries.add(node.geometry);
+    const nodeMaterials = Array.isArray(node.material) ? node.material : [node.material];
+    for (const material of nodeMaterials) {
       if (!material) continue;
-      for (const value of Object.values(material)) {
-        if (value?.isTexture) value.dispose();
-      }
-      material.dispose?.();
+      materials.add(material);
+      for (const value of Object.values(material)) if (value?.isTexture) textures.add(value);
     }
   });
+  textures.forEach((texture) => texture.dispose?.());
+  materials.forEach((material) => material.dispose?.());
+  geometries.forEach((geometry) => geometry.dispose?.());
 }
 
 async function initScene(container) {
@@ -132,9 +183,19 @@ async function initScene(container) {
   const canvas = container.querySelector('canvas');
   if (!(canvas instanceof HTMLCanvasElement)) return;
 
+  let THREE;
+  let GLTFLoader;
+  try {
+    ({ THREE, GLTFLoader } = await loadThree());
+  } catch (error) {
+    console.warn('[Dixios hero] 3D runtime failed to load; keeping poster fallback.', error);
+    container.dataset.cityStatus = 'fallback';
+    return;
+  }
+
   let engine;
   try {
-    engine = makeScene(container, canvas);
+    engine = makeScene(THREE, container, canvas);
   } catch (error) {
     console.warn('[Dixios hero] WebGL unavailable; keeping poster fallback.', error);
     container.dataset.cityStatus = 'fallback';
@@ -158,10 +219,10 @@ async function initScene(container) {
   const render = (time = 0) => {
     raf = 0;
     if (!active || !visible || !root) return;
-    const t = time * 0.00022;
+    const t = time * 0.00018;
     const drift = Math.sin(t) * maxDim * 0.008;
-    camera.position.x = basePosition.x + pointerX * maxDim * 0.018 + drift;
-    camera.position.y = basePosition.y - pointerY * maxDim * 0.008;
+    camera.position.x = basePosition.x + pointerX * maxDim * 0.016 + drift;
+    camera.position.y = basePosition.y - pointerY * maxDim * 0.006;
     camera.lookAt(baseLook);
     renderer.render(scene, camera);
     raf = requestAnimationFrame(render);
@@ -195,10 +256,10 @@ async function initScene(container) {
   const resizeObserver = new ResizeObserver(() => {
     resize();
     if (root) {
-      const framed = frameObject(camera, root, container);
+      const framed = frameObject(THREE, camera, root, container);
       maxDim = framed.maxDim;
       basePosition.copy(camera.position);
-      baseLook.set(0, maxDim * 0.02, 0);
+      baseLook.set(0, -maxDim * 0.045, 0);
     }
   });
   resizeObserver.observe(container);
@@ -208,21 +269,20 @@ async function initScene(container) {
     stop();
     container.dataset.cityStatus = 'fallback';
   }, { passive: false });
-
   container.addEventListener('pointermove', onPointerMove, { passive: true });
   document.addEventListener('visibilitychange', onVisibility);
 
   try {
     const gltf = await loadWithFallback(loader, localUrl, remoteUrl);
     if (!active) return;
-    root = gltf.scene;
-    tuneImportedScene(root);
+    root = createCityCluster(THREE, gltf.scene);
+    if (root === gltf.scene) tuneImportedScene(root);
     scene.add(root);
-    centerObject(root);
-    const framed = frameObject(camera, root, container);
+    centerObject(THREE, root);
+    const framed = frameObject(THREE, camera, root, container);
     maxDim = framed.maxDim;
     basePosition.copy(camera.position);
-    baseLook.set(0, maxDim * 0.02, 0);
+    baseLook.set(0, -maxDim * 0.045, 0);
     resize();
     renderer.render(scene, camera);
     container.dataset.cityStatus = 'ready';
@@ -246,7 +306,6 @@ async function initScene(container) {
     }
     renderer.dispose();
   };
-
   window.addEventListener('pagehide', cleanup, { once: true });
 }
 
