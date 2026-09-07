@@ -1,0 +1,118 @@
+---
+interface Props {
+  kind: number;
+}
+const { kind } = Astro.props;
+const id = `publication-${kind}`;
+---
+
+<svg class={`publication-art art-${kind}`} viewBox="0 0 220 240" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id={`${id}-blue`}
+      ><stop stop-color="#043a9c"></stop><stop offset="1" stop-color="#007ffc"
+      ></stop></linearGradient
+    >
+    <linearGradient id={`${id}-violet`} x2="1" y2="1"
+      ><stop stop-color="#f7a2ff" stop-opacity=".65"></stop><stop
+        offset="1"
+        stop-color="#a521ee"
+        stop-opacity=".7"></stop></linearGradient
+    >
+    <pattern id={`${id}-dots`} width="8" height="8" patternUnits="userSpaceOnUse"
+      ><circle cx="2" cy="2" r=".7" fill={kind === 2 ? '#f369bd' : '#009dff'}></circle></pattern
+    >
+    <clipPath id={`${id}-clip`}><rect width="220" height="240"></rect></clipPath>
+  </defs>
+  <g clip-path={`url(#${id}-clip)`}>
+    {
+      kind === 0 && (
+        <>
+          <path d="M93-4 171 45V239L93 192Z" fill="#9edbff" />
+          <path d="M123 20 173 49V240l-50-30Z" fill={`url(#${id}-blue)`} />
+          <path d="m172 50 34 22v182l-34-22Z" fill="#0086fa" />
+          <path d="M43 240 174 165 220 192 137 240Z" fill="#056bfb" />
+          <path d="m112 237 94-55v-51l-94 55Z" fill="#00befb" opacity=".62" />
+          <path d="m65 127 154 92M171 0v240M117 14v226" stroke="#c7efff" stroke-width=".75" />
+          {Array.from({ length: 11 }, (_, i) => (
+            <path
+              d={`M${130 + i * 4} ${33 + i * 2.3}v202`}
+              stroke="#71c9ff"
+              stroke-width=".5"
+              opacity=".4"
+            />
+          ))}
+          <rect x="151" y="9" width="58" height="135" fill={`url(#${id}-dots)`} />
+        </>
+      )
+    }
+    {
+      kind === 1 && (
+        <>
+          <rect x="153" y="12" width="64" height="184" fill={`url(#${id}-dots)`} />
+          <path d="m49 153 80-44 90 52-83 47Z" fill="#aa0ce4" />
+          <path d="m38 176 83-46 86 49-85 48Z" fill="#d93ded" />
+          <path d="m82 221 80-46 58 32-58 34Z" fill="#00b8ed" opacity=".72" />
+          <path d="m118 201 56-32 29 17-55 33Z" fill="#0747d2" />
+          <path d="m52 21 83 47v110l-83-47Z" fill={`url(#${id}-violet)`} />
+          <path d="m135 68 80 46v111l-80-47Z" fill="#c883f5" opacity=".55" />
+          <path d="m52 131 83-46 80 47-80 46Z" fill="#d997ff" opacity=".72" />
+          <path d="M135 69v171M54 199l164-94" stroke="#d4bdff" stroke-width=".7" />
+          <path d="m48 211 80-46 89 51" stroke="#9fd4ff" stroke-width=".7" />
+        </>
+      )
+    }
+    {
+      kind === 2 && (
+        <>
+          <rect x="74" y="14" width="137" height="219" fill={`url(#${id}-dots)`} />
+          {Array.from({ length: 44 }, (_, i) => {
+            const y = 22 + i * 4;
+            const left =
+              i < 5
+                ? 140 - i * 3
+                : i < 12
+                  ? 123 + (i - 5) * 0.4
+                  : i < 20
+                    ? 126 - (i - 12) * 2.8
+                    : i < 23
+                      ? 104 + (i - 20) * 7
+                      : i < 28
+                        ? 125 - (i - 23) * 0.9
+                        : i < 33
+                          ? 121 + (i - 28) * 2
+                          : 131 + (i - 33) * 2.6;
+            return (
+              <path
+                d={`M${left} ${y}C${left + 15} ${y - 2} 156 ${y + 3} ${i > 33 ? 174 : 175 - i * 0.13} ${y}`}
+                stroke={i % 6 === 0 ? '#00cff2' : '#005af8'}
+                stroke-width=".85"
+              />
+            );
+          })}
+          <path
+            d="M162 18C139 10 122 24 122 44l4 25-22 29 19 5-4 25c-2 16 10 22 22 25l4 35 31 27"
+            stroke="#0b66f6"
+            stroke-width="1"
+          />
+          <path d="M78 25h39M94 33h23M103 42h14M108 51h9" stroke="#00c3f1" stroke-width="2" />
+          <path d="M92 63h21M101 71h12M106 79h7" stroke="#ff776c" stroke-width="2" />
+          {Array.from({ length: 18 }, (_, i) => (
+            <path
+              d={`M${62 + (i % 3) * 12} ${144 + Math.floor(i / 3) * 14}h2`}
+              stroke="#ff766c"
+              stroke-width="2"
+            />
+          ))}
+        </>
+      )
+    }
+  </g>
+</svg>
+<style>
+  .publication-art {
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+  }
+</style>

@@ -1,6 +1,39 @@
-# DIXIOS — Implementation Documentation Pack
+# DIXIOS — Astro website
 
-This repository is intentionally documentation-first.
+La implementación actual está en `src/`. La imagen aprobada en la raíz del proyecto guía la dirección artística. Se mantienen Hero, Servicios, Nosotros, Publicaciones, Contacto y Footer. El historial de investigación se conserva debajo; las indicaciones antiguas de mapas, etiquetas 3D o detenerse en Hero quedan sustituidas por el brief actual.
+
+## Ejecutar y verificar
+
+Requiere Node.js 22.12 o posterior (CI utiliza Node 24).
+
+```sh
+npm ci
+npm run dev
+npm run check
+npm test
+npm run build
+```
+
+`npm run dev` sirve `/` en el puerto que informa Astro (normalmente 4321). Astro 7 administra el servidor en segundo plano: `npx astro dev stop` lo detiene.
+
+| Entorno | Build | URL pública |
+| --- | --- | --- |
+| Local / producción | `npm run build:production` | `https://dixios.com/` |
+| GitHub Pages preview | `npm run build:pages` | `https://yimtu.github.io/webdixios/` |
+
+Para probar el build real, ejecutar `npm run serve:build -- --port 4323` y, en otra terminal, `TEST_URL=http://127.0.0.1:4323 npm run test:e2e`. En PowerShell establecer `$env:TEST_URL` antes del comando. Para Pages, servir con `--base /webdixios/` y configurar `TEST_PATH=/webdixios/`. Instalar primero Chromium con `npx playwright install chromium`.
+
+El workflow `check.yml` verifica ambos entornos; `deploy.yml` utiliza la acción oficial de Astro y solamente se dispara manualmente después de revisión humana. No configura dominio, DNS ni servicios externos.
+
+El formulario valida y prepara un correo a `contacto@dixios.com`; no afirma haber enviado mensajes. No existe endpoint de recepción aprobado. Las tres publicaciones son piezas editoriales sin enlace hasta recibir destinos aprobados.
+
+Decisiones, licencias y evidencia: [informe de implementación](docs/IMPLEMENTATION.md), [ciudad](docs/CITY-IMPLEMENTATION.md), [sistema gráfico](docs/VISUAL-PRIMITIVES.md), [licencias](licenses/README.md).
+
+---
+
+## Dossier de investigación original
+
+This repository began as a documentation-first research pack.
 
 The purpose of this pack is to stop rebuilding solved problems from scratch. For every visual subsystem in the target Dixios homepage, the docs below identify:
 

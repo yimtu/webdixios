@@ -1,0 +1,11 @@
+---
+interface Props {
+  variant?: 'cross' | 'lines' | 'dots';
+  class?: string;
+}
+const { variant = 'cross', class: className = '' } = Astro.props;
+---
+
+<div class:list={['motif', `motif-${variant}`, className]} aria-hidden="true">
+  {variant === 'cross' && Array.from({ length: 24 }, () => <span>+</span>)}
+</div>

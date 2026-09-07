@@ -1,0 +1,298 @@
+---
+interface Props {
+  kind: number;
+}
+const { kind } = Astro.props;
+const id = `service-${kind}`;
+const cubes =
+  kind === 0
+    ? [
+        { x: 109, y: 33, s: 28 },
+        { x: 60, y: 88, s: 28 },
+        { x: 154, y: 88, s: 28 },
+        { x: 110, y: 90, s: 16 },
+      ]
+    : [
+        { x: 64, y: 77, s: 25 },
+        { x: 159, y: 77, s: 25 },
+        { x: 112, y: 107, s: 22 },
+      ];
+const cube = (x: number, y: number, s: number) => ({
+  top: `${x},${y} ${x + s},${y + s * 0.5} ${x},${y + s} ${x - s},${y + s * 0.5}`,
+  left: `${x - s},${y + s * 0.5} ${x},${y + s} ${x},${y + s * 2} ${x - s},${y + s * 1.5}`,
+  right: `${x},${y + s} ${x + s},${y + s * 0.5} ${x + s},${y + s * 1.5} ${x},${y + s * 2}`,
+});
+---
+
+<svg class={`service-visual visual-${kind}`} viewBox="0 0 240 165" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id={`${id}-top`} x2="1" y2="1"
+      ><stop stop-color="#00c8ff"></stop><stop offset="1" stop-color="#0756ff"
+      ></stop></linearGradient
+    >
+    <linearGradient id={`${id}-left`} x2="1" y2="1"
+      ><stop stop-color="#168aff"></stop><stop offset="1" stop-color="#0054ed"
+      ></stop></linearGradient
+    >
+    <linearGradient id={`${id}-right`} x2="1" y2="0"
+      ><stop stop-color="#074cdb"></stop><stop offset="1" stop-color="#0130b6"
+      ></stop></linearGradient
+    >
+    <linearGradient id={`${id}-data`}
+      ><stop stop-color="#0ae2f3" stop-opacity=".48"></stop><stop
+        offset="1"
+        stop-color="#0075ff"
+        stop-opacity=".87"></stop></linearGradient
+    >
+    <linearGradient id={`${id}-purple`} x2="1" y2="1"
+      ><stop stop-color="#ff66ef"></stop><stop offset=".5" stop-color="#b31cff"></stop><stop
+        offset="1"
+        stop-color="#5900e4"></stop></linearGradient
+    >
+  </defs>
+  <g class="micro" stroke="currentColor" stroke-width=".85">
+    {
+      [0, 1, 2].map((row) =>
+        [0, 1].map((col) => <path d={`M ${15 + col * 12} ${28 + row * 12} h 4 m -2 -2 v 4`} />),
+      )
+    }
+  </g>
+  {
+    (kind === 0 || kind === 2) && (
+      <>
+        <path d="M 41 125 110 85 188 129 118 164 Z" fill="#edf4ff" opacity=".5" />
+        <g stroke="#80c9ff" stroke-width=".9">
+          <>
+            <path d="M60 112 110 82 159 111M110 82v47" />
+            <path
+              class="signal"
+              d="M60 112 110 82 159 111"
+              stroke="#00baff"
+              stroke-width="2"
+              pathLength="100"
+            />
+          </>
+        </g>
+        {cubes.map((c, i) => {
+          const p = cube(c.x, c.y, c.s);
+          return (
+            <g
+              class="cube"
+              style={`--delay:${i * -1.4}s;opacity:${kind === 0 && i === 3 ? 0.4 : 1}`}
+            >
+              <path d={`M${p.top}Z`} fill={`url(#${id}-top)`} />
+              <path d={`M${p.left}Z`} fill={`url(#${id}-left)`} />
+              <path d={`M${p.right}Z`} fill={`url(#${id}-right)`} />
+              <path
+                d={`M${c.x - c.s} ${c.y + c.s * 0.5} ${c.x} ${c.y + c.s} ${c.x + c.s} ${c.y + c.s * 0.5} M${c.x} ${c.y + c.s}v${c.s}`}
+                stroke="#d0f5ff"
+                stroke-opacity=".65"
+                stroke-width=".8"
+              />
+            </g>
+          );
+        })}
+        {kind === 2 && (
+          <g class="cube coral" style="--delay:-2s">
+            <path d="M112 28 143 44 112 61 81 44Z" fill="#ff998b" />
+            <path d="M81 44 112 61v34L81 78Z" fill="#ff796c" />
+            <path d="M112 61 143 44v34L112 95Z" fill="#ff594e" />
+            <path d="m81 44 31 17 31-17M112 61v34" stroke="#ffe0cf" stroke-width="1" />
+          </g>
+        )}
+      </>
+    )
+  }
+  {
+    kind === 1 && (
+      <>
+        <g stroke="#5acafa" stroke-width=".6" opacity=".45">
+          <path d="m35 125 121-70 82 48M53 141 175 71M73 150 195 81" />
+        </g>
+        {[0, 1, 2, 3].map((i) => (
+          <g class="plane" style={`--delay:${i * -1.5}s`}>
+            <path
+              d={`M${66 + i * 29} ${66 - i * 14}l61 33v69l-61-33Z`}
+              fill={`url(#${id}-data)`}
+              opacity={0.45 + i * 0.16}
+            />
+            <path
+              d={`M${66 + i * 29} ${66 - i * 14}v69l61 33`}
+              stroke="#84eaff"
+              stroke-width=".7"
+            />
+            {[0, 1, 2].map((j) => (
+              <circle
+                cx={77 + i * 29 + j * 13}
+                cy={82 - i * 14 + j * 7}
+                r="2.2"
+                fill={i % 2 ? '#bff8ff' : '#125cff'}
+              />
+            ))}
+          </g>
+        ))}
+        <path
+          d="M53 80 91 102 111 92 151 116 174 102M53 94 91 116 111 106 151 130 174 116"
+          stroke="#005fff"
+          opacity=".6"
+        />
+        <path
+          class="signal"
+          pathLength="100"
+          d="M53 80 91 102 111 92 151 116 174 102"
+          stroke="#003deb"
+          stroke-width="2"
+        />
+        {[0, 1, 2, 3, 4].map((i) => (
+          <path
+            d={`M${49 + i * 33} ${50 + i * 8}v82`}
+            stroke="#448cff"
+            stroke-dasharray="1 4"
+            opacity=".5"
+          />
+        ))}
+      </>
+    )
+  }
+  {
+    kind === 3 && (
+      <>
+        <path d="M46 119 121 79 199 119 122 160Z" fill="#8cbafa" opacity=".78" />
+        <g class="layer layer-bottom">
+          <>
+            <path d="M46 93 121 52 199 93 122 134Z" fill={`url(#${id}-purple)`} opacity=".85" />
+            <path d="m46 93 76 41v14L46 107Z" fill="#735ae4" opacity=".6" />
+            <path d="m122 134 77-41v14l-77 41Z" fill="#8000dc" opacity=".7" />
+          </>
+        </g>
+        <g class="layer layer-top">
+          <>
+            <path d="m67 71 54-29 57 29-56 30Z" fill="#db73ff" opacity=".7" />
+            <path d="m92 72 29-16 31 16-30 17Z" fill="#9500e3" />
+            <path d="m122 89 30-17v15l-30 17Z" fill="#5a00c6" />
+          </>
+        </g>
+        <g class="cube" style="--delay:-1.5s">
+          <>
+            <path d="m94 25 27-15 29 15-28 16Z" fill="#06176b" />
+            <path d="m94 25 28 16 28-16" stroke="#0047d9" stroke-width="1" />
+          </>
+        </g>
+        <path d="M122 45v19" stroke="#b35cff" stroke-dasharray="2 3" />
+      </>
+    )
+  }
+  {
+    kind === 4 && (
+      <>
+        <path d="M39 142 176 69 200 83 63 158Z" fill="#ede8ff" />
+        {[0, 1, 2, 3, 4, 5].map((i) => {
+          const x = 53 + i * 23;
+          const y = 127 - i * 17;
+          const h = 20 + i * 10;
+          return (
+            <g class="column" style={`--delay:${i * -0.7}s`} opacity={0.35 + i * 0.13}>
+              <path d={`M${x} ${y}l11-6 11 6-11 6Z`} fill="#8c51ff" />
+              <path d={`M${x} ${y}l11 6v${h}l-11-6Z`} fill="#7843fa" />
+              <path d={`M${x + 11} ${y + 6}l11-6v${h}l-11 6Z`} fill="#6200ed" />
+              <path d={`m${x} ${y} 11 6 11-6`} stroke="#c1a7ff" stroke-width=".7" />
+            </g>
+          );
+        })}
+      </>
+    )
+  }
+</svg>
+<style>
+  .service-visual {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    color: #0784ff;
+    contain: layout style;
+  }
+  .visual-1 {
+    color: #00cbe6;
+  }
+  .visual-2 {
+    color: #ff756e;
+  }
+  .visual-3,
+  .visual-4 {
+    color: #ed31fb;
+  }
+  .cube,
+  .plane,
+  .layer,
+  .column {
+    animation: float 8s ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+  .layer-top {
+    --delay: -3s;
+  }
+  .layer-bottom {
+    --delay: -1s;
+  }
+  .signal {
+    stroke-dasharray: 5 95;
+    animation: signal 8s linear infinite;
+  }
+  .column {
+    animation-duration: 7s;
+    animation-name: capacity;
+    transform-box: fill-box;
+    transform-origin: bottom;
+  }
+  .visual-1 .plane {
+    animation-name: organize;
+  }
+  .visual-2 .cube:not(.coral) {
+    animation: none;
+  }
+  @keyframes capacity {
+    50% {
+      transform: scaleY(0.96);
+    }
+  }
+  @keyframes organize {
+    50% {
+      transform: translateX(2px);
+      opacity: 0.8;
+    }
+  }
+  .micro {
+    opacity: 0.8;
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+  @keyframes signal {
+    to {
+      stroke-dashoffset: -100;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cube,
+    .plane,
+    .layer,
+    .column,
+    .signal {
+      animation: none;
+    }
+  }
+  :global([data-qa]) .cube,
+  :global([data-qa]) .plane,
+  :global([data-qa]) .layer,
+  :global([data-qa]) .column,
+  :global([data-qa]) .signal {
+    animation: none;
+  }
+</style>

@@ -1,0 +1,104 @@
+---
+const buildings = Array.from({ length: 23 }, (_, i) => ({
+  x: 100 + (i % 6) * 92 + Math.floor(i / 6) * 33,
+  y: 225 + Math.floor(i / 6) * 72 - (i % 6) * 15,
+  h: [68, 105, 158, 90, 180, 76, 42][i % 7],
+}));
+---
+
+<div
+  class="city"
+  data-city
+  data-city-state="loading"
+  data-base={import.meta.env.BASE_URL}
+  aria-hidden="true"
+>
+  <svg class="city-fallback" viewBox="0 0 800 520" focusable="false">
+    <defs>
+      <pattern id="city-windows" width="10" height="14" patternUnits="userSpaceOnUse"
+        ><rect width="2" height="4" fill="#16c8ff" opacity=".7"></rect></pattern
+      >
+    </defs>
+    <g class="city-streets" fill="none" stroke="#0873ff" stroke-width="1">
+      {
+        [0, 1, 2, 3, 4, 5, 6].map((i) => (
+          <path d={`M ${i * 110 - 150} 300 l 660 200 M ${i * 110 + 90} 510 l 570 -290`} />
+        ))
+      }
+      <path
+        class="city-signal"
+        d="M0 350 450 490 800 312 M200 520 750 235"
+        stroke="#24d5ff"
+        stroke-width="2"></path>
+    </g>
+    {
+      buildings.map(({ x, y, h }) => (
+        <g>
+          <path d={`M${x} ${y}v${-h}l34 -12 29 13v${h}l-29 13z`} fill="#073b9a" />
+          <path d={`M${x} ${y - h}l34 14 29 -13 -29 -13z`} fill="#1162d6" />
+          <path d={`M${x + 34} ${y - h + 14}v${h}l29 -13v${-h}z`} fill="#052258" />
+          <path d={`M${x + 6} ${y - h + 17}v${h - 23}l22 8v${23 - h}z`} fill="url(#city-windows)" />
+        </g>
+      ))
+    }
+  </svg>
+</div>
+<script>
+  const city = document.querySelector<HTMLElement>('[data-city]');
+  if (city) {
+    import('../../scripts/city')
+      .then(({ mountCity }) => mountCity(city))
+      .catch(() => {
+        city.dataset.cityState = 'fallback';
+      });
+  }
+</script>
+<style>
+  .city {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    contain: layout paint;
+  }
+  .city-fallback {
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+  }
+  .city :global(canvas) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+  }
+  .city[data-city-state='ready'] :global(canvas) {
+    opacity: 1;
+  }
+  .city[data-city-state='ready'] .city-fallback {
+    opacity: 0;
+  }
+  .city-signal {
+    stroke-dasharray: 60 240;
+    animation: city-signal 14s linear infinite;
+  }
+  @keyframes city-signal {
+    to {
+      stroke-dashoffset: -600;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .city-signal {
+      animation: none;
+    }
+    .city :global(canvas),
+    .city-fallback {
+      transition: none;
+    }
+  }
+</style>

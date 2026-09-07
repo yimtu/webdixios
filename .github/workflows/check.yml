@@ -1,0 +1,40 @@
+name: Review checks
+on:
+  pull_request:
+  push:
+    branches: ['codex/**']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run check && npm test && npm run build:production
+      - run: npx playwright install --with-deps chromium
+      - name: Browser checks at production root
+        run: |
+          npm run serve:build -- --port 4321 > /tmp/dixios-preview.log 2>&1 &
+          npx wait-on http://127.0.0.1:4321
+          npm run test:e2e
+      - run: npm run build:pages
+      - name: Browser checks at repository base
+        env:
+          TEST_URL: http://127.0.0.1:4322
+          TEST_PATH: /webdixios/
+        run: |
+          npm run serve:build -- --port 4322 --base /webdixios/ > /tmp/dixios-pages.log 2>&1 &
+          npx wait-on http://127.0.0.1:4322/webdixios/
+          npm run test:e2e
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: dixios-browser-evidence
+          path: |
+            artifacts/visual/
+            playwright-report/

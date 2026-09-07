@@ -1,0 +1,16 @@
+---
+import { navigation } from '../data/content';
+import Arrow from './Arrow.astro';
+---
+
+<header class="site-header container">
+  <a class="wordmark" href="#inicio" aria-label="Dixios, inicio">dixios</a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation"
+    >Menú <span aria-hidden="true">+</span></button
+  >
+  <nav id="main-navigation" aria-label="Navegación principal">
+    {navigation.map((item) => <a href={`#${item.id}`}>{item.label}</a>)}
+  </nav>
+  <a class="button button-outline header-cta" href="#contacto">Trabajemos juntos <Arrow /></a>
+  <div class="brand-pixels" aria-hidden="true">{Array.from({ length: 9 }, () => <i />)}</div>
+</header>

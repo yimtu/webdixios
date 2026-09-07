@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+# Manual only: human review must precede the first deployment.
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Build target (domain configuration is managed separately)
+        type: choice
+        options: [pages, production]
+        default: pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install, build and upload Astro site
+        uses: withastro/action@v6
+        with:
+          node-version: 24
+        env:
+          DEPLOY_TARGET: ${{ inputs.target }}
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v5

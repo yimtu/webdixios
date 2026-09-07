@@ -1,0 +1,174 @@
+---
+import '../styles/global.css';
+import '../styles/responsive.css';
+import Header from '../components/Header.astro';
+import Arrow from '../components/Arrow.astro';
+import Motif from '../components/Motif.astro';
+import Contact from '../components/Contact.astro';
+import City from '../components/hero/City.astro';
+import ServiceVisual from '../components/visuals/ServiceVisual.astro';
+import TeamVisual from '../components/visuals/TeamVisual.astro';
+import PublicationArt from '../components/visuals/PublicationArt.astro';
+import { services, publications, navigation } from '../data/content';
+const canonical = new URL(import.meta.env.BASE_URL, Astro.site);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      document.documentElement.dataset.js = 'true';
+      if (new URLSearchParams(location.search).get('qa') === '1')
+        document.documentElement.dataset.qa = 'true';
+    </script>
+    <meta name="theme-color" content="#032355" />
+    <meta
+      name="description"
+      content="Dixios. El encuentro de la tecnología con lo humano. Desarrollo de sistemas, análisis y gestión de datos, innovación pública, consultoría y capacitación."
+    />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <title>Dixios — El encuentro de la tecnología con lo humano</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="hero-wrap" id="inicio">
+      <Header />
+      <main id="contenido">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-city"><City /></div>
+          <Motif class="hero-crosses" /><Motif variant="lines" class="hero-lines" />
+          <Motif class="hero-crosses-bottom" />
+          <div class="container hero-content">
+            <p class="eyebrow hero-eyebrow">
+              Inteligencia · Transformación · Tecnología institucional
+            </p>
+            <h1 id="hero-title">El encuentro<br />de la tecnología<br />con lo humano</h1>
+            <p class="hero-description">
+              Dixios es una firma de inteligencia, transformación y tecnología institucional.
+              Convertimos problemas públicos complejos en sistemas funcionales de decisión y
+              ejecución.
+            </p>
+            <a class="button button-solid" href="#servicios">Conoce cómo trabajamos <Arrow /></a>
+            <div class="micro-system" aria-hidden="true">
+              <pre>– construir<br />– analizar<br />– transformar<br />– para mejores instituciones<br />_</pre>
+              <div class="micro-skyline">
+                {
+                  [2, 4, 7, 11, 15, 20, 25, 18, 13, 8, 5, 3].map((h, i) => (
+                    <i style={`--h:${h};--i:${i}`} />
+                  ))
+                }
+              </div>
+              <span>DIXIOS<br />INTELIGENCIA<br />PARA LO PÚBLICO</span>
+            </div>
+          </div>
+        </section>
+        <section id="servicios" class="services light-section" aria-labelledby="services-title">
+          <Motif class="services-crosses" /><Motif variant="dots" class="services-dots" />
+          <div class="container">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Capacidades para un mayor impacto</p><h2 id="services-title">
+                  Servicios
+                </h2>
+              </div><p class="section-intro">
+                Soluciones integrales para instituciones<br class="desktop-break" /> más capaces, justas
+                y humanas.
+              </p><p class="margin-note">Del diagnóstico<br />a la implementación</p>
+            </div>
+            <div class="service-grid">
+              {
+                services.map((service, i) => (
+                  <article class={`service service-${i}`}>
+                    <>
+                      <div class="service-art">
+                        <ServiceVisual kind={i} />
+                      </div>
+                      <span class="service-number" aria-hidden="true">
+                        0{i + 1}
+                      </span>
+                      <h3>{service.title}</h3>
+                      <p>{service.description}</p>
+                    </>
+                  </article>
+                ))
+              }
+            </div>
+          </div>
+        </section>
+        <section id="nosotros" class="about blue-section" aria-labelledby="about-title">
+          <Motif class="about-crosses" /><Motif variant="lines" class="about-lines" />
+          <div class="container about-grid">
+            <div class="about-copy">
+              <p class="eyebrow">Equipo, experiencia y propósito</p><h2 id="about-title">
+                Nosotros
+              </h2><p>
+                Somos una empresa mexicana de servicios tecnológicos especializada en el desarrollo
+                de proyectos de innovación.
+              </p><p>
+                Contamos con un equipo multidisciplinario de especialistas en: desarrollo de
+                software, ciencia de datos, política pública, educación, salud pública, etc.
+              </p>
+            </div><div class="team-art"><TeamVisual /></div>
+          </div>
+        </section>
+        <section
+          id="publicaciones"
+          class="publications light-section"
+          aria-labelledby="publications-title"
+        >
+          <Motif variant="lines" class="publications-lines" /><Motif class="publications-crosses" />
+          <div class="container">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Ideas para lo público</p><h2 id="publications-title">
+                  Publicaciones
+                </h2>
+              </div><p class="section-intro">
+                Análisis, experiencias y conversaciones<br class="desktop-break" /> sobre el futuro de
+                las instituciones.
+              </p><p class="margin-note">Conocimiento<br />que impulsa<br />mejores decisiones</p>
+            </div>
+            <div class="publication-grid">
+              {
+                publications.map((publication, i) => (
+                  <article class={`publication publication-${i}`}>
+                    <>
+                      <div class="publication-art">
+                        <PublicationArt kind={i} />
+                      </div>
+                      <div class="publication-copy">
+                        <>
+                          <p class="publication-category">{publication.category}</p>
+                          <h3>{publication.title}</h3>
+                          <time datetime={publication.iso}>{publication.date}</time>
+                        </>
+                      </div>
+                    </>
+                  </article>
+                ))
+              }
+            </div>
+          </div>
+        </section>
+        <Contact />
+      </main>
+    </div>
+    <footer class="footer">
+      <div class="container footer-inner">
+        <a class="wordmark" href="#inicio" aria-label="Dixios, volver al inicio">dixios</a><nav
+          aria-label="Navegación del pie de página"
+        >
+          {navigation.map((item) => <a href={`#${item.id}`}>{item.label}</a>)}
+        </nav><p>© DIXIOS. Todos los derechos reservados.</p><p class="footer-note">
+          Tecnología<br />Instituciones<br />Personas<br />Resultados
+        </p>
+      </div><Motif class="footer-crosses" />
+    </footer>
+    <script>
+      import '../scripts/site';
+    </script>
+  </body>
+</html>
