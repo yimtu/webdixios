@@ -192,6 +192,8 @@ export async function mountCity(container: HTMLElement) {
   let lastRender = 0;
   let district: THREE.Group | undefined;
   let signals: THREE.Mesh[] = [];
+  const assets = new AbortController();
+  const loadingDeadline = window.setTimeout(() => assets.abort(), 10_000);
   const fallback = () => {
     failed = true;
     cancelAnimationFrame(frame);
@@ -238,7 +240,7 @@ export async function mountCity(container: HTMLElement) {
   };
   const resume = () => {
     cancelAnimationFrame(frame);
-    if (disposed || failed) return;
+    if (disposed || failed || !district) return;
     renderer.render(scene, camera);
     if (!motionQuery.matches && !qa && visible && !document.hidden)
       frame = requestAnimationFrame(render);
@@ -256,6 +258,8 @@ export async function mountCity(container: HTMLElement) {
   document.addEventListener('visibilitychange', resume);
   const dispose = () => {
     disposed = true;
+    assets.abort();
+    clearTimeout(loadingDeadline);
     cancelAnimationFrame(frame);
     observer.disconnect();
     resizer.disconnect();
@@ -284,7 +288,11 @@ export async function mountCity(container: HTMLElement) {
     const base = container.dataset.base || '/';
     const models = await Promise.all(
       families.map(async (family) => {
-        const gltf = await loader.loadAsync(`${base}assets/city/low-detail-building-${family}.glb`);
+        const response = await fetch(`${base}assets/city/low-detail-building-${family}.glb`, {
+          signal: assets.signal,
+        });
+        if (!response.ok) throw new Error('City asset unavailable');
+        const gltf = await loader.parseAsync(await response.arrayBuffer(), `${base}assets/city/`);
         return gltf.scene;
       }),
     );
@@ -297,6 +305,9 @@ export async function mountCity(container: HTMLElement) {
     container.dataset.cityState = 'ready';
     resume();
   } catch {
-    fallback();
+    assets.abort();
+    if (!disposed) fallback();
+  } finally {
+    clearTimeout(loadingDeadline);
   }
 }

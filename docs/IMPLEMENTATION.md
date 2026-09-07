@@ -86,3 +86,22 @@ El usuario solicitó publicar la versión actual antes de continuar. Se habilit�
 - Después del despliegue, las **once pruebas E2E también pasaron contra la URL pública**, incluidos 390, 430, 768 y 1440 px, assets, accesibilidad, teclado y formulario.
 
 El workflow permite tags `dixios-preview-*`, pero cada nueva etiqueta requiere también autorización de la política de GitHub Pages o ejecución manual desde una referencia permitida. Un push normal de código a la rama no publica nuevas versiones.
+
+## Dominio definitivo
+
+Por indicación del usuario, la misma versión se volvió a publicar con `target=production`, desde la referencia autorizada `dixios-preview-2026-09-07`, sin merge ni cambios de DNS. GitHub Pages ya tenía configurado y verificado `dixios.com` al iniciar esta operación.
+
+- URL vigente: https://dixios.com/ (base `/`).
+- Build y despliegue correctos: https://github.com/yimtu/webdixios/actions/runs/34131919157.
+- Las once pruebas E2E pasaron contra `https://dixios.com/`, incluidos los cuatro anchos y la carga de assets.
+- La variante `https://www.dixios.com/` presentó un error de certificado al verificarla; no se considera validada. Compartir el dominio sin `www`.
+
+## Ajustes solicitados después de publicación
+
+- Desarrollo de sistemas: se quitó la transparencia del nodo pequeño, se distinguieron sus caras y se conectaron los cuatro nodos por sus bases. Conexiones y cubos comparten ahora una sola animación.
+- Publicaciones: fechas eliminadas, tres portadas enlazadas a páginas Markdown sin cuerpo de artículo. Véase `PUBLICACIONES.md`. Páginas vacías con `noindex`; los artículos terminados entran al sitemap al activar `published`.
+- Buscadores: título/descripción específicos, Open Graph, identidad WebSite JSON-LD, favicon vectorial sin dependencia de fuentes, robots.txt y sitemap.xml estáticos y base-safe. No se garantiza cuándo Google actualizará sus resultados. Guías consultadas: https://developers.google.com/search/docs/appearance/favicon-in-search y https://developers.google.com/search/docs/appearance/title-link.
+- Carga: las descargas GLB tienen límite de diez segundos y abortan en fallo; el SVG inicial sigue visible. Se evita animar la escena vacía durante la descarga.
+- Diagnóstico móvil: WebKit emulando iPhone 13 cargó el sitio público sin errores ni overflow; no reproduce un teléfono físico en su red 5G. La captura no demuestra la causa exacta.
+- Problema externo confirmado: HTTPS de `www.dixios.com` falla por certificado, CNAME actual apunta al apex. GitHub requiere CNAME `www` → `yimtu.github.io`: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site. No se modificó DNS.
+- Pruebas: nuevas pruebas fallaron antes de implementar; posteriormente quince E2E pasaron tanto en build `/` como `/webdixios/`; seis unitarias, módulo contacto con cobertura 100%, audit sin vulnerabilidades. Revisión independiente sin bloqueos altos. Advertencia de tamaño del chunk Three.js ya documentada sigue vigente.

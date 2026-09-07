@@ -16,24 +16,21 @@ export const services = [
   { title: 'Capacitación', description: 'Instituciones que aprenden y se fortalecen.' },
 ] as const;
 
-// Titles: docs/09. Dates/categories: approved reference image; no invented destinations.
+// Approved titles/categories; article bodies are intentionally left for the author.
 export const publications = [
   {
     title: 'Educación universitaria y cambio tecnológico en México',
     category: 'Educación',
-    date: '12 de marzo, 2024',
-    iso: '2024-03-12',
+    slug: 'educacion-universitaria-y-cambio-tecnologico-en-mexico',
   },
   {
     title: 'Manual de prompting para principiantes',
     category: 'Tecnología',
-    date: '6 de marzo, 2024',
-    iso: '2024-03-06',
+    slug: 'manual-de-prompting-para-principiantes',
   },
   {
     title: '¿Qué son las humanidades digitales?',
     category: 'Sociedad',
-    date: '28 de febrero, 2024',
-    iso: '2024-02-28',
+    slug: 'que-son-las-humanidades-digitales',
   },
 ] as const;

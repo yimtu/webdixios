@@ -59,14 +59,22 @@ const cube = (x: number, y: number, s: number) => ({
   </g>
   {
     (kind === 0 || kind === 2) && (
-      <>
+      <g class={kind === 0 ? 'system-assembly' : undefined}>
         <path d="M 41 125 110 85 188 129 118 164 Z" fill="#edf4ff" opacity=".5" />
         <g stroke="#80c9ff" stroke-width=".9">
           <>
-            <path d="M60 112 110 82 159 111M110 82v47" />
+            <path
+              d={
+                kind === 0
+                  ? 'M60 144 110 116 154 144M109 89 110 116V122'
+                  : 'M60 112 110 82 159 111M110 82v47'
+              }
+            />
             <path
               class="signal"
-              d="M60 112 110 82 159 111"
+              d={
+                kind === 0 ? 'M60 144 110 116 154 144M109 89 110 116V122' : 'M60 112 110 82 159 111'
+              }
               stroke="#00baff"
               stroke-width="2"
               pathLength="100"
@@ -76,13 +84,16 @@ const cube = (x: number, y: number, s: number) => ({
         {cubes.map((c, i) => {
           const p = cube(c.x, c.y, c.s);
           return (
-            <g
-              class="cube"
-              style={`--delay:${i * -1.4}s;opacity:${kind === 0 && i === 3 ? 0.4 : 1}`}
-            >
-              <path d={`M${p.top}Z`} fill={`url(#${id}-top)`} />
-              <path d={`M${p.left}Z`} fill={`url(#${id}-left)`} />
-              <path d={`M${p.right}Z`} fill={`url(#${id}-right)`} />
+            <g class="cube" style={`--delay:${i * -1.4}s`}>
+              <path d={`M${p.top}Z`} fill={kind === 0 && i === 3 ? '#e3f5ff' : `url(#${id}-top)`} />
+              <path
+                d={`M${p.left}Z`}
+                fill={kind === 0 && i === 3 ? '#9cceff' : `url(#${id}-left)`}
+              />
+              <path
+                d={`M${p.right}Z`}
+                fill={kind === 0 && i === 3 ? '#57a5ef' : `url(#${id}-right)`}
+              />
               <path
                 d={`M${c.x - c.s} ${c.y + c.s * 0.5} ${c.x} ${c.y + c.s} ${c.x + c.s} ${c.y + c.s * 0.5} M${c.x} ${c.y + c.s}v${c.s}`}
                 stroke="#d0f5ff"
@@ -100,7 +111,7 @@ const cube = (x: number, y: number, s: number) => ({
             <path d="m81 44 31 17 31-17M112 61v34" stroke="#ffe0cf" stroke-width="1" />
           </g>
         )}
-      </>
+      </g>
     )
   }
   {
@@ -223,6 +234,7 @@ const cube = (x: number, y: number, s: number) => ({
     color: #ed31fb;
   }
   .cube,
+  .system-assembly,
   .plane,
   .layer,
   .column {
@@ -249,6 +261,9 @@ const cube = (x: number, y: number, s: number) => ({
     animation-name: organize;
   }
   .visual-2 .cube:not(.coral) {
+    animation: none;
+  }
+  .visual-0 .cube {
     animation: none;
   }
   @keyframes capacity {
@@ -280,6 +295,7 @@ const cube = (x: number, y: number, s: number) => ({
     }
   }
   @media (prefers-reduced-motion: reduce) {
+    .system-assembly,
     .cube,
     .plane,
     .layer,
@@ -289,6 +305,7 @@ const cube = (x: number, y: number, s: number) => ({
     }
   }
   :global([data-qa]) .cube,
+  :global([data-qa]) .system-assembly,
   :global([data-qa]) .plane,
   :global([data-qa]) .layer,
   :global([data-qa]) .column,
