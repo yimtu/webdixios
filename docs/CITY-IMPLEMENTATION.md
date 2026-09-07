@@ -1,0 +1,11 @@
+# Ciudad Dixios
+
+Se utiliza geometría real de **Kenney City Kit Commercial 2.1**. Fuente verificada y descargada el 7 de septiembre de 2026: https://kenney.nl/assets/city-kit-commercial. La página y `License.txt` del paquete declaran **CC0 1.0**: https://creativecommons.org/publicdomain/zero/1.0/. Permite uso comercial, modificación y redistribución; atribución opcional. Se conserva la licencia original en `licenses/kenney-city-commercial-original.txt`.
+
+Archivos seleccionados: `low-detail-building-a.glb`, `low-detail-building-d.glb`, `low-detail-building-f.glb`, `low-detail-building-i.glb`, `low-detail-building-k.glb`, desde `Models/GLB format/`. Destino: `public/assets/city/`. Se conservan las mallas originales de baja complejidad. Se eliminan referencias a la textura raster y se reemplaza el material por un azul; iluminación de ventanas calculada mediante shader. La conversión preserva los buffers geométricos, evitando pérdidas en silueta y dependencias de decodificación. El subconjunto completo pesa menos de 55 KB; no justifica añadir Draco/Meshopt ni el megapaquete completo.
+
+Ingeniería: `GLTFLoader` y renderer nativo Three.js, sin React ni postprocesado. Documentación consultada: https://threejs.org/docs/pages/GLTFLoader.html y https://threejs.org/manual/en/responsive.html. No se copió código de demos ni identidad de terceros. Se revisó la previsualización del paquete antes de seleccionar las cinco familias.
+
+La composición utiliza 30 edificios (24 en móvil), calles ortogonales azules, fachadas azules y ventanas cian integradas en el mismo shader. Las geometrías se comparten entre clones. No hay edificios emblemáticos, monumentos, etiquetas ni texto WebGL. El movimiento se limita a seis señales de tránsito (tres en móvil), ~30 FPS escritorio / ~15 FPS móvil. DPR máximo 1.5 / 1; pausa fuera de viewport y con pestaña oculta. Reduced motion renderiza una escena estable. `?qa=1` congela señales y cámara, y `?webgl=off` permite verificar el fallback SVG original (sin raster). El contenedor expone `data-city-state="ready"` o `"fallback"` para QA.
+
+La carga usa `import.meta.env.BASE_URL` propagada por Astro. El fallback SVG está disponible desde el HTML inicial y permanece visible ante fallos de carga, contexto o WebGL. Las pruebas visuales y de integración finales se documentan en el informe general del proyecto.

@@ -1,0 +1,75 @@
+---
+import Arrow from './Arrow.astro';
+import Motif from './Motif.astro';
+---
+
+<section id="contacto" class="contact blue-section" aria-labelledby="contact-title">
+  <Motif class="contact-pattern" />
+  <div class="container contact-grid">
+    <div class="contact-heading">
+      <p class="eyebrow">Hablemos</p><h2 id="contact-title">Contacto</h2><p>
+        Conversemos sobre cómo construir<br class="desktop-break" /> mejores instituciones.
+      </p><a class="email-link" href="mailto:contacto@dixios.com">contacto@dixios.com</a>
+    </div>
+    <div class="contact-note" aria-hidden="true">
+      <span>Ideas<br />Datos<br />Personas<br />Instituciones<br />Resultados</span><i>—</i>
+    </div>
+    <form
+      id="contact-form"
+      action="mailto:contacto@dixios.com"
+      method="get"
+      aria-describedby="contact-help"
+    >
+      <div class="form-fields js-contact">
+        <label
+          ><span>Nombre</span><input
+            name="name"
+            autocomplete="name"
+            required
+            maxlength="120"
+            placeholder="Nombre"
+          /></label
+        >
+        <label
+          ><span>Email</span><input
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+            maxlength="254"
+            placeholder="Email"
+          /></label
+        >
+        <label
+          ><span>Teléfono <span class="optional">(opcional)</span></span><input
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            maxlength="40"
+            placeholder="Teléfono"
+          /></label
+        >
+        <label
+          ><span>Tema</span><input
+            name="topic"
+            required
+            maxlength="200"
+            placeholder="Tema"
+          /></label
+        >
+      </div>
+      <button type="submit" class="button button-solid js-contact"
+        >Preparar mensaje <Arrow /></button
+      >
+      <p id="contact-help" class="form-help js-contact">
+        Se abrirá tu aplicación de correo para enviar el mensaje.
+      </p>
+      <p id="contact-status" class="form-status" role="status" aria-live="polite"></p>
+      <noscript
+        ><p class="form-help">
+          Para escribirnos, utiliza <a href="mailto:contacto@dixios.com">contacto@dixios.com</a>.
+        </p></noscript
+      >
+    </form>
+  </div>
+</section>
