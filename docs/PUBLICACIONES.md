@@ -1,6 +1,6 @@
 # Escribir las publicaciones
 
-Cada portada abre una página propia. Por solicitud del autor, las páginas comienzan sin cuerpo de artículo ni fechas: únicamente el título y la navegación para volver.
+Cada portada abre una página propia. Las tres páginas ya contienen los artículos proporcionados por el autor, editados para claridad y tono institucional. Conservan sus títulos y URLs, sin fechas ni autorías añadidas.
 
 Los textos se editan en estos archivos Markdown:
 
@@ -19,5 +19,11 @@ Cuando el artículo esté completo, cambia `published: false` por `published: tr
 Puedes añadir `description: Tu resumen aprobado` dentro del bloque entre `---` para la descripción de buscadores. No se agregan autores, fechas ni otros datos automáticamente.
 
 Los artículos con `published: true` también se incorporan automáticamente al sitemap durante la compilación.
+
+## Edición de los textos recibidos
+
+Se reemplazaron las comparaciones por bloques geopolíticos por apartados temáticos, conservando los argumentos de educación, prompting y patrimonio. Los ejemplos del manual usan atención ciudadana en lugar de reformas políticamente sensibles. Las cifras de educación se atribuyen al comunicado de la SEP enlazado; se retiraron referencias académicas imprecisas. Los enlaces primarios aparecen junto a las afirmaciones correspondientes.
+
+La presentación conserva el diseño editorial existente; únicamente se dimensionaron los subtítulos del cuerpo, se distinguieron citas y se subrayaron fuentes para lectura y accesibilidad.
 
 Las rutas usan la base de Astro: funcionan tanto en `/` como en `/webdixios/`. El layout compartido está en `src/layouts/PublicationLayout.astro`, basado en los [layouts oficiales de Markdown de Astro](https://docs.astro.build/en/basics/layouts/).

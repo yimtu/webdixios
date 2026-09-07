@@ -8,9 +8,7 @@ const titles = [
   '¿Qué son las humanidades digitales?',
 ];
 
-test('publications have no dates and link to accessible empty editorial pages', async ({
-  page,
-}) => {
+test('publications have no dates and link to accessible published articles', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${base}?qa=1`);
   await expect(page.locator('#publicaciones time')).toHaveCount(0);
@@ -20,8 +18,12 @@ test('publications have no dates and link to accessible empty editorial pages', 
     await link.focus();
     await page.keyboard.press('Enter');
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(title);
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
-    await expect(page.locator('.article-body')).toBeEmpty();
+    await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(0);
+    const article = page.locator('.article-body');
+    expect((await article.innerText()).trim().split(/\s+/).length).toBeGreaterThan(700);
+    expect(await article.locator('h2').count()).toBeGreaterThan(3);
+    expect(await article.innerText()).not.toMatch(/\b(Irán|China|Rusia|Guardia Nacional)\b/i);
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /\S.{60,}/);
     await expect(page.locator('time')).toHaveCount(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
@@ -34,3 +36,41 @@ test('publications have no dates and link to accessible empty editorial pages', 
     await expect(page).toHaveURL(new RegExp(`${base}#publicaciones$`));
   }
 });
+
+test('published articles are included in the sitemap', async ({ request }) => {
+  const response = await request.get(`${base}sitemap.xml`);
+  expect(response.ok()).toBe(true);
+  expect((await response.text()).match(/<loc>/g)).toHaveLength(4);
+});
+
+for (const width of [390, 430, 768, 1440]) {
+  test(`article reading layout at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1000 });
+    await page.goto(base);
+    for (const [i, title] of titles.entries()) {
+      await page.getByRole('link', { name: title, exact: true }).click();
+      const body = page.locator('.article-body');
+      expect(
+        await body
+          .locator('h2')
+          .first()
+          .evaluate((el) => parseFloat(getComputedStyle(el).fontSize)),
+      ).toBeLessThanOrEqual(34);
+      expect(
+        await body
+          .locator('a')
+          .first()
+          .evaluate((el) => getComputedStyle(el).textDecorationLine),
+      ).toContain('underline');
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+        true,
+      );
+      await page.evaluate(() => document.fonts.ready);
+      await page.screenshot({
+        path: `artifacts/visual/article-${i}-${width}.png`,
+        fullPage: false,
+      });
+      await page.getByRole('link', { name: 'Volver a publicaciones' }).click();
+    }
+  });
+}
