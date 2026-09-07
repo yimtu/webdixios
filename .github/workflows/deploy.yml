@@ -1,6 +1,8 @@
 name: Deploy to GitHub Pages
-# Manual only: human review must precede the first deployment.
+# Deploy only an explicitly published preview tag, or a manual request.
 on:
+  push:
+    tags: ['dixios-preview-*']
   workflow_dispatch:
     inputs:
       target:
@@ -25,7 +27,7 @@ jobs:
         with:
           node-version: 24
         env:
-          DEPLOY_TARGET: ${{ inputs.target }}
+          DEPLOY_TARGET: ${{ inputs.target || 'pages' }}
   deploy:
     needs: build
     runs-on: ubuntu-latest
