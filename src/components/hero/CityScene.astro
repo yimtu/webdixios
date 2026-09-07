@@ -1,0 +1,35 @@
+---
+const base = import.meta.env.BASE_URL;
+const localModel = `${base}assets/hero/night-city.glb`;
+const fallback = `${base}assets/hero/city-fallback.svg`;
+const remoteModel = 'https://raw.githubusercontent.com/sceneview/sceneview/2056ddd0fd76de38b69f590589894ff966d97a83/assets/models/glb/night_city.glb';
+const sourceUrl = 'https://sketchfab.com/3d-models/low-poly-night-city-building-skyline-b0035b8713b048bb8ddf311ee67c28c8';
+---
+<div
+  class="hero-city"
+  data-city-scene
+  data-city-status="poster"
+  data-city-src={localModel}
+  data-city-remote-src={remoteModel}
+>
+  <img
+    class="hero-city__poster"
+    src={fallback}
+    alt=""
+    width="1600"
+    height="1000"
+    decoding="async"
+    fetchpriority="high"
+  />
+  <canvas class="hero-city__canvas" aria-hidden="true"></canvas>
+  <div class="hero-city__duotone" aria-hidden="true"></div>
+  <div class="hero-city__vignette" aria-hidden="true"></div>
+  <a class="hero-city__credit" href={sourceUrl} target="_blank" rel="noreferrer">
+    Ciudad 3D: 99.Miles · CC BY 4.0
+  </a>
+</div>
+
+<script>
+  import { initHeroCityScenes } from '../../scripts/hero-city.js';
+  initHeroCityScenes();
+</script>

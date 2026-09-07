@@ -1,0 +1,45 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="80" x2="1410" y2="930" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#010824"/>
+      <stop offset="1" stop-color="#031238"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="570" y1="260" x2="1270" y2="840" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#062B6F"/>
+      <stop offset="1" stop-color="#0B4FD3"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="13"/>
+    </filter>
+    <pattern id="windows" width="26" height="24" patternUnits="userSpaceOnUse">
+      <rect x="4" y="5" width="8" height="4" rx="1" fill="#6DA8FF" fill-opacity=".55"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <ellipse cx="1110" cy="725" rx="470" ry="190" fill="#0B4FD3" fill-opacity=".17" filter="url(#glow)"/>
+  <g opacity=".9">
+    <path d="M398 776H1420" stroke="#0B4FD3" stroke-opacity=".48"/>
+    <path d="M466 850L1335 492" stroke="#0B4FD3" stroke-opacity=".25"/>
+    <path d="M590 922L1417 563" stroke="#6DA8FF" stroke-opacity=".17"/>
+  </g>
+  <g fill="url(#blue)" stroke="#6DA8FF" stroke-opacity=".22">
+    <path d="M695 714V391H806V714H695Z"/>
+    <path d="M816 714V301H949V714H816Z"/>
+    <path d="M960 714V214H1114V714H960Z"/>
+    <path d="M1127 714V348H1248V714H1127Z"/>
+    <path d="M1260 714V438H1360V714H1260Z"/>
+    <path d="M568 714V475H681V714H568Z"/>
+    <path d="M1040 214L1032 153L1024 214H1040Z"/>
+  </g>
+  <g fill="url(#windows)" opacity=".83">
+    <rect x="706" y="408" width="90" height="288"/>
+    <rect x="830" y="320" width="105" height="374"/>
+    <rect x="976" y="236" width="122" height="458"/>
+    <rect x="1140" y="366" width="94" height="328"/>
+    <rect x="1272" y="456" width="76" height="238"/>
+    <rect x="580" y="494" width="89" height="200"/>
+  </g>
+  <path d="M470 764C681 734 849 778 1045 746C1220 717 1344 662 1450 612" stroke="#6DA8FF" stroke-width="3" stroke-linecap="round" stroke-opacity=".55"/>
+  <circle cx="749" cy="748" r="7" fill="#6DA8FF"/>
+  <circle cx="1084" cy="735" r="7" fill="#0B4FD3"/>
+</svg>

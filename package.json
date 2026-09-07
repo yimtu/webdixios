@@ -1,0 +1,22 @@
+{
+  "name": "dixios-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "predev": "node scripts/fetch-hero-assets.mjs",
+    "build": "astro build",
+    "prebuild": "node scripts/fetch-hero-assets.mjs",
+    "preview": "astro preview",
+    "check:hero": "node scripts/validate-hero-source.mjs",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "astro": "7.3.1",
+    "three": "0.185.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

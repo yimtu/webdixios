@@ -1,0 +1,28 @@
+---
+import '../styles/tokens.css';
+import '../styles/global.css';
+import '../styles/hero.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Dixios — El encuentro de la tecnología con lo humano',
+  description = 'Inteligencia, transformación y tecnología institucional.'
+} = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#010824" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
