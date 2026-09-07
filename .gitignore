@@ -1,8 +1,0 @@
-node_modules/
-dist/
-.astro/
-playwright-report/
-test-results/
-public/assets/hero/night-city.glb
-.DS_Store
-*.log
