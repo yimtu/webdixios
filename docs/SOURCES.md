@@ -78,12 +78,36 @@ This file is the flat source index for the Dixios reconstruction research.
 - Centered Footer With Logo — https://ui.aceternity.com/blocks/footers/centered-with-logo
 - Magic UI docs — https://magicui.design/docs/components
 - Magic UI Animated Beam — https://magicui.design/docs/components/animated-beam
+- Magic UI Orbiting Circles — https://magicui.design/docs/components/orbiting-circles
 - Magic UI Animated Grid Pattern — https://magicui.design/docs/components/animated-grid-pattern
+- 21st.dev community components — https://21st.dev/community/components
+- React Flow docs — https://reactflow.dev/
+- React Flow examples — https://reactflow.dev/examples
+- Rive Marketplace — https://rive.app/marketplace/
+- Spline Community — https://community.spline.design/
+- Spline Viewer — https://viewer.spline.design/
+- Spline web export docs — https://docs.spline.design/exporting-your-scene/web/exporting-as-spline-viewer
 - shadcn blocks — https://ui.shadcn.com/blocks
 - Base UI — https://base-ui.com/
 - React Aria — https://react-spectrum.adobe.com/react-aria/
 - Radix — https://www.radix-ui.com/primitives
 - Ark UI — https://ark-ui.com/
+
+## ASCII / textmode / generative typography
+
+- FIGlet.js repo — https://github.com/patorjk/figlet.js
+- textmode.js repo — https://github.com/humanbydefinition/textmode.js
+- textmode.js docs — https://code.textmode.art/docs/
+- textmode.js gallery — https://code.textmode.art/gallery
+- textmode.js editor — https://editor.textmode.art/
+- ASCII Motion site — https://www.ascii-motion.com/
+- ASCII Motion app — https://ascii-motion.app/
+- ASCII Motion repo — https://github.com/CameronFoxly/Ascii-Motion
+- ASCII Motion open-source page — https://www.ascii-motion.com/open-source
+- Rune repo — https://github.com/zeke-john/rune
+- ascii-canvas repo — https://github.com/phyrextsai/ascii-canvas
+- ascii-globe repo — https://github.com/jcubic/ascii-globe
+- asciianimesvg repo — https://github.com/syi0808/asciianimesvg
 
 ## Mexico / geo
 
@@ -109,21 +133,20 @@ This file is the flat source index for the Dixios reconstruction research.
 - Pts.js repo — https://github.com/williamngan/pts
 - Paper.js — https://paperjs.org/
 - Paper.js repo — https://github.com/paperjs/paper.js
-- textmode.js repo — https://github.com/humanbydefinition/textmode.js
-- textmode gallery — https://code.textmode.art/gallery
 - Radiant — https://radiant-shaders.com/
 - Radiant repo — https://github.com/pbakaus/radiant
 - shader.gallery — https://shader.gallery/
 - cables.gl — https://cables.gl/
 - cables repo — https://github.com/cables-gl/cables
-- Spline Community — https://community.spline.design/
 
 ## Data visualization
 
 - D3 docs — https://d3js.org/
 - D3 Force — https://d3js.org/d3-force
 - Observable Plot — https://observablehq.com/plot/
+- Apache ECharts — https://echarts.apache.org/
 - Apache ECharts examples — https://echarts.apache.org/examples/en/index.html
+- Apache ECharts repo — https://github.com/apache/echarts
 - Vega-Lite examples — https://vega.github.io/vega-lite/examples/
 
 ## Visual QA
@@ -155,4 +178,5 @@ For every source adopted in code:
 2. pin package/repo version or commit when practical;
 3. record what was copied/adapted;
 4. keep attribution/license material if required;
-5. do not copy third-party images/fonts/assets merely because a demo's code is permissively licensed.
+5. do not copy third-party images/fonts/assets merely because a demo's code is permissively licensed;
+6. treat visual marketplaces such as 21st.dev as discovery surfaces unless the exact underlying component/source license is verified.
