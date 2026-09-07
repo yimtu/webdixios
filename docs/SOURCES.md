@@ -85,6 +85,44 @@ This file is the flat source index for the Dixios reconstruction research.
 - Radix — https://www.radix-ui.com/primitives
 - Ark UI — https://ark-ui.com/
 
+## Capability design marketplaces / visual systems
+
+These are visual references and marketplace products, not assumed reusable code sources. Full notes and selection rationale live in `docs/10-CAPABILITIES-DESIGN-RESOURCE-LIBRARY.md`.
+
+### Sistemas
+
+- AURA OS — https://www.framer.com/marketplace/templates/aura-os/
+- Systems — https://www.framer.com/marketplace/templates/systems/
+- Atmos — https://www.framer.com/marketplace/templates/atmos/
+
+### Datos
+
+- Dawning — https://www.framer.com/marketplace/templates/dawning/
+- Nauka Research — https://webflow.com/templates/html/nauka-research-website-template
+- ML-Studio — https://webflow.com/templates/html/ml-studio-website-template
+- Quantia — https://www.framer.com/marketplace/templates/quantia/
+
+### Innovación pública
+
+- Quantia — https://www.framer.com/marketplace/templates/quantia/
+- ML-Studio — https://webflow.com/templates/html/ml-studio-website-template
+- DesignLab — https://www.framer.com/marketplace/templates/designlab/
+- Framer Technology Templates — https://www.framer.com/marketplace/templates/categories/technology/
+
+### Asesoría
+
+- Taylor Studio — https://www.framer.com/marketplace/templates/taylor-studio/
+- Advisory — https://webflow.com/templates/html/advisory-agency-website-template
+- Consila — https://www.framer.com/marketplace/templates/consila/
+- Orisun — https://www.framer.com/marketplace/templates/orisun/
+
+### Capacitación
+
+- Skolar — https://webflow.com/templates/html/skolar-website-template
+- Edura — https://www.framer.com/marketplace/templates/edura/
+- Nextleep — https://webflow.com/templates/html/nextleep-website-template
+- E-Lab — https://webflow.com/templates/html/e-lab-website-template
+
 ## Mexico / geo
 
 - mx-geo repo — https://github.com/webrek/mx-geo
