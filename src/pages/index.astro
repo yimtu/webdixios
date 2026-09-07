@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import '../styles/responsive.css';
 import Header from '../components/Header.astro';
+import SiteIcons from '../components/SiteIcons.astro';
 import Arrow from '../components/Arrow.astro';
 import Motif from '../components/Motif.astro';
 import Contact from '../components/Contact.astro';
@@ -29,7 +30,7 @@ const description =
     <meta name="theme-color" content="#032355" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <SiteIcons />
     <meta property="og:site_name" content="Dixios" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_MX" />

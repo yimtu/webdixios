@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SiteIcons from '../components/SiteIcons.astro';
 interface Props {
   frontmatter: { title: string; published?: boolean; description?: string };
 }
@@ -17,7 +18,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     {!frontmatter.published && <meta name="robots" content="noindex, follow" />}
     {frontmatter.description && <meta name="description" content={frontmatter.description} />}
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <SiteIcons />
     <title>{frontmatter.title} — Dixios</title>
   </head>
   <body>

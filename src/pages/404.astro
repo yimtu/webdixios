@@ -1,0 +1,85 @@
+---
+import '../styles/global.css';
+import SiteIcons from '../components/SiteIcons.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#032355" />
+    <SiteIcons />
+    <title>Página no encontrada — Dixios</title>
+  </head>
+  <body>
+    <main>
+      <a class="wordmark" href={base} aria-label="Dixios, inicio">dixios</a>
+      <p class="code">404</p>
+      <h1>No encontramos esta página</h1>
+      <p>
+        Puede que hayas seguido un enlace antiguo o que la dirección sea incorrecta. Puedes
+        continuar en la web actual de Dixios.
+      </p>
+      <nav aria-label="Continuar en Dixios">
+        <a href={base}>Volver al inicio</a>
+        <a href={`${base}#publicaciones`}>Ver publicaciones</a>
+      </nav>
+    </main>
+  </body>
+</html>
+
+<style>
+  body {
+    min-height: 100vh;
+    background: #fdfdfb;
+    color: #032355;
+  }
+  main {
+    max-width: 760px;
+    margin: auto;
+    padding: 56px 24px 80px;
+  }
+  .wordmark {
+    display: inline-block;
+    font-size: 48px;
+  }
+  .code {
+    margin-top: 100px;
+    color: #0074a3;
+    font-size: 16px;
+    letter-spacing: 0.12em;
+  }
+  h1 {
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.07;
+    letter-spacing: -0.04em;
+    margin: 20px 0;
+  }
+  h1 + p {
+    max-width: 540px;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 36px;
+  }
+  nav a {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    padding: 10px 0;
+  }
+  @media (max-width: 600px) {
+    main {
+      padding-top: 28px;
+    }
+    .code {
+      margin-top: 64px;
+    }
+  }
+</style>
