@@ -1,130 +1,74 @@
 ---
 layout: ../../layouts/PublicationLayout.astro
 title: ¿Qué son las humanidades digitales?
-description: Las humanidades digitales convierten patrimonio y fuentes culturales en corpus, datos, mapas, redes y modelos sin renunciar a la crítica, la procedencia y la interpretación.
+description: Cultura, datos y computación para estudiar el patrimonio, conectar colecciones y conservar la procedencia de la información en la era de la IA.
 published: true
 ---
 
-Las humanidades digitales no son “humanidades en una computadora”. Tampoco consisten en escanear libros, abrir una cuenta de museo en redes sociales o pedirle a una inteligencia artificial que resuma una novela.
+Una fotografía digitalizada permite observar una escena. Si conocemos su autoría, lugar, fecha, colección y condiciones de uso, también podemos relacionarla con otras imágenes, contrastarla con documentos y estudiarla como parte de un proceso histórico. Esa diferencia ayuda a entender qué aportan las humanidades digitales.
 
-Son una forma de investigación y construcción de infraestructura en la que problemas de historia, literatura, lingüística, filosofía, arte, arqueología, música o patrimonio se trabajan con datos y métodos computacionales **sin abandonar las preguntas, la crítica de fuentes y la interpretación que definen a las humanidades**.
+El campo reúne preguntas de la historia, la literatura, la lingüística, el arte y otras disciplinas con métodos digitales. Su trabajo se desarrolla en la intersección entre cultura, datos y computación: organiza materiales, construye herramientas de análisis y examina críticamente cómo la tecnología interviene en nuestra relación con el conocimiento.
 
-Una colección de periódicos puede convertirse en un corpus para estudiar cómo cambia el lenguaje político durante un siglo. Miles de cartas pueden modelarse como una red para reconstruir circulación de ideas. Mapas históricos pueden alinearse con información geográfica contemporánea. Manuscritos pueden procesarse con reconocimiento de escritura. Un archivo puede convertirse en una base estructurada sobre personas, lugares, fechas y relaciones. Modelos de lenguaje pueden ayudar a explorar colecciones enormes, siempre que sus resultados conserven trazabilidad hacia las fuentes.
+Digitalizar un libro puede ser un primer paso valioso, pero no agota esa tarea. Importan las preguntas que hacemos, las decisiones con las que convertimos un documento en datos y las interpretaciones que esos datos permiten sostener.
 
-La palabra clave no es “digital”. Es **método**.
+## De una colección a un sistema de relaciones
 
-## Del documento al sistema de conocimiento
+Pensemos en cartas conservadas en archivos distintos. Reunir sus imágenes facilita la consulta; registrar remitentes, destinatarios, lugares y fechas permite además explorar correspondencias, identificar vacíos y reconstruir redes. El resultado no reemplaza la lectura de las cartas: ayuda a decidir qué leer, qué comparar y qué hipótesis revisar.
 
-Un proyecto serio de humanidades digitales suele atravesar varias capas.
+La información que describe cada objeto se conoce como metadatos. Puede incluir autoría, origen, lengua, soporte, colección, derechos y relaciones con otros materiales. También debe admitir incertidumbre: una fecha aproximada o una atribución discutida no deberían convertirse en datos aparentemente exactos por exigencias del sistema.
 
-La primera es **preservar y digitalizar**: convertir materiales físicos o analógicos en objetos digitales con calidad suficiente para investigación.
+Describir requiere criterio, no sólo capturar campos. Un catálogo puede conservar denominaciones históricas necesarias para investigar y, al mismo tiempo, explicar su contexto o incorporar formas de identificación utilizadas por las personas representadas. Hacer explícitas esas decisiones permite entender mejor el archivo.
 
-La segunda es **describir y estructurar**: metadatos, identificadores, fechas, autorías, derechos, relaciones y estándares que permitan encontrar y conectar objetos. Una imagen sin contexto es un archivo; una imagen vinculada a procedencia, descripción y relaciones puede formar parte de una infraestructura de investigación.
+## Interoperabilidad: conectar sin uniformar
 
-La tercera es **transformar**: reconocimiento óptico de caracteres, transcripción de manuscritos, normalización lingüística, georreferenciación, extracción de entidades, alineación de textos, anotación semántica o reconstrucción 3D.
+Dos colecciones pueden estar disponibles en internet y seguir siendo difíciles de consultar juntas. Si describen de manera incompatible los mismos tipos de objetos, una búsqueda compartida exige trabajo adicional. La interoperabilidad busca que los sistemas intercambien información y conserven suficiente significado para utilizarla correctamente.
 
-La cuarta es **analizar**: estadística, procesamiento de lenguaje natural, análisis de redes, sistemas de información geográfica, visión computacional, estilometría, aprendizaje automático o modelos de lenguaje.
+Un ejemplo técnico es el Europeana Data Model, que ofrece un marco para representar y relacionar metadatos de patrimonio cultural. Su documentación distingue elementos del objeto cultural, sus representaciones digitales y su contexto, y proporciona reglas para mapear información existente. [Documentación del modelo de datos de Europeana](https://pro.europeana.eu/index.php/page/edm-documentation).
 
-La quinta es **interpretar**. Aquí vuelve a aparecer la disciplina. Un patrón computacional no explica por sí solo su significado histórico o cultural. El investigador debe preguntar qué representa el dato, qué quedó fuera, cómo fue producido, qué sesgos contiene y qué hipótesis realmente permite sostener.
+La lección útil no consiste en adoptar un portal determinado, sino en acordar descripciones, identificadores y mecanismos de intercambio. Es posible desarrollar una búsqueda común sin trasladar todas las colecciones a una sola base ni eliminar la responsabilidad de las instituciones que las custodian.
 
-La sexta es **publicar y conservar**: datos, herramientas, visualizaciones, ediciones, exposiciones, interfaces y documentación que puedan ser consultadas, auditadas y, cuando los derechos lo permitan, reutilizadas.
+También conviene distinguir acceso de reutilización. Poder consultar una imagen no significa que esté permitido redistribuirla, modificarla o incorporarla a un sistema de inteligencia artificial. Un proyecto debe comunicar por separado las condiciones de uso de los objetos, sus reproducciones y los metadatos.
 
-La investigación digital fracasa cuando salta de la primera capa a una visualización vistosa y confunde acceso con conocimiento.
+## Más escala no significa menos interpretación
 
-## Qué está cambiando con la inteligencia artificial
+Un corpus es una colección de materiales organizada para su estudio. Sobre un conjunto de textos pueden analizarse frecuencias, cambios de vocabulario, menciones de lugares o relaciones entre personas. Estas operaciones permiten explorar patrones que sería laborioso detectar mediante lectura individual.
 
-La IA amplía la escala a la que pueden procesarse colecciones culturales. Puede asistir en OCR y reconocimiento de manuscritos, clasificación de imágenes, transcripción, traducción, extracción de entidades, búsqueda semántica, reconstrucción, recomendación y generación de interfaces conversacionales sobre archivos.
+Pero un patrón no es todavía una explicación. Una palabra puede aparecer más porque cambió el tema de una publicación, porque sobrevivieron más ejemplares de cierto periodo o porque el reconocimiento de caracteres funciona mejor en una parte del corpus. La calidad de la interpretación depende de revisar esas posibilidades.
 
-Pero la evidencia reciente obliga a moderar el entusiasmo.
+Por eso el análisis computacional y la lectura atenta pueden complementarse. El primero orienta la exploración; la segunda permite examinar significados, ambigüedades y casos que contradicen la tendencia. Documentar la selección de materiales y las limitaciones del método hace que otras personas puedan discutir el resultado.
 
-Una revisión sistemática publicada en *Computers in Human Behavior Reports* en 2026 sintetizó 64 estudios sobre adopción de IA en patrimonio cultural. Encontró aplicaciones en restauración y preservación, documentación y digitalización, gestión y apoyo a decisiones, generación y reconstrucción, y educación y experiencia. El obstáculo más frecuente no fue la falta de modelos: fue la disponibilidad y calidad de los datos. La preparación organizacional resultó más importante que los factores puramente técnicos para explicar la adopción.
+## Inteligencia artificial y procedencia
 
-Otra revisión de 79 estudios sobre salvaguarda digital de patrimonio cultural inmaterial advirtió un riesgo especialmente relevante: proyectos tecnológicamente sofisticados pero débilmente vinculados con las comunidades pueden producir una especie de “fosilización digital”. Preservar una práctica viva no equivale a capturarla como objeto.
+La inteligencia artificial puede apoyar tareas como transcripción, clasificación, traducción y búsqueda. Su utilidad depende del material y de la revisión: una descripción convincente puede atribuir a una fotografía algo que no aparece en ella, y una transcripción puede alterar un nombre propio sin que el error resulte evidente.
 
-La IA, entonces, aumenta la capacidad de procesamiento y también eleva el estándar de gobernanza: procedencia, derechos, representación, validación, documentación y participación dejan de ser detalles bibliotecarios y se vuelven componentes del sistema.
+El problema se agrava cuando una salida automática entra al catálogo sin identificarse como tal. Una inferencia puede terminar siendo utilizada como si formara parte del documento original. Por eso proponemos conservar siempre una separación visible entre fuente, transformación y validación.
 
-## Cinco modelos internacionales que enseñan cosas distintas
+La procedencia registra de dónde viene una información y cómo se produjo. La familia de especificaciones PROV del W3C ofrece un marco para describir entidades, actividades y agentes involucrados en ese proceso; no es exclusiva de la IA, pero resulta pertinente para documentar sus intervenciones. [Introducción a PROV](https://www.w3.org/TR/prov-overview/).
 
-### China: computación cultural a escala de patrimonio
+En un proyecto cultural, esto puede traducirse en conservar el original, la herramienta y versión utilizadas, las correcciones posteriores y quién revisó el resultado. Una reconstrucción generada debe presentarse como una propuesta interpretativa, no como evidencia recuperada. Las lagunas también forman parte de lo que sabemos y no conviene ocultarlas con una imagen completa.
 
-El Centro de Investigación en Humanidades Digitales de la Universidad de Pekín trabaja en humanidades digitales, inteligencia aplicada a libros antiguos, grafos de conocimiento, comportamiento de usuarios y computación cultural. Su agenda reciente combina investigación sobre textos clásicos, herramientas de IA para cotejo de libros antiguos y experiencias digitales inmersivas.
+## Lenguas y patrimonio de México
 
-La enseñanza no es que todo patrimonio deba convertirse en una experiencia espectacular. Es la integración entre colecciones históricas, investigación computacional, herramientas y formación. Cuando los textos se estructuran y conectan, dejan de ser únicamente objetos digitalizados y pueden convertirse en una base para nuevas preguntas.
+El patrimonio mexicano incluye materiales documentales, sonoros, visuales y lingüísticos que requieren formas distintas de descripción. Diseñar herramientas únicamente alrededor del español dejaría fuera necesidades importantes. El catálogo del INALI, por ejemplo, documenta variantes lingüísticas, autodenominaciones y referencias geográficas: distinciones que una clasificación demasiado general puede borrar. [Catálogo de las Lenguas Indígenas Nacionales](https://site.inali.gob.mx/pdf/catalogo_lenguas_indigenas.pdf).
 
-### Europa: infraestructura compartida antes que proyectos aislados
+Trabajar con una grabación o un diccionario no consiste solamente en preparar datos para un modelo. También exige atender quién produjo el material, cómo desea identificarse, qué variantes están representadas y qué usos se acordaron. La participación de hablantes y comunidades debe formar parte del diseño y de la evaluación, no limitarse a una consulta al final.
 
-DARIAH funciona como infraestructura paneuropea para investigadores de artes y humanidades que utilizan métodos computacionales. CLARIN hace algo equivalente en recursos y tecnologías lingüísticas: conecta repositorios, metadatos, servicios y herramientas a través de múltiples países e instituciones.
+Los principios CARE de la Global Indigenous Data Alliance ponen el énfasis en beneficio colectivo, autoridad para controlar, responsabilidad y ética. Complementan las metas técnicas de intercambio de datos con preguntas sobre las personas, los propósitos y las decisiones que afectan a los pueblos indígenas. [Principios CARE para la gobernanza de datos indígenas](https://www.gida-global.org/careprinciples).
 
-En 2026, por ejemplo, CLARIN continuó modernizando su infraestructura de autenticación, integrando repositorios y ampliando la visibilidad de conjuntos de datos multilingües mediante su Virtual Language Observatory. La lógica es importante: **un proyecto digital tiene más valor cuando puede conectarse con un ecosistema de estándares, identidades, metadatos y servicios comunes.**
+Desde esa perspectiva, recomendamos acordar consentimiento, atribución, acceso y reutilización antes de difundir materiales, considerando también los derechos de las personas participantes. No todo conocimiento debe publicarse sin restricciones ni utilizarse para entrenar IA. La apertura puede ser apropiada en algunos casos; en otros, corresponde establecer acceso limitado o no divulgar.
 
-Europa muestra por qué la infraestructura de investigación no debe confundirse con un portal. El activo es la capacidad para que comunidades distintas depositen, encuentren, combinen y reutilicen recursos bajo reglas interoperables.
+## Una ruta de trabajo para instituciones
 
-### Estados Unidos: financiar experimentación, infraestructura y acceso público
+Para una biblioteca, universidad, archivo o museo, proponemos comenzar por una colección acotada y una pregunta concreta. Un proyecto manejable permite probar criterios de descripción, revisar derechos y calcular el esfuerzo de mantenimiento antes de ampliar el alcance. Comprar una plataforma no sustituye esas decisiones.
 
-La Office of Digital Humanities del National Endowment for the Humanities financia proyectos de experimentación, infraestructura y desarrollo profesional. Su diseño de apoyos obliga a los proyectos a pensar no sólo en la idea, sino en audiencia, innovación, contexto, personas, costos y sostenibilidad de los activos.
+Una ruta inicial puede organizarse en cinco tareas:
 
-El modelo estadounidense aporta una disciplina útil: construir un proyecto digital implica definir quién lo utilizará, cómo se sostendrá y qué componente reutilizable dejará. El producto puede ser una edición digital, una herramienta, un archivo, un método o una infraestructura, pero debe existir una teoría de uso más allá de “ponerlo en línea”.
+1. Definir qué materiales se trabajarán, para quién y con qué propósito de investigación, conservación o consulta.
+2. Acordar metadatos, formatos y criterios de calidad, incluyendo cómo registrar dudas y ausencias.
+3. Documentar procedencia, permisos y restricciones, con participación de quienes corresponda.
+4. Probar la consulta y el intercambio con usuarios reales, sin depender exclusivamente de una interfaz visual.
+5. Asignar responsables y recursos para respaldos, correcciones, actualización y preservación.
 
-### Rusia: formar humanistas que también construyen
+La evaluación debería considerar si el proyecto ayuda a encontrar materiales, comprender su contexto y utilizarlos de manera responsable. El número de archivos publicados, por sí solo, no dice si una colección se volvió más confiable o más útil.
 
-HSE University mantiene una maestría en Digital Humanities y cursos que integran bases de datos, programación, análisis de texto, aprendizaje automático, procesamiento de lenguaje natural, modelos de lenguaje y visualización.
-
-Una característica especialmente valiosa es el proyecto digital obligatorio: el estudiante no sólo estudia métodos, debe construir en equipo un producto de investigación o de interés público. Esa combinación evita dos problemas frecuentes: humanistas que sólo consumen herramientas sin entender sus supuestos, y tecnólogos que trabajan con fuentes culturales sin entender cómo fueron producidas.
-
-### Irán y el mundo persa: la lengua y la procedencia son infraestructura
-
-El ecosistema persa muestra por qué las humanidades digitales no pueden reducirse a herramientas diseñadas para inglés.
-
-En 2025, el Roshan Institute for Persian Studies de la University of Maryland anunció una biblioteca digital persa de acceso abierto, apoyada por una dotación de 1.5 millones de dólares y fondos iniciales adicionales. La iniciativa construye sobre años de trabajo en corpus persas con estándares internacionales de edición y marcado, OCR y reconocimiento de escritura manuscrita de código abierto, y digitalización de manuscritos en riesgo.
-
-En marzo de 2026, Princeton organizó una sesión titulada “Persian Digital Humanities: Inside and Outside Iran”, precisamente sobre la separación entre comunidades y recursos que trabajan dentro y fuera del país.
-
-La lección es decisiva para cualquier país multilingüe: los modelos, OCR, ontologías y herramientas de búsqueda heredan la disponibilidad de datos de cada lengua. Si una lengua o tradición documental no tiene corpus de calidad, estándares, expertos y colecciones accesibles, la IA no corrige automáticamente la desigualdad; puede reproducirla.
-
-## México ya tiene piezas, pero necesita conectarlas
-
-México no parte de cero. La Biblioteca Nacional de México, a través del Instituto de Investigaciones Bibliográficas de la UNAM, mantiene un Laboratorio de Humanidades Digitales orientado al uso de colecciones digitales para investigación, docencia y divulgación. Su trabajo incluye preservación y accesibilidad, análisis de datos culturales, visualización y formación.
-
-El problema mexicano no es la ausencia total de iniciativas. Es la fragmentación.
-
-Archivos, bibliotecas, museos, universidades, centros de investigación y proyectos individuales producen colecciones y herramientas bajo capacidades técnicas, estándares y presupuestos muy distintos. El valor de una infraestructura nacional de humanidades digitales aparecería cuando esas piezas pudieran conectarse sin borrar su autonomía.
-
-Eso exige al menos cinco capacidades institucionales.
-
-**Datos culturales interoperables.** Identificadores, metadatos y modelos comunes suficientes para conectar colecciones sin obligarlas a ser idénticas.
-
-**Capacidad lingüística propia.** Corpus, OCR, reconocimiento de voz y escritura, herramientas de búsqueda y evaluación para español mexicano y lenguas indígenas. En este punto, la ausencia de datos es una decisión de política cultural y científica, no una simple limitación técnica.
-
-**Laboratorios interdisciplinarios.** Historiadores, filólogos, antropólogos, bibliotecarios, archivistas, ingenieros, científicos de datos, diseñadores y especialistas jurídicos trabajando sobre el mismo problema desde el inicio.
-
-**Procedencia y derechos incorporados al sistema.** Cada objeto transformado por IA debería conservar vínculos hacia sus fuentes y registrar qué operaciones se realizaron. Los derechos de autor, restricciones culturales y condiciones de acceso no pueden añadirse al final.
-
-**Productos que permitan investigar y reutilizar.** Una colección digital debe poder alimentar búsquedas, análisis, visualizaciones, APIs, proyectos educativos o nuevos estudios cuando sea legal y éticamente apropiado. El objetivo no es acumular archivos, sino aumentar capacidad de conocimiento.
-
-## Por qué importan
-
-Las humanidades digitales importan porque una sociedad produce cada vez más de su memoria en formatos que sólo pueden estudiarse computacionalmente: millones de páginas, mensajes, imágenes, grabaciones, mapas, bases de datos y objetos digitales.
-
-También importan por la razón opuesta. Grandes cantidades de patrimonio siguen encerradas en materiales físicos, catálogos incompatibles o formatos que los sistemas contemporáneos no pueden procesar.
-
-Entre ambos extremos existe una tarea institucional: decidir qué preservar, cómo representarlo, bajo qué estándares, con qué derechos, quién podrá utilizarlo y qué conocimiento puede construirse a partir de ello.
-
-La IA hace esa tarea más urgente, no menos. Un modelo puede generar una reconstrucción espectacular de un edificio, completar un manuscrito o responder preguntas sobre un archivo. Pero la pregunta humanística permanece: **¿con base en qué evidencia, con qué incertidumbre y desde qué interpretación?**
-
-Ahí está la frontera del campo. Las humanidades digitales no sustituyen a las humanidades con tecnología. Construyen nuevas formas de observar y conectar la evidencia, y obligan a las instituciones culturales a desarrollar capacidades que antes podían permanecer dispersas entre archivos, investigadores y departamentos de cómputo.
-
-El resultado más valioso no es una pantalla más moderna. Es una memoria cultural que pueda ser preservada, interrogada y reutilizada sin perder el contexto que le da significado.
-
-## Fuentes seleccionadas
-
-- Laboratorio de Humanidades Digitales, Biblioteca Nacional de México / UNAM: https://labhd.iib.unam.mx/labhd/
-- Peking University Digital Humanities Research Center: https://pkudh.org/
-- DARIAH Campus, infraestructura paneuropea para artes y humanidades digitales: https://campus.dariah.eu/
-- CLARIN, infraestructura europea de recursos y tecnologías lingüísticas: https://forum.clarin.eu/
-- National Endowment for the Humanities, Office of Digital Humanities: https://www.neh.gov/divisions/odh/resources-for-applicants-to-the-NEH-office-of-digital-humanities
-- HSE University, Master’s Programme in Digital Humanities: https://www.hse.ru/en/ma/dh/admission/
-- University of Maryland, “Roshan Institute to Establish Persian Digital Library”, octubre de 2025: https://today.umd.edu/roshan-institute-to-establish-persian-digital-library
-- Princeton University, “Digital Humanities and the Study of Iran”, marzo de 2026: https://cipgs.princeton.edu/events/digital-humanities-and-study-iran
-- *Computers in Human Behavior Reports*, “Artificial intelligence adoption in the cultural heritage sector: A systematic review of trends, application domains, and challenges”, 2026: https://doi.org/10.1016/j.chbr.2026.101147
-- *npj Heritage Science*, “Community-engaged digital safeguarding of intangible cultural heritage: a review of methods and challenges”, 2026: https://doi.org/10.1038/s40494-026-02458-y
-- Design Research Society, “Generative AI in Digital Cultural Heritage Design Workflows: A Systematic Literature Review”, 2026: https://doi.org/10.21606/drs.2026.791
+Las humanidades digitales permiten ampliar el acceso y formular nuevas preguntas, pero su aportación también consiste en conservar distinciones: entre original y reconstrucción, entre dato e interpretación, entre disponibilidad y permiso. Organizar esas diferencias con rigor es una forma de cuidar el conocimiento que las instituciones y las comunidades ponen en circulación.

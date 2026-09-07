@@ -1,101 +1,76 @@
 ---
 layout: ../../layouts/PublicationLayout.astro
 title: Educación universitaria y cambio tecnológico en México
-description: La inteligencia artificial ya está dentro de las universidades mexicanas. El reto no es prohibirla o adoptarla, sino redefinir qué debe aprender, demostrar y certificar un estudiante.
+description: Cómo integrar inteligencia artificial en la universidad mexicana sin perder evidencia del aprendizaje, conocimiento disciplinar ni responsabilidad institucional.
 published: true
 ---
 
-La inteligencia artificial ya entró a la universidad mexicana. No como un proyecto piloto ni como una promesa de futuro: entró por millones de teléfonos y computadoras antes de que la mayoría de las instituciones definiera qué hacer con ella.
+Un ensayo bien escrito, una presentación clara o un programa que funciona son productos valiosos. Sin embargo, cuando pueden elaborarse con ayuda de inteligencia artificial, entregarlos ya no basta para demostrar que el estudiante comprende cómo se construyeron. La universidad necesita observar también las decisiones, la verificación y el conocimiento que hay detrás.
 
-En abril de 2026, la Secretaría de Educación Pública presentó los resultados de una encuesta nacional sobre inteligencia artificial generativa en educación superior. Participaron más de 1.5 millones de estudiantes y alrededor de 166 mil docentes. Más de 60% declaró utilizar estas herramientas de manera cotidiana y ocho de cada diez estudiantes las emplean para producir textos. Al mismo tiempo, casi 80% de los estudiantes y cerca de 70% de los docentes desconocían políticas institucionales sobre IA; menos de 30% había recibido capacitación.
+El cambio tiene una dimensión concreta en México. En abril de 2026, la Secretaría de Educación Pública informó de la participación de 1.5 millones de estudiantes y más de 166 mil docentes en una encuesta sobre inteligencia artificial generativa en educación superior. Según el comunicado, más del 60% de los participantes la utilizaba cotidianamente y ocho de cada diez estudiantes la empleaban para elaborar textos. Estas cifras describen lo reportado por la encuesta, no demuestran por sí mismas efectos sobre el aprendizaje. [Comunicado de la SEP](https://www.gob.mx/sep/prensa/boletin-137-presenta-mario-delgado-a-rectoras-y-rectores-del-pais-10-acciones-para-el-uso-etico-y-critico-de-la-iag-en-educacion-superior?idiom=es).
 
-La discusión, por tanto, ya no puede reducirse a si se debe permitir ChatGPT en una tarea. La pregunta más importante es otra: **¿qué debe demostrar un universitario para que un título siga certificando una capacidad real cuando una parte creciente del trabajo intelectual puede ser delegada a una máquina?**
+La discusión no debería agotarse en permitir o prohibir una aplicación. La pregunta de fondo es qué debe demostrar una persona para que su título certifique capacidades reales cuando puede delegar una parte del trabajo intelectual a un sistema automático.
 
-## El problema no es la herramienta; es la unidad de evaluación
+## Evaluar la comprensión, además del resultado
 
-Durante décadas, buena parte de la educación superior utilizó productos terminados como evidencia del aprendizaje: un ensayo, una presentación, un programa, un reporte, una traducción o una investigación breve. La inteligencia artificial generativa rompe parcialmente esa equivalencia. Un producto convincente ya no demuestra por sí solo que quien lo entregó domina el proceso que lo produjo.
+Los ensayos, proyectos y exámenes siguen teniendo un lugar en la formación universitaria. Lo que conviene revisar es la relación entre el producto solicitado y la capacidad que se pretende evaluar. Si una actividad busca desarrollar argumentación, no basta con recibir un texto coherente: interesa saber si el estudiante puede explicar su tesis, contrastar fuentes y responder a una objeción.
 
-Eso no vuelve inútiles esos productos. Obliga a cambiar qué se observa.
+Una opción es combinar la entrega final con versiones sucesivas, una bitácora breve de decisiones o una conversación sobre el trabajo. También pueden utilizarse demostraciones prácticas, ejercicios supervisados y defensas orales. No es necesario aplicar todos estos instrumentos en cada actividad; corresponde elegir los que aporten evidencia útil sin multiplicar innecesariamente la carga docente.
 
-Stanford y ETS plantearon en 2026 que las evaluaciones responsables en la era de la IA deben capturar con mayor precisión el proceso de aprendizaje y las capacidades que se pretende medir. Portafolios, conversaciones, demostraciones auténticas, retroalimentación formativa y evidencia del proceso permiten observar mejor lo que un examen o un documento final ya no siempre pueden certificar.
+La declaración del uso de IA puede formar parte de ese proceso. Conviene pedir que se identifiquen las tareas realizadas con apoyo, los resultados descartados y las comprobaciones efectuadas. El propósito no es documentar cada interacción ni aumentar la vigilancia, sino distinguir entre producir una respuesta y comprenderla.
 
-La evidencia disponible también desaconseja dos extremos. La prohibición general ignora una tecnología que ya forma parte de la práctica académica y profesional. La adopción indiscriminada tampoco garantiza aprendizaje. Una revisión sistemática de 103 estudios empíricos sobre IA generativa en educación superior encontró que los beneficios dependen menos de la herramienta que del diseño pedagógico, de la evaluación y de las prácticas de verificación. Otra metaanálisis de 68 estudios experimentales y cuasiexperimentales encontró un efecto positivo moderado sobre resultados de aprendizaje, pero con una heterogeneidad muy alta entre contextos. La conclusión útil es sencilla: **la IA puede mejorar el aprendizaje, pero no sustituye el diseño educativo.**
+## Una alfabetización que atraviese las carreras
 
-## Qué están haciendo otros sistemas
+La formación básica en inteligencia artificial no debería quedar reservada a las ingenierías. Un estudiante de historia, administración, educación o ciencias de la salud necesita criterios para decidir cuándo utilizar estas herramientas y cómo revisar lo que obtiene. Saber manejar una interfaz es sólo una parte de esa preparación.
 
-No existe un modelo internacional único. Las respuestas más interesantes resuelven piezas distintas del problema.
+Como base común, proponemos trabajar cinco capacidades:
 
-### China: alfabetización universal y coordinación de sistema
+- Formular una tarea y aportar el contexto necesario para resolverla.
+- Reconocer que una respuesta convincente puede contener errores u omisiones.
+- Contrastar información con fuentes pertinentes y revisar su procedencia.
+- Distinguir datos que pueden compartirse de información personal o confidencial.
+- Explicar el uso de la herramienta y asumir responsabilidad por el resultado.
 
-En abril de 2026, cinco organismos del gobierno chino —entre ellos el Ministerio de Educación, la Comisión Nacional de Desarrollo y Reforma y el Ministerio de Industria y Tecnología de la Información— publicaron el plan nacional “Inteligencia Artificial + Educación”.
+Estas capacidades son más duraderas que una colección de instrucciones para un producto específico. Las aplicaciones cambiarán; la necesidad de definir problemas, verificar evidencia y reconocer límites permanecerá como parte de la formación profesional.
 
-Para educación superior, el plan ordena impulsar la IA como curso público básico en las universidades, adaptar materiales por disciplina, crear cursos interdisciplinarios y vincular a universidades de investigación, empresas tecnológicas y laboratorios nacionales. El objetivo para 2030 no es solamente formar especialistas: es construir alfabetización en IA a lo largo de todo el sistema educativo y modificar enseñanza, investigación y gestión.
+## Integrar la tecnología sin desplazar los fundamentos
 
-La lección para México no es copiar la centralización china. Es entender la escala del problema: **la alfabetización en IA no puede quedar como optativa para estudiantes de ingeniería ni como taller extracurricular.** Un abogado, un médico, un historiador, un administrador público y un diseñador necesitan competencias distintas, pero todos necesitan saber trabajar con sistemas que generan, clasifican, sintetizan y recomiendan información.
+La alfabetización común debe complementarse con trabajo propio de cada disciplina. En ingeniería, una propuesta de código requiere pruebas y revisión de especificaciones; en humanidades, una interpretación exige conocer el corpus y su contexto. En otras profesiones, los criterios de validación y las responsabilidades serán distintos.
 
-### Estados Unidos: cambiar lo que cuenta como evidencia
+Por eso conviene distinguir las actividades en las que la automatización apoya el aprendizaje de aquellas en las que puede sustituir precisamente la práctica que se busca desarrollar. Un estudiante que aún aprende a construir un argumento necesita ejercitar esa capacidad, aunque después utilice herramientas para revisar su redacción. La decisión pedagógica depende del objetivo de la actividad, no únicamente de la disponibilidad de software.
 
-La respuesta estadounidense es más fragmentada, pero sus mejores universidades están atacando el problema de la evaluación. El trabajo de Stanford sobre evaluación responsable parte de una idea crucial: cuando la IA puede producir una respuesta final aceptable, la institución necesita observar mejor la creación, la colaboración, la aplicación, la explicación y la revisión.
+Integrar IA no tendría que significar reducir el conocimiento disciplinar. La propuesta es combinarlo con capacidad de razonamiento, verificación y explicación: utilizar herramientas contemporáneas y poder justificar lo que se hizo con ellas.
 
-Eso empuja a recuperar formatos que parecían poco escalables: defensas orales, trabajo en clase, demostraciones, bitácoras de decisiones, proyectos auténticos y evaluación continua. No para regresar a una universidad pre-digital, sino para usar tecnología sin perder evidencia de autoría intelectual y dominio.
+## Dar a los docentes condiciones para diseñar
 
-### Europa: alfabetización acompañada de gobernanza
+Una lista institucional de usos permitidos y prohibidos puede aclarar expectativas, pero no reemplaza la formación docente. El profesorado necesita tiempo para revisar actividades, probar herramientas con materiales adecuados y acordar criterios de evaluación. También necesita apoyo para identificar usos que no aportan valor educativo.
 
-La Unión Europea y la OCDE presentaron en 2026 un marco de alfabetización en IA organizado alrededor de cuatro dominios: interactuar con IA, crear con IA, gestionar IA y comprender cómo se configura su impacto.
+La capacitación puede partir de una tarea concreta del curso: qué aprende el estudiante, qué parte podría delegar y qué evidencia permitirá reconocer su avance. A partir de esas preguntas resulta más sencillo decidir si conviene incorporar IA, limitarla o prescindir de ella. Así, la formación no se reduce a mostrar funciones de una aplicación.
 
-La aportación europea es tratar la alfabetización como una capacidad institucional y ciudadana, no como el aprendizaje de una aplicación específica. Esto importa porque las herramientas cambiarán mucho más rápido que los planes de estudio. Una universidad no debería graduar estudiantes que simplemente “saben usar” un producto de 2026; debería graduarlos capaces de entender límites, evidencia, riesgos, datos, sesgos, supervisión humana y consecuencias de uso.
+Es recomendable documentar los ajustes y revisar sus resultados antes de extenderlos. Una experiencia útil en una asignatura no debe presentarse automáticamente como una solución para todas las carreras o modalidades.
 
-### Rusia: profesionales que conservan capacidad propia
+## Acceso equitativo y reglas comprensibles
 
-ITMO University, en San Petersburgo, utiliza una formulación útil: formar profesionales “AI-proof”. La idea no es competir contra la IA haciendo manualmente todo lo que la máquina puede acelerar. Es combinar fundamentos disciplinarios sólidos, pensamiento de sistemas, capacidad de explicar decisiones y uso competente de herramientas de IA.
+Una actividad obligatoria que depende de una suscripción comercial puede colocar al alumnado en condiciones distintas. Antes de adoptarla, la institución debería comprobar la disponibilidad de equipos, conectividad, accesibilidad y alternativas de trabajo. El acceso a una herramienta no debería convertirse, sin una justificación pedagógica y una solución institucional, en un requisito económico adicional para aprobar.
 
-ITMO permite el uso de redes neuronales en trabajos finales y, al mismo tiempo, ha reforzado evaluaciones orales donde el estudiante debe explicar lo que hizo. Es una respuesta pragmática al problema de autenticidad: permitir herramientas contemporáneas, pero exigir una demostración humana de comprensión.
+La inclusión y la protección de datos forman parte de las cuestiones que aborda la guía de UNESCO sobre IA generativa en educación e investigación. El documento propone desarrollar capacidades y evaluar la pertinencia pedagógica y ética de las herramientas, en lugar de asumir que su incorporación es beneficiosa por sí misma. [Guía de UNESCO](https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research).
 
-### Irán y Asia Central: no separar adopción de contexto
+Para llevar estos principios a la práctica, cada universidad necesita reglas comprensibles: qué herramientas admite, qué información no debe introducirse, quién resuelve dudas y cómo se revisan incidentes. Los criterios también deben alcanzar las compras y los servicios de terceros, no sólo la conducta del alumnado.
 
-La evidencia pública sobre transformación universitaria con IA en Irán es menos comparable con la de China, Estados Unidos o Europa. Es mejor no inventar una equivalencia. Sin embargo, el diálogo regional organizado por UNESCO en 2025 para Asia Central, Irán y Pakistán aporta una advertencia relevante: la adopción debe considerar derechos, seguridad digital, inclusión, alfabetización y preparación docente.
+Mantener control institucional no exige construir un modelo propio. Exige conocer qué datos se comparten, qué dependencias se adquieren y quién conserva la responsabilidad sobre las decisiones. Una política útil debe poder explicarse a quien va a aplicarla en un salón, un laboratorio o una oficina.
 
-Para México, donde conviven instituciones con capacidades tecnológicas radicalmente distintas, esta dimensión es central. Una política que sólo funcione en universidades con conectividad, licencias, equipos técnicos y profesores capacitados puede ampliar desigualdades mientras aparenta modernización.
+## Aprender con problemas y restricciones reales
 
-## Lo que México debería certificar
+Los proyectos aplicados ofrecen una oportunidad para vincular estas capacidades. Un problema de una organización, un laboratorio o una comunidad requiere algo más que una respuesta plausible: hay que delimitarlo, trabajar con información incompleta, acordar criterios y comprobar si la propuesta funciona.
 
-El cambio de fondo no consiste en agregar una materia llamada “Inteligencia Artificial” y mantener intacto el resto de la universidad. La institución debe decidir qué capacidades serán valiosas aun cuando cambien los modelos y proveedores.
+En ese contexto, la IA puede utilizarse como apoyo sin convertirse en el centro del ejercicio. La evaluación puede concentrarse en la calidad de las preguntas, la selección de evidencia, la coordinación del equipo y la validación del resultado. Cuando el trabajo involucre información sensible, también debe contemplar los límites de acceso y uso desde el inicio.
 
-Una base razonable tendría siete componentes.
+Esta aproximación permite reunir conocimiento disciplinar y competencia tecnológica en una misma actividad. No promete resolver por sí sola los problemas de la educación superior; ofrece una forma concreta de diseñar trabajo cuyo valor no termine en la entrega de un documento.
 
-**Primero, alfabetización universal en IA.** Todo estudiante debería comprender qué hacen y qué no hacen los modelos generativos, cómo formular tareas, cómo evaluar una respuesta, cómo verificar información, cómo proteger datos y cómo documentar el uso de estas herramientas.
+## Qué debería certificar el título
 
-**Segundo, competencia específica por disciplina.** No existe una alfabetización profesional genérica. En derecho importa trabajar con jurisprudencia, confidencialidad y trazabilidad de fuentes; en medicina, evidencia clínica y seguridad; en ingeniería, especificaciones, pruebas y validación; en humanidades, corpus, procedencia, interpretación y crítica.
+La transformación universitaria no se resuelve agregando una materia de IA y conservando intacto todo lo demás. Tampoco se reduce a comprar licencias. Requiere revisar programas, formar docentes, construir evaluaciones y sostener reglas de acceso y uso que puedan aplicarse.
 
-**Tercero, evaluación del proceso.** El sistema debe conservar exámenes cuando sean útiles, pero combinar productos finales con defensas orales, iteraciones, bitácoras, versiones, trabajo supervisado y demostraciones. El objetivo no es vigilar por vigilar: es recuperar evidencia sobre quién sabe qué.
+Para la universidad mexicana, la oportunidad consiste en precisar su compromiso con estudiantes y sociedad. Un título debería acreditar conocimiento disciplinar, autonomía intelectual, capacidad de verificación y responsabilidad profesional. El uso de herramientas puede formar parte de esas capacidades, pero no sustituirlas.
 
-**Cuarto, profesores capaces de rediseñar tareas.** Si la mayoría del profesorado no ha recibido formación, la política institucional no puede limitarse a publicar reglas de uso. El profesor necesita saber qué actividades conviene automatizar, cuáles requieren fricción cognitiva deliberada y cómo evaluar en presencia de IA.
-
-**Quinto, infraestructura y gobernanza institucional.** Acceso equitativo, protección de datos, cuentas institucionales cuando sea necesario, reglas para información sensible, criterios de compra, registro de herramientas y mecanismos para evaluar calidad. La soberanía institucional no significa desarrollar un modelo propio para cada universidad; significa no delegar sin control datos, decisiones y procesos críticos.
-
-**Sexto, aprendizaje con problemas reales.** Las alianzas con empresas, laboratorios, gobiernos y organizaciones permiten evaluar algo que los modelos no resuelven solos: formular problemas, trabajar con restricciones reales, coordinar personas, negociar ambigüedad y asumir responsabilidad sobre un resultado.
-
-**Séptimo, una credencial que vuelva a significar algo.** El título debe certificar conocimiento disciplinar, juicio, capacidad de verificación, autonomía intelectual y competencia para trabajar con sistemas de IA. Si únicamente certifica que alguien puede producir entregables plausibles, su señal en el mercado laboral se debilitará.
-
-## La oportunidad mexicana
-
-México llega a esta transición con una paradoja. La adopción estudiantil es rápida, pero la capacidad institucional avanza más lentamente. Al mismo tiempo, el país mantiene restricciones estructurales: según la OCDE, el gasto público por estudiante de educación superior es muy inferior al promedio de la organización y la proporción de jóvenes con posgrado sigue siendo reducida.
-
-Eso vuelve poco realista una estrategia basada en comprar tecnología de manera indiscriminada. El recurso escaso no es solamente cómputo. Es capacidad para rediseñar currículos, evaluar aprendizaje, formar profesores, gobernar datos y conectar carreras con problemas productivos y públicos.
-
-La universidad mexicana tiene una oportunidad más interesante que “adaptarse a ChatGPT”. Puede redefinir el contrato que ofrece a estudiantes y empleadores: **no prometer que sus egresados harán sin máquinas lo que las máquinas ya hacen, sino demostrar que saben pensar, decidir, verificar, crear y asumir responsabilidad con ellas.**
-
-Ese es el estándar que puede mantener el valor de la educación superior en una economía donde producir una respuesta será cada vez más barato, pero saber qué respuesta merece confianza seguirá siendo difícil.
-
-## Fuentes seleccionadas
-
-- Secretaría de Educación Pública, “Usos y percepciones sobre Inteligencia Artificial Generativa en la Educación Superior en México”, 15 de abril de 2026: https://www.gob.mx/sep/documentos/usos-y-percepciones-sobre-inteligencia-artificial-generativa-en-la-educacion-superior-en-mexico
-- Secretaría de Educación Pública, resultados y ruta nacional de integración de IA en educación superior, 18 de abril de 2026: https://www.gob.mx/sep/prensa/boletin-142-saberesmx-imparte-curso-nacional-de-alfabetizacion-con-inea-para-formar-alfabetizadores-mediante-servicio-social-sep?idiom=es-MX
-- OECD, *Education at a Glance 2025: Mexico*: https://www.oecd.org/en/publications/education-at-a-glance-2025_1a3543e2-en/mexico_3b36a6f6-en.html
-- Ministerio de Educación de China et al., “Artificial Intelligence + Education Action Plan”, abril de 2026: https://www.moe.gov.cn/srcsite/A16/s3342/202604/t20260410_1433240.html
-- Stanford Report, “A roadmap for responsible student assessments in the AI era”, julio de 2026: https://news.stanford.edu/stories/2026/07/white-paper-responsible-student-assessments-in-the-ai-era
-- European Education Area, “New AI Literacy Framework”, junio de 2026: https://education.ec.europa.eu/whats-new/news/new-ai-literacy-framework-helps-schools-prepare-learners-for-the-age-of-artificial-intelligence
-- ITMO University, “Training AI-Proof Professionals”, junio de 2026: https://news.itmo.ru/en/news/14882/
-- UNESCO, diálogo regional sobre uso equitativo, ético y centrado en las personas de IA en educación, noviembre de 2025: https://www.unesco.org/en/articles/empowering-future-digital-learning-unesco-initiated-regional-dialogue-equitable-ethical-and-human
-- *International Journal of Educational Research Open*, “Generative AI in higher education: A systematic review of empirical uses, outcomes, and risks”, 2026: https://doi.org/10.1016/j.ijedro.2026.100584
-- *Educational Research Review*, “The impact of GenAI on learning outcomes: A systematic review and meta-analysis of experimental studies”, 2025: https://www.sciencedirect.com/science/article/pii/S1747938X2500051X
+El objetivo no es exigir que cada tarea se realice sin ayuda tecnológica. Es poder demostrar que quien utiliza esa ayuda sabe pensar, decidir, explicar y responder por su trabajo. Ése es el criterio que debería orientar la incorporación de inteligencia artificial a la educación superior.
