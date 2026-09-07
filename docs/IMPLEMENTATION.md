@@ -71,4 +71,18 @@ Evidencia: `artifacts/visual/final-{390,430,768,1440}.png`, `pages-{390,430,768,
 
 El botón **Preparar mensaje** valida Nombre, Email, Teléfono opcional y Tema, y abre un borrador `mailto:` a `contacto@dixios.com`. No transmite datos a un tercero ni afirma entrega. El envío final depende de la aplicación de correo del visitante. Hace falta un endpoint aprobado para ofrecer envío directo sin cliente de correo.
 
-Las publicaciones no navegan hasta disponer de destinos aprobados. No hay cambios de DNS, correo, CRM, dominio o configuración externa. La acción de despliegue oficial está preparada y es manual; no se ejecutó. La rama/PR en borrador no implica aprobación de producción ni merge.
+Las publicaciones no navegan hasta disponer de destinos aprobados. No hay cambios de DNS, correo, CRM ni dominio. La rama/PR en borrador no implica merge.
+
+## Publicación autorizada posteriormente
+
+El usuario solicitó publicar la versión actual antes de continuar. Se habilitó GitHub Pages con build de Actions y se autorizó únicamente la etiqueta `dixios-preview-2026-09-07` en el entorno de despliegue (se conserva la política existente para main). No se fusionó ninguna rama ni se cambió la configuración del dominio.
+
+- URL pública: https://yimtu.github.io/webdixios/
+- Commit publicado: `22ca3e802cbbdf3980f2e195e3335aa64708c05c`.
+- Tag: `dixios-preview-2026-09-07`.
+- Workflow oficial, build y deploy correctos: https://github.com/yimtu/webdixios/actions/runs/34131281104.
+- PR de revisión, en borrador: https://github.com/yimtu/webdixios/pull/10.
+- La URL pública se abrió en navegador: ciudad `ready`, cinco servicios, tres publicaciones, cero errores de consola y sin overflow de escritorio.
+- Después del despliegue, las **once pruebas E2E también pasaron contra la URL pública**, incluidos 390, 430, 768 y 1440 px, assets, accesibilidad, teclado y formulario.
+
+El workflow permite tags `dixios-preview-*`, pero cada nueva etiqueta requiere también autorización de la política de GitHub Pages o ejecución manual desde una referencia permitida. Un push normal de código a la rama no publica nuevas versiones.

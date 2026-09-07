@@ -23,7 +23,7 @@ npm run build
 
 Para probar el build real, ejecutar `npm run serve:build -- --port 4323` y, en otra terminal, `TEST_URL=http://127.0.0.1:4323 npm run test:e2e`. En PowerShell establecer `$env:TEST_URL` antes del comando. Para Pages, servir con `--base /webdixios/` y configurar `TEST_PATH=/webdixios/`. Instalar primero Chromium con `npx playwright install chromium`.
 
-El workflow `check.yml` verifica ambos entornos; `deploy.yml` utiliza la acción oficial de Astro y solamente se dispara manualmente después de revisión humana. No configura dominio, DNS ni servicios externos.
+El workflow `check.yml` verifica ambos entornos; `deploy.yml` utiliza la acción oficial de Astro y se dispara manualmente o mediante una etiqueta explícita `dixios-preview-*`. La versión actual se publicó por petición del usuario: [web pública](https://yimtu.github.io/webdixios/). No configura dominio, DNS ni correo.
 
 El formulario valida y prepara un correo a `contacto@dixios.com`; no afirma haber enviado mensajes. No existe endpoint de recepción aprobado. Las tres publicaciones son piezas editoriales sin enlace hasta recibir destinos aprobados.
 
