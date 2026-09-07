@@ -1,0 +1,33 @@
+---
+import { hero } from '../../data/hero';
+import HeroContent from './HeroContent.astro';
+import HeroLabels from './HeroLabels.astro';
+import CityScene from './CityScene.astro';
+---
+<section class="hero" id="inicio" data-hero>
+  <div class="hero__noise" aria-hidden="true"></div>
+  <div class="hero__brand-grid hero__brand-grid--left" aria-hidden="true"></div>
+  <div class="hero__brand-grid hero__brand-grid--right" aria-hidden="true"></div>
+
+  <header class="hero-nav">
+    <a class="hero-nav__brand" href="#inicio" aria-label="Dixios, inicio">{hero.brand}</a>
+    <nav class="hero-nav__links" aria-label="Navegación principal">
+      {hero.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <a class="hero-nav__contact" href="#contacto">Trabajemos juntos <span aria-hidden="true">→</span></a>
+  </header>
+
+  <div class="hero__city-wrap">
+    <CityScene />
+    <HeroLabels />
+  </div>
+
+  <div class="hero__content-wrap">
+    <HeroContent />
+  </div>
+
+  <div class="hero__index" aria-hidden="true">
+    <span>01 / 05</span>
+    <span class="hero__index-line"></span>
+  </div>
+</section>

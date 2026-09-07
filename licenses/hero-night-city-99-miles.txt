@@ -1,0 +1,33 @@
+DIXIOS HERO CITY V1 — THIRD-PARTY 3D ASSET RECORD
+
+Asset: Low Poly Night City Building Skyline
+Author: 99.Miles
+Original source: https://sketchfab.com/3d-models/low-poly-night-city-building-skyline-b0035b8713b048bb8ddf311ee67c28c8
+License: Creative Commons Attribution 4.0 (CC BY 4.0)
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Distribution source used by this project:
+https://github.com/sceneview/sceneview
+Pinned commit: 2056ddd0fd76de38b69f590589894ff966d97a83
+Pinned file: assets/models/glb/night_city.glb
+SceneView catalog records the GLB at approximately 4.0 MB and the asset license as CC-BY-4.0.
+
+Original model metadata observed on Sketchfab:
+- 12 buildings / skyline pack
+- approximately 6.1k triangles
+- approximately 2.9k vertices
+- intended for background city scenery
+
+Dixios modifications:
+- camera/framing for hero composition
+- monochrome luminance treatment in CSS
+- Dixios two-blue duotone color layer
+- additional Dixios editorial HTML overlays outside the 3D scene
+- interaction intentionally reduced to subtle pointer/camera drift
+
+Attribution shown in the Hero UI:
+“Ciudad 3D: 99.Miles · CC BY 4.0”
+
+Downloaded binary is intentionally not committed. scripts/fetch-hero-assets.mjs retrieves the pinned copy at dev/build time. If unavailable, the page retains its local SVG fallback.
+
+Recorded: 2026-09-07

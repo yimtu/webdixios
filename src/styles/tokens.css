@@ -1,0 +1,13 @@
+:root {
+  color-scheme: dark;
+  --dixios-ink: #010824;
+  --dixios-ink-soft: #031238;
+  --dixios-blue-deep: #062b6f;
+  --dixios-blue: #0b4fd3;
+  --dixios-blue-light: #6da8ff;
+  --dixios-white: #f7f9ff;
+  --dixios-white-muted: rgba(247, 249, 255, 0.72);
+  --dixios-line: rgba(116, 169, 255, 0.24);
+  --page-gutter: clamp(1.25rem, 4vw, 4rem);
+  --content-max: 92rem;
+}
