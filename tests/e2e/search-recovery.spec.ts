@@ -2,6 +2,12 @@ import { test, expect } from '@playwright/test';
 
 const base = process.env.TEST_PATH || '/';
 
+test('owner verification file is served verbatim without a redirect', async ({ request }) => {
+  const response = await request.get(`${base}google04a54817a8860f93.html`, { maxRedirects: 0 });
+  expect(response.status()).toBe(200);
+  expect((await response.text()).trim()).toBe('google-site-verification: google04a54817a8860f93.html');
+});
+
 test('brand icons load at stable URLs in browser and Apple formats', async ({ page, request }) => {
   await page.goto(base);
   await expect(page.locator('link[rel="icon"][type="image/png"]')).toHaveAttribute(

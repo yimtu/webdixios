@@ -12,7 +12,7 @@ Los iconos PNG de 96 px y Apple de 180 px se generan durante el build a partir d
 
 ## Paso pendiente en la cuenta del propietario
 
-El usuario indica que probablemente no tiene Search Console configurado. Crear una propiedad de prefijo URL `https://dixios.com/` y verificar mediante el archivo HTML emitido por Google permite hacerlo sin cambiar DNS. No publicar un token inventado ni verificar otra cuenta sin autorización.
+El propietario descargó y autorizó expresamente el archivo `google04a54817a8860f93.html`. Se publica sin modificar su contenido en `public/` para verificar la propiedad de prefijo URL `https://dixios.com/`, sin cambiar DNS. Debe conservarse para las comprobaciones periódicas de Google. La verificación en Search Console debe completarse en la cuenta del propietario.
 
 Una vez verificada, revisar las URLs exactas y solicitar su retirada temporal si sigue siendo urgente. Elegir «sólo esta URL», nunca el prefijo raíz del dominio: ocultaría el sitio completo. La retirada dura aproximadamente seis meses y no sustituye el 404 para la eliminación permanente. Después solicitar un nuevo rastreo de inicio y enviar `sitemap.xml`.
 
